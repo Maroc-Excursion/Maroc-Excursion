@@ -1,0 +1,62 @@
+[
+  {
+    "id": "villes-imperiales",
+    "title": "Circuit Villes Impériales",
+    "subtitle": "Les Quatre Royales : Casablanca, Rabat, Fès & Marrakech",
+    "image": "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&q=85&auto=format&fit=crop",
+    "duration": "7 Jours / 6 Nuits",
+    "price": 249,
+    "tags": ["Best-seller", "7 jours", "Groupe & Privé"],
+    "description": "Plongez dans l'histoire millénaire du Maroc à travers ses quatre villes impériales. Un voyage exceptionnel entre architecture andalouse-islamique, médinas labyrinthiques, palais royaux et traditions culinaires authentiques.",
+    "itinerary": [
+      {"day": 1, "title": "Casablanca – Arrivée & Hassan II", "details": "Visite de la Grande Mosquée Hassan II, Corniche, El Hank"},
+      {"day": 2, "title": "Rabat – Capitale Royale", "details": "Mausolée Mohammed V, Tour Hassan, Kasbah des Oudayas"},
+      {"day": 3, "title": "Fès – Médina Millénaire", "details": "Al-Qarawiyyin, Tanneries Chouara, Musée Borj Nord"},
+      {"day": 4, "title": "Fès – Mérinides & Bab Boujloud", "details": "Tombeaux Mérinides, Medersa Bou Inania, souks"},
+      {"day": 5, "title": "Route vers Marrakech", "details": "Palmeraie d'Ifrane, Cèdres d'Azrou, col du Zad"},
+      {"day": 6, "title": "Marrakech – La Ville Rose", "details": "Jemaa el-Fna, Bahia, Saadiens, souks & médina"},
+      {"day": 7, "title": "Départ depuis Marrakech", "details": "Dernier petit-déjeuner & transfert aéroport"}
+    ],
+    "includes": ["Transport climatisé", "Guide francophone", "Hôtels 3–4★", "Demi-pension", "Entrées monuments", "Eaux en bouteille", "Assurance voyage", "Wifi dans le bus"],
+    "active": true,
+    "order": 1
+  },
+  {
+    "id": "desert-sahara",
+    "title": "Circuit Désert du Sahara",
+    "subtitle": "Marrakech → Gorges du Dadès → Merzouga → Marrakech",
+    "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=85&auto=format&fit=crop",
+    "duration": "3 Jours / 2 Nuits",
+    "price": 159,
+    "tags": ["Coup de ♥", "3 jours", "Nuit dans le désert"],
+    "description": "Le circuit incontournable du Maroc : traversez les paysages extraordinaires de l'Atlas, les kasbahs de la Route des Mille Kasbahs, les gorges du Dadès et Todra, pour finir sous les étoiles dans un camp berbère au cœur des dunes de Merzouga.",
+    "itinerary": [
+      {"day": 1, "title": "Marrakech → Aït Benhaddou → Ouarzazate", "details": "Col du Tichka (2260m), Ksar Aït Benhaddou (UNESCO), studios de cinéma"},
+      {"day": 2, "title": "Ouarzazate → Gorges du Dadès → Merzouga", "details": "Vallée du Drâa, roses de M'Gouna, Gorges Todra, dunes Erg Chebbi"},
+      {"day": 3, "title": "Lever de soleil → Retour à Marrakech", "details": "Balade chameau à l'aube, Route des Kasbahs, retour en soirée"}
+    ],
+    "includes": ["4x4 ou minibus", "Guide expert", "Camp luxe désert", "Chameau inclus", "Pension complète", "Musique berbère", "Nuit sous les étoiles", "Photos souvenirs"],
+    "active": true,
+    "order": 2
+  },
+  {
+    "id": "sud-maroc",
+    "title": "Circuit Sud Maroc",
+    "subtitle": "Marrakech → Ouarzazate → Drâa → Zagora → Marrakech",
+    "image": "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=1200&q=85&auto=format&fit=crop",
+    "duration": "5 Jours / 4 Nuits",
+    "price": 199,
+    "tags": ["Recommandé", "5 jours", "Privé & Groupe"],
+    "description": "Découvrez le Grand Sud marocain à travers les oasis de palmiers, les gorges spectaculaires, les kasbahs millénaires et les dunes de sable doré. Un circuit complet pour explorer les trésors méconnus du Maroc profond.",
+    "itinerary": [
+      {"day": 1, "title": "Marrakech → Aït Benhaddou", "details": "Col du Tichka, Ksar Aït Benhaddou UNESCO, nuit à Ouarzazate"},
+      {"day": 2, "title": "Ouarzazate → Skoura → Vallée du Drâa", "details": "Palmeraie de Skoura, Kasbah Amridil, oasis du Drâa"},
+      {"day": 3, "title": "Zagora & Dunes M'Hamid", "details": "Désert Zagora, dunes de M'Hamid, nuit en bivouac berbère"},
+      {"day": 4, "title": "Retour via Gorges du Dadès", "details": "Gorges du Dadès, vallée des roses, Gorges de Todra"},
+      {"day": 5, "title": "Retour à Marrakech", "details": "Route des Kasbahs, arrivée en fin d'après-midi"}
+    ],
+    "includes": ["Transport 4x4 ou minibus", "Guide bilingue", "Hébergement riad/kasbah", "Demi-pension", "Nuit désert incluse", "Chameau", "Entrées sites"],
+    "active": true,
+    "order": 3
+  }
+]
