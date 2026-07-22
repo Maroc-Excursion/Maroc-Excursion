@@ -1454,6 +1454,7 @@ h1, h2, h3, h4, h5 {
   .dest-card:first-child { grid-column: span 2; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-social { display: none; }
   .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .search-form { flex-direction: column; }
