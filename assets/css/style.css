@@ -432,6 +432,9 @@ h1, h2, h3, h4, h5 {
   z-index: 20;
   padding: 0 24px;
 }
+.search-mobile-toggle {
+  display: none;
+}
 .search-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -1459,6 +1462,37 @@ h1, h2, h3, h4, h5 {
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .search-form { flex-direction: column; }
   .search-group { min-width: 100%; }
+  .search-mobile-toggle {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+    z-index: 21;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--green);
+    color: var(--white);
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 18px rgba(0,0,0,.22);
+  }
+  .search-box {
+    display: none;
+    left: 12px;
+    right: 12px;
+    bottom: 18px;
+    padding: 0;
+  }
+  .search-box.mobile-open { display: block; }
+  .search-mobile-toggle.is-hidden { display: none; }
   .circuit-body { padding: 18px; }
   .cta-btns { flex-direction: column; align-items: center; }
   .blog-grid { grid-template-columns: 1fr; }

@@ -81,6 +81,15 @@
     });
   });
 
+  /* Mobile search panel */
+  const searchToggle = document.querySelector('.search-mobile-toggle');
+  const searchBox = document.querySelector('#hero-search-box');
+  searchToggle?.addEventListener('click', () => {
+    const isOpen = searchBox?.classList.toggle('mobile-open') || false;
+    searchToggle.setAttribute('aria-expanded', String(isOpen));
+    searchToggle.classList.toggle('is-hidden', isOpen);
+  });
+
   /* ================================================================
      5. MOBILE NAV
   ================================================================ */
