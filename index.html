@@ -207,70 +207,70 @@
     <button class="hero-dot" aria-label="Slide 5"></button>
   </div>
 
-  <!-- Search Box -->
-  <div class="search-box">
-    <div class="search-inner">
-      <div class="search-tabs">
-        <button class="search-tab active" data-tab="excursions">
-          <i class="fas fa-binoculars"></i> Excursions
-        </button>
-        <button class="search-tab" data-tab="circuits">
-          <i class="fas fa-route"></i> Circuits
-        </button>
-        <button class="search-tab" data-tab="transferts">
-          <i class="fas fa-car"></i> Transferts
-        </button>
+</section>
+
+<!-- Search Box — outside hero so it never covers the image -->
+<div class="search-box">
+  <div class="search-inner">
+    <div class="search-tabs">
+      <button class="search-tab active" data-tab="excursions">
+        <i class="fas fa-binoculars"></i> Excursions
+      </button>
+      <button class="search-tab" data-tab="circuits">
+        <i class="fas fa-route"></i> Circuits
+      </button>
+      <button class="search-tab" data-tab="transferts">
+        <i class="fas fa-car"></i> Transferts
+      </button>
+    </div>
+    <div class="search-form">
+      <div class="search-group">
+        <label for="destination">Destination / Excursion</label>
+        <select id="destination">
+          <option value="">Sélectionnez une excursion</option>
+          <optgroup label="Excursions Marrakech">
+            <option>Excursion Essaouira depuis Marrakech</option>
+            <option>Balade Chameau Palmeraie</option>
+            <option>Atlas Mountains &amp; Vallée de l'Ourika</option>
+            <option>Cascades d'Ouzoud</option>
+            <option>Désert Agafay Day Trip</option>
+          </optgroup>
+          <optgroup label="Circuits">
+            <option>Circuit Villes Impériales 7J</option>
+            <option>Circuit Désert Sahara 3J</option>
+            <option>Circuit Sud Maroc 5J</option>
+          </optgroup>
+        </select>
       </div>
-      <div class="search-form">
-        <div class="search-group">
-          <label for="destination">Destination / Excursion</label>
-          <select id="destination">
-            <option value="">Sélectionnez une excursion</option>
-            <optgroup label="Excursions Marrakech">
-              <option>Excursion Essaouira depuis Marrakech</option>
-              <option>Balade Chameau Palmeraie</option>
-              <option>Atlas Mountains & Vallée de l'Ourika</option>
-              <option>Cascades d'Ouzoud</option>
-              <option>Désert Agafay Day Trip</option>
-            </optgroup>
-            <optgroup label="Circuits">
-              <option>Circuit Villes Impériales 7J</option>
-              <option>Circuit Désert Sahara 3J</option>
-              <option>Circuit Sud Maroc 5J</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="search-group">
-          <label for="travel-date">Date de voyage</label>
-          <input type="date" id="travel-date" />
-        </div>
-        <div class="search-group">
-          <label for="adults">Adultes</label>
-          <select id="adults">
-            <option>1 Adulte</option>
-            <option selected>2 Adultes</option>
-            <option>3 Adultes</option>
-            <option>4 Adultes</option>
-            <option>5+ Adultes</option>
-          </select>
-        </div>
-        <div class="search-group">
-          <label for="children">Enfants</label>
-          <select id="children">
-            <option selected>0 Enfant</option>
-            <option>1 Enfant (-9)</option>
-            <option>2 Enfants</option>
-            <option>3 Enfants</option>
-          </select>
-        </div>
-        <button class="btn-search" onclick="handleSearch()">
-          <i class="fas fa-search"></i> Rechercher
-        </button>
+      <div class="search-group">
+        <label for="travel-date">Date de voyage</label>
+        <input type="date" id="travel-date" />
       </div>
+      <div class="search-group">
+        <label for="adults">Adultes</label>
+        <select id="adults">
+          <option>1 Adulte</option>
+          <option selected>2 Adultes</option>
+          <option>3 Adultes</option>
+          <option>4 Adultes</option>
+          <option>5+ Adultes</option>
+        </select>
+      </div>
+      <div class="search-group">
+        <label for="children">Enfants</label>
+        <select id="children">
+          <option selected>0 Enfant</option>
+          <option>1 Enfant (-9)</option>
+          <option>2 Enfants</option>
+          <option>3 Enfants</option>
+        </select>
+      </div>
+      <button class="btn-search" onclick="handleSearch()">
+        <i class="fas fa-search"></i> Rechercher
+      </button>
     </div>
   </div>
-
-</section>
+</div>
 
 <!-- ===================== FEATURES STRIP ===================== -->
 <div class="features-strip">
@@ -912,11 +912,17 @@
 
 <!-- ===================== SCRIPTS ===================== -->
 <script>
-  // Set today's date as default
+  // Set today's date as default (safe cross-browser approach)
   (function(){
-    const d = new Date();
-    const pad = n => String(n).padStart(2,'0');
-    document.getElementById('travel-date').value = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+    try {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const iso = y + '-' + m + '-' + day; // e.g. 2026-07-22
+      const el = document.getElementById('travel-date');
+      if (el) { el.setAttribute('value', iso); el.setAttribute('min', iso); }
+    } catch(e) {}
   })();
 
   function handleSearch() {
