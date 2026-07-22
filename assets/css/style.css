@@ -1425,7 +1425,7 @@ h1, h2, h3, h4, h5 {
   .main-nav, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
-  .mobile-action-bar { display: flex; }
+  .mobile-action-bar { display: none; }
   .hero { height: 85vh; max-height: 700px; }
   .hero-content { padding-bottom: 200px; }
   .tour-card { flex: 0 0 calc(50% - 12px); }
