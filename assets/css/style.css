@@ -1108,8 +1108,9 @@ h1, h2, h3, h4, h5 {
   .main-nav, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
-  .hero { height: 85vh; max-height: 700px; }
-  .hero-content { padding-bottom: 200px; }
+  .hero { height: auto; min-height: 100svh; max-height: none; }
+  .hero-content { padding-bottom: 24px; padding-top: 80px; }
+  .hero-dots { bottom: auto; top: auto; position: static; transform: none; margin-top: 20px; }
   .tour-card { flex: 0 0 calc(50% - 12px); }
   .destinations-grid { grid-template-columns: repeat(2, 1fr); }
   .dest-card:first-child { grid-column: span 2; }
@@ -1120,21 +1121,46 @@ h1, h2, h3, h4, h5 {
   .why-grid { grid-template-columns: 1fr; }
   .why-image-block { display: none; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Search box: static below hero on mobile */
+  .search-box { position: static; padding: 0; }
+  .search-inner { border-radius: 0; }
+  .search-form { padding: 16px; gap: 10px; }
+  .search-group { min-width: 100%; }
+  .search-tab { font-size: .75rem; padding: 12px 8px; gap: 5px; }
+  .hero-arrow { width: 38px; height: 38px; font-size: .9rem; }
+  .hero-arrow.prev { left: 12px; }
+  .hero-arrow.next { right: 12px; }
 }
 
 @media (max-width: 600px) {
   .topbar .contact-info { gap: 10px; }
   .topbar .contact-info .hide-sm { display: none; }
-  .hero-btns { flex-direction: column; align-items: center; }
+  .hero { min-height: 56vw; height: 260px; }
+  .hero-content { padding: 60px 16px 20px; justify-content: flex-start; }
+  .hero-title { font-size: clamp(1.6rem, 6vw, 2.2rem); margin-bottom: 10px; }
+  .hero-subtitle { font-size: .82rem; margin-bottom: 16px; }
+  .hero-btns { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .hero-btns .btn-primary, .hero-btns .btn-outline { padding: 11px 18px; font-size: .8rem; }
+  .hero-badge { font-size: .7rem; padding: 5px 13px; margin-bottom: 12px; }
+  .hero-arrow { display: none; }
+  .hero-dots { display: none; }
   .tour-card { flex: 0 0 85vw; }
   .destinations-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .dest-card:first-child { grid-column: span 2; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-  .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .feature-card { padding: 18px 10px; }
+  .feature-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 10px; }
+  .feature-card h4 { font-size: .78rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .search-form { flex-direction: column; }
+  .search-form { flex-direction: column; padding: 12px; gap: 8px; }
   .search-group { min-width: 100%; }
+  .search-group select, .search-group input { padding: 10px 12px; font-size: .85rem; }
+  .btn-search { width: 100%; justify-content: center; padding: 12px; }
   .circuit-body { padding: 18px; }
   .cta-btns { flex-direction: column; align-items: center; }
+  /* Topbar compact on mobile */
+  .topbar { font-size: .75rem; }
+  .nav-logo img { height: 44px; }
 }

@@ -161,7 +161,7 @@
   <!-- Slider -->
   <div class="hero-slider">
     <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=1600&q=85&auto=format&fit=crop" alt="Médina de Marrakech" loading="eager" />
+      <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=1600&q=85&auto=format&fit=crop" alt="Médina de Marrakech" loading="eager" fetchpriority="high" decoding="async" />
     </div>
     <div class="hero-slide">
       <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=85&auto=format&fit=crop" alt="Dunes du Sahara" loading="lazy" />
@@ -913,7 +913,11 @@
 <!-- ===================== SCRIPTS ===================== -->
 <script>
   // Set today's date as default
-  document.getElementById('travel-date').valueAsDate = new Date();
+  (function(){
+    const d = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    document.getElementById('travel-date').value = d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+  })();
 
   function handleSearch() {
     const dest = document.getElementById('destination').value;
