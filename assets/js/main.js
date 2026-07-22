@@ -419,12 +419,23 @@
   });
 
   /* ================================================================
-     16. SMOOTH DROPDOWN MOBILE SUB
+     16. MOBILE NAV SUB-MENU TOGGLE
   ================================================================ */
-  document.querySelectorAll('.mobile-sub-toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const sub = toggle.nextElementSibling;
-      if (sub) sub.style.display = sub.style.display === 'none' ? 'block' : 'none';
+  // Make the parent link of each .mobile-sub act as a toggle
+  document.querySelectorAll('.mobile-nav .mobile-sub').forEach(sub => {
+    const prev = sub.previousElementSibling;
+    if (!prev || prev.tagName !== 'A') return;
+    prev.style.cursor = 'pointer';
+    const arrow = document.createElement('span');
+    arrow.innerHTML = ' <i class="fas fa-chevron-down" style="font-size:.65rem;transition:transform .3s"></i>';
+    prev.appendChild(arrow);
+    sub.style.display = 'none';
+    prev.addEventListener('click', e => {
+      e.preventDefault();
+      const open = sub.style.display !== 'none';
+      sub.style.display = open ? 'none' : 'block';
+      const icon = arrow.querySelector('i');
+      if (icon) icon.style.transform = open ? '' : 'rotate(180deg)';
     });
   });
 

@@ -63,8 +63,8 @@
     </div>
     <div class="right-side">
       <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/maroc.excursion" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
       </div>
       <select class="currency-select" aria-label="Devise">
         <option value="EUR">€ EUR</option>
@@ -101,7 +101,7 @@
           <div class="nav-item"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
       <div class="nav-item"><a href="contact.html">Contact</a></div>
   </nav>
-  <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+  <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
   <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></div></header>
 
@@ -336,14 +336,14 @@
     <h2 class="cta-title">Transfert <span>Express</span> ?</h2>
     <p class="cta-desc">Pour une réponse immédiate et une confirmation en quelques minutes, contactez-nous directement sur WhatsApp.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/212661223962?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20transfert." class="btn-white" target="_blank"><i class="fab fa-whatsapp"></i> Réserver sur WhatsApp</a>
+      <a href="https://wa.me/212661223962?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20transfert." class="btn-white" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Réserver sur WhatsApp</a>
     </div>
   </div></div>
 </section>
 
 <footer class="site-footer"><div class="container">
   <div class="footer-grid">
-    <div><img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+    <div><img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="https://www.facebook.com/MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/maroc.excursion" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></div></div>
     <div><div class="footer-heading">Transferts</div><ul class="footer-links"><li><a href="#aeroport"><i class="fas fa-chevron-right"></i> Depuis l'aéroport</a></li><li><a href="#hotel"><i class="fas fa-chevron-right"></i> Hôtel à Hôtel</a></li><li><a href="#prive"><i class="fas fa-chevron-right"></i> Transport privé</a></li></ul></div>
     <div><div class="footer-heading">Nos Offres</div><ul class="footer-links"><li><a href="excursions.html"><i class="fas fa-chevron-right"></i> Excursions</a></li><li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li><li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li></ul></div>
     <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div><div class="footer-contact-text"><span class="label">WhatsApp 24h/7j</span><a href="https://wa.me/212661223962">+212 661 223 962</a></div></div></div>
@@ -364,14 +364,25 @@
 document.getElementById('trfDate').valueAsDate = new Date();
 function handleTransfer(e) {
   e.preventDefault();
-  alert('Merci ! Votre demande de transfert a été envoyée. Nous vous confirmons sous 30 minutes. Vous pouvez aussi nous écrire sur WhatsApp pour une réponse immédiate.');
+  const from = document.getElementById('trfFrom') ? document.getElementById('trfFrom').value : '';
+  const to   = document.getElementById('trfTo')   ? document.getElementById('trfTo').value   : '';
+  const date = document.getElementById('trfDate') ? document.getElementById('trfDate').value : '';
+  const pax  = document.getElementById('trfPax')  ? document.getElementById('trfPax').value  : '';
+  const msg  = encodeURIComponent(
+    'Bonjour Maroc Excursion,\n\nJe souhaite réserver un transfert :\n' +
+    '📍 Départ : ' + (from || 'Non précisé') + '\n' +
+    '📍 Arrivée : ' + (to   || 'Non précisé') + '\n' +
+    '📅 Date : '   + (date  || 'Non précisée') + '\n' +
+    '👥 Personnes : ' + (pax || 'Non précisé')
+  );
+  window.open('https://wa.me/212661223962?text=' + msg, '_blank');
 }
 </script>
 <script src="assets/js/main.js" defer></script>
 <!-- Chat FAB -->
 <div class="chat-fab-wrap">
   <div class="chat-menu">
-    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
     <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
   </div>
@@ -387,7 +398,7 @@ function handleTransfer(e) {
 </div>
 <div class="mobile-action-bar">
   <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
-  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
   <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
 </div>
 </body>
