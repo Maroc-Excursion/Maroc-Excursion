@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Toutes nos excursions au Maroc depuis Marrakech, Agadir, Fès et plus – Maroc Excursion." />
+  <meta name="description" content="Toutes nos excursions au Maroc depuis Marrakech – Maroc Excursion." />
   <title>Excursions au Maroc | Maroc Excursion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,9 @@
     .tour-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all var(--trans); }
     .tour-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,34,56,.18); }
     .section-anchor { padding-top: 160px; margin-top: -160px; }
+    .loading-state { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 60px; color: var(--muted); }
+    .spinner { width: 24px; height: 24px; border: 3px solid rgba(0,0,0,.1); border-top-color: var(--green); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
     @media(max-width:900px){ .excursions-grid { grid-template-columns:1fr 1fr; } }
     @media(max-width:600px){ .excursions-grid { grid-template-columns:1fr; } }
   </style>
@@ -33,14 +36,11 @@
 <div class="topbar">
   <div class="container"><div class="inner">
     <div class="contact-info">
-      <a href="tel:+212500111222"><i class="fas fa-phone-alt"></i> +212 500 111 222</a>
-      <a href="tel:+212600333444" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 600 333 444</a>
+      <a href="tel:+212500111222" id="topbar-phone1"><i class="fas fa-phone-alt"></i> +212 500 111 222</a>
+      <a href="tel:+212600333444" class="hide-sm" id="topbar-phone2"><i class="fab fa-whatsapp"></i> +212 600 333 444</a>
     </div>
     <div class="right-side">
-      <div class="social-links">
-        <a href="https://www.facebook.com/MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/maroc.excursion" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-      </div>
+      <div class="social-links" id="topbar-social"></div>
       <select class="currency-select" aria-label="Devise">
         <option value="EUR">€ EUR</option>
         <option value="USD">$ USD</option>
@@ -58,357 +58,263 @@
     </div>
   </div></div>
 </div>
-<header class="site-header"><div class="container"><div class="nav-inner">
-  <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
-  <nav class="main-nav">
-    <div class="nav-item"><a href="index.html">Accueil</a></div>
-    <div class="nav-item active"><a href="excursions.html">Excursions <i class="fas fa-chevron-down"></i></a>
-      <div class="dropdown">
-        <a href="#marrakech"><i class="fas fa-map-marker-alt"></i> Depuis Marrakech</a>
-        <a href="#agadir"><i class="fas fa-map-marker-alt"></i> Depuis Agadir</a>
-        <a href="#desert"><i class="fas fa-sun"></i> Désert du Sahara</a>
-        <a href="#montagne"><i class="fas fa-mountain"></i> Atlas & Montagne</a>
-      </div>
-    </div>
-    <div class="nav-item"><a href="circuits.html">Circuits</a></div>
-    <div class="nav-item"><a href="transferts.html">Transferts</a></div>
-    <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
-    <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
-          <div class="nav-item"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
-      <div class="nav-item"><a href="contact.html">Contact</a></div>
-  </nav>
-  <div class="nav-cta"><a href="https://wa.me/212600333444" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-  <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div></div></header>
 
-<!-- Mobile Nav -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="Maroc Excursion" height="52"/></a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <div class="nav-item"><a href="index.html">Accueil</a></div>
+      <div class="nav-item has-dropdown">
+        <a href="excursions.html">Excursions <i class="fas fa-chevron-down" style="font-size:.6rem"></i></a>
+        <div class="dropdown" id="nav-exc-dropdown"></div>
+      </div>
+      <div class="nav-item"><a href="circuits.html">Circuits</a></div>
+      <div class="nav-item"><a href="transferts.html">Transferts</a></div>
+      <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
+      <div class="nav-item"><a href="contact.html">Contact</a></div>
+    </nav>
+    <div class="nav-cta"><a href="#" id="header-whatsapp" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
 <nav class="mobile-nav" aria-label="Navigation mobile">
-  <button class="mobile-nav-close" aria-label="Fermer">
-    <i class="fas fa-times"></i>
-  </button>
+  <button class="mobile-nav-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
   <a href="index.html">Accueil</a>
   <a href="excursions.html">Excursions</a>
-  <div class="mobile-sub">
-    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
-    <a href="excursions.html#agadir">→ Depuis Agadir</a>
-    <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
-            <a href="desert-agafay.html"><i class="fas fa-campground"></i> Désert Agafay</a>
-  </div>
   <a href="circuits.html">Circuits</a>
-  <div class="mobile-sub">
-    <a href="circuits.html#imperial">→ Villes Impériales</a>
-    <a href="circuits.html#sud">→ Circuit Sud Maroc</a>
-    <a href="circuits.html#sahara">→ Circuit Sahara</a>
-  </div>
   <a href="transferts.html">Transferts</a>
-  <a href="desert-agafay.html">Désert Agafay</a>
   <a href="about.html">Qui sommes-nous ?</a>
   <a href="contact.html">Contact</a>
   <div class="mobile-cta">
-    <a href="https://wa.me/212600333444" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
+    <a href="#" id="mobile-whatsapp" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
       <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
     </a>
   </div>
 </nav>
 
-
-
 <section class="page-hero">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">Accueil</a><i class="fas fa-chevron-right"></i> Excursions</div>
-    <h1>Toutes Nos Excursions au Maroc</h1>
+    <h1 id="exc-page-title">Toutes Nos Excursions au Maroc</h1>
     <p style="color:rgba(255,255,255,.75);max-width:520px;margin:10px auto 0;font-size:.95rem">Découvrez notre catalogue complet d'excursions authentiques depuis les principales villes du Maroc</p>
   </div>
 </section>
 
-<!-- Filter Bar -->
+<!-- Filter Bar (dynamic) -->
 <div class="filter-bar">
   <div class="container">
-    <div class="filter-inner">
+    <div class="filter-inner" id="filter-bar">
+      <div class="loading-state"><div class="spinner"></div> Chargement...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Excursions sections (rendered by JS) -->
+<div id="excursions-container">
+  <div class="loading-state" style="padding:80px"><div class="spinner"></div> Chargement des excursions...</div>
+</div>
+
+<!-- CTA Section -->
+<section class="section-py" style="background:var(--green);text-align:center">
+  <div class="container">
+    <h2 style="color:var(--white);margin-bottom:12px">Une excursion sur mesure ?</h2>
+    <p style="color:rgba(255,255,255,.8);margin-bottom:28px">Contactez-nous pour un itinéraire personnalisé selon vos envies et votre budget.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn-primary-outline" style="background:var(--gold);color:var(--dark);padding:13px 30px;border-radius:50px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px"><i class="fas fa-envelope"></i> Contactez-nous</a>
+      <a href="#" id="cta-whatsapp" class="btn-primary-outline" target="_blank" style="background:rgba(255,255,255,.15);color:var(--white);padding:13px 30px;border-radius:50px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.4)"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><img src="assets/images/logo.png" alt="Maroc Excursion" height="48" style="margin-bottom:14px"/><p id="footer-desc">Votre agence de référence pour les excursions et circuits au Maroc.</p></div>
+      <div class="footer-links"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="excursions.html">Excursions</a></li><li><a href="circuits.html">Circuits</a></li><li><a href="transferts.html">Transferts</a></li><li><a href="about.html">À propos</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-contact"><h4>Contact</h4><ul id="footer-contact-list"></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Maroc Excursion. Tous droits réservés.</p><div class="footer-legal"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">CGV</a></div></div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></button>
+
+<script src="assets/js/main.js"></script>
+<script>
+// ─── Load settings and data from JSON ───
+const REPO_RAW = 'https://raw.githubusercontent.com/Maroc-Excursion/Maroc-Excursion/main';
+
+async function loadJSON(path) {
+  const res = await fetch(`${REPO_RAW}/${path}?t=${Date.now()}`);
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
+  return res.json();
+}
+
+function starsHTML(rating) {
+  let s = '';
+  for (let i = 1; i <= 5; i++) s += `<span style="color:${i<=rating?'#f59e0b':'#d1d5db'}">★</span>`;
+  return s;
+}
+
+function cardHTML(exc) {
+  const oldPriceHTML = exc.oldPrice ? `<span class="old">€${exc.oldPrice}</span>` : '';
+  const badgeHTML = exc.badge ? `<span class="card-badge">${exc.badge}</span>` : '';
+  const tagHTML = exc.tags && exc.tags.length ? `<span class="card-tag">${exc.tags[0]}</span>` : '';
+  const cancelHTML = exc.freeCancel !== false ? `<span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>` : '';
+  return `
+  <div class="tour-card" data-cat="${exc.category || exc.cityId}" data-aos="fade-up">
+    <div class="card-image">
+      <img src="${exc.image}" alt="${exc.title}" loading="lazy"/>
+      ${badgeHTML}${tagHTML}${cancelHTML}
+      <div class="card-price">
+        <span class="amount" data-eur="${exc.price}">€${exc.price}</span>${oldPriceHTML}<span class="per">/pers.</span>
+      </div>
+      <span class="viewing-badge"></span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta">${(exc.meta || []).map(m => {
+        const [icon, label] = m.split('|');
+        return `<span><i class="${icon}"></i> ${label}</span>`;
+      }).join('')}</div>
+      <h3 class="card-title">${exc.title}</h3>
+      <div class="card-rating">
+        <span class="stars">${starsHTML(exc.rating || 5)}</span>
+        <span class="rating-count">(${exc.reviews || 0} avis)</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a>
+      <button class="card-wishlist"><i class="far fa-heart"></i></button>
+    </div>
+  </div>`;
+}
+
+async function initPage() {
+  try {
+    const [cities, excursions, settings] = await Promise.all([
+      loadJSON('data/cities.json'),
+      loadJSON('data/excursions.json'),
+      loadJSON('data/settings.json').catch(() => ({}))
+    ]);
+
+    // Apply settings
+    if (settings.contact) {
+      const wa = settings.contact.whatsapp || '212600333444';
+      document.querySelectorAll('#header-whatsapp,#mobile-whatsapp,#cta-whatsapp').forEach(el => el.href = `https://wa.me/${wa}`);
+      if (settings.contact.phone1) document.getElementById('topbar-phone1').innerHTML = `<i class="fas fa-phone-alt"></i> ${settings.contact.phone1}`;
+      if (settings.contact.phone2) document.getElementById('topbar-phone2').innerHTML = `<i class="fab fa-whatsapp"></i> ${settings.contact.phone2}`;
+      document.getElementById('footer-contact-list').innerHTML = `
+        <li><a href="tel:${settings.contact.phone1?.replace(/\s/g,'')}"><i class="fas fa-phone-alt"></i> ${settings.contact.phone1 || ''}</a></li>
+        <li><a href="tel:${settings.contact.phone2?.replace(/\s/g,'')}"><i class="fab fa-whatsapp"></i> ${settings.contact.phone2 || ''}</a></li>
+        <li><a href="mailto:${settings.contact.email}"><i class="fas fa-envelope"></i> ${settings.contact.email || ''}</a></li>`;
+    }
+    if (settings.social) {
+      const soc = settings.social;
+      document.getElementById('topbar-social').innerHTML = [
+        soc.facebook && `<a href="${soc.facebook}" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>`,
+        soc.instagram && `<a href="${soc.instagram}" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>`,
+        soc.tiktok && `<a href="${soc.tiktok}" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>`,
+        soc.youtube && `<a href="${soc.youtube}" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>`,
+      ].filter(Boolean).join('');
+    }
+
+    // Build filter bar and sections per active city
+    const activeCities = cities.filter(c => c.active);
+    const filterBar = document.getElementById('filter-bar');
+    const container = document.getElementById('excursions-container');
+    const navDropdown = document.getElementById('nav-exc-dropdown');
+
+    // Categories
+    const categories = ['all', ...activeCities.map(c => c.id), 'desert', 'montagne', 'cote'];
+    const catLabels = { all: 'Toutes', desert: 'Désert', montagne: 'Montagne', cote: 'Côte' };
+
+    filterBar.innerHTML = `
       <button class="filter-btn active" onclick="filterCards('all',this)"><i class="fas fa-th"></i> Toutes</button>
-      <button class="filter-btn" onclick="filterCards('marrakech',this)">Marrakech</button>
+      ${activeCities.map(c => `<button class="filter-btn" onclick="filterCards('${c.id}',this)">${c.name}</button>`).join('')}
       <button class="filter-btn" onclick="filterCards('desert',this)">Désert</button>
       <button class="filter-btn" onclick="filterCards('montagne',this)">Montagne</button>
-      <button class="filter-btn" onclick="filterCards('cote',this)">Côte</button>
-      <button class="filter-btn" onclick="filterCards('agadir',this)">Agadir</button>
-    </div>
-  </div>
-</div>
+      <button class="filter-btn" onclick="filterCards('cote',this)">Côte</button>`;
 
-<!-- Marrakech Excursions -->
-<section id="marrakech" class="section-anchor section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Excursions au départ de</div>
-      <h2 class="section-title">Marrakech</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="excursions-grid">
-      <div class="tour-card" data-cat="marrakech" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><span class="card-badge">-35%</span><span class="card-tag">Populaire</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="old">€43</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-car"></i> Transport inclus</span></div><h3 class="card-title">Excursion d'une journée à Essaouira depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(247 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="marrakech" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1509423350716?w=600&q=80&auto=format&fit=crop" alt="Palmeraie" loading="lazy" /><span class="card-badge">-21%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="19">€19</span><span class="old">€24</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2–3 heures</span><span><i class="fas fa-star" style="color:var(--gold)"></i> Premium</span></div><h3 class="card-title">Balade à Dos de Chameau dans la Palmeraie de Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(389 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="marrakech montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1586348943529?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="32">€32</span><span class="old">€39</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Montagne</span></div><h3 class="card-title">Atlas Mountains & Vallée de l'Ourika avec Village Berbère</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(312 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="marrakech" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Ouzoud" loading="lazy" /><span class="card-badge">-24%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="25">€25</span><span class="old">€33</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Baignade</span></div><h3 class="card-title">Cascades d'Ouzoud – La Plus Grande Chute d'Eau du Maroc</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(198 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="marrakech desert" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Agafay" loading="lazy" /><span class="card-badge">-30%</span><span class="card-tag">Nouveau</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="38">€38</span><span class="old">€54</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-sun"></i> Coucher de soleil</span></div><h3 class="card-title">Désert Agafay Coucher de Soleil & Dîner Berbère Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(421 avis)</span></div></div>
-        <div class="card-footer"><a href="desert-agafay.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="marrakech montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80&auto=format&fit=crop" alt="Fès" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="79">€79</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-hotel"></i> Hôtel inclus</span></div><h3 class="card-title">Escapade 2 Jours à Fès & Médina Millénaire</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(165 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-    </div>
-  </div>
-</section>
+    // Nav dropdown
+    navDropdown.innerHTML = activeCities.map(c =>
+      `<a href="excursions.html#${c.id}">→ Depuis ${c.name}</a>`).join('');
 
-<!-- Desert Excursions -->
-<section id="desert" class="section-anchor section-py" style="background:var(--white)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Aventure & Nature</div>
-      <h2 class="section-title">Désert du Sahara</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="excursions-grid">
-      <div class="tour-card" data-cat="desert" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1502472584811?w=600&q=80&auto=format&fit=crop" alt="Merzouga" loading="lazy" /><span class="card-tag" style="background:var(--gold)">Best-seller</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="159">€159</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 3 jours</span><span><i class="fas fa-horse"></i> Chameau inclus</span></div><h3 class="card-title">Circuit Désert Merzouga 3 Jours – Dunes & Nuit Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(504 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="desert" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1510915228340?w=600&q=80&auto=format&fit=crop" alt="Zagora" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="99">€99</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-sun"></i> Désert Zagora</span></div><h3 class="card-title">Zagora & Désert 2 Jours depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(287 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="desert marrakech" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1519671482749?w=600&q=80&auto=format&fit=crop" alt="Quad Desert" loading="lazy" /><span class="card-badge">-15%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="45">€45</span><span class="old">€53</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-truck-monster"></i> Quad inclus</span></div><h3 class="card-title">Quad & Chameau dans le Désert Agafay – Aventure Garantie</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(334 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-    </div>
-  </div>
-</section>
+    // Sections per city
+    let html = '';
+    for (const city of activeCities) {
+      const cityExc = excursions.filter(e => e.cityId === city.id && e.active !== false);
+      if (!cityExc.length) continue;
+      html += `
+      <section id="${city.id}" class="section-anchor section-py" style="background:var(--cream)">
+        <div class="container">
+          <div class="section-heading" data-aos="fade-up">
+            <div class="section-kicker">Excursions au départ de</div>
+            <h2 class="section-title">${city.name}</h2>
+            <span class="section-divider"></span>
+          </div>
+          <div class="excursions-grid">${cityExc.map(cardHTML).join('')}</div>
+        </div>
+      </section>`;
+    }
 
-<!-- Coastal -->
-<section id="cote" class="section-anchor section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Mer & Détente</div>
-      <h2 class="section-title">Côte Atlantique</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="excursions-grid">
-      <div class="tour-card" data-cat="cote" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Essaouira – La Cité des Alizés et ses Remparts Historiques</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(412 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="cote agadir" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Beach" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="22">€22</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Agadir</span></div><h3 class="card-title">Plage d'Agadir & Souk El Had – Journée Côtière</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="cote" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80&auto=format&fit=crop" alt="Dakhla" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="35">€35</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-fish"></i> Pêche incluse</span></div><h3 class="card-title">Sortie Pêche & Découverte de la Côte Atlantique</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(95 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-    </div>
-  </div>
-</section>
+    // Desert section (cross-city)
+    const desertExc = excursions.filter(e => e.category?.includes('desert') && e.active !== false);
+    if (desertExc.length) {
+      html += `
+      <section id="desert" class="section-anchor section-py" style="background:var(--white)">
+        <div class="container">
+          <div class="section-heading" data-aos="fade-up">
+            <div class="section-kicker">Aventure</div>
+            <h2 class="section-title">Désert du Sahara</h2>
+            <span class="section-divider"></span>
+          </div>
+          <div class="excursions-grid">${desertExc.map(cardHTML).join('')}</div>
+        </div>
+      </section>`;
+    }
 
+    // Mountain section
+    const montExc = excursions.filter(e => e.category?.includes('montagne') && e.active !== false);
+    if (montExc.length) {
+      html += `
+      <section id="montagne" class="section-anchor section-py" style="background:var(--cream)">
+        <div class="container">
+          <div class="section-heading" data-aos="fade-up">
+            <div class="section-kicker">Nature & Altitude</div>
+            <h2 class="section-title">Atlas & Montagne</h2>
+            <span class="section-divider"></span>
+          </div>
+          <div class="excursions-grid">${montExc.map(cardHTML).join('')}</div>
+        </div>
+      </section>`;
+    }
 
-<!-- Mountain Excursions -->
-<section id="montagne" class="section-anchor section-py" style="background:var(--white)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Nature & Altitude</div>
-      <h2 class="section-title">Atlas &amp; Montagne</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="excursions-grid">
-      <div class="tour-card" data-cat="montagne" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1502786129293?w=600&q=80&auto=format&fit=crop" alt="Toubkal" loading="lazy" /><span class="card-badge">-20%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="35">€35</span><span class="old">€44</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> 2000m+</span></div><h3 class="card-title">Trekking dans les Montagnes du Haut Atlas depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(276 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="montagne" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1586348943529?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="old">€34</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Cascades</span></div><h3 class="card-title">Vallée de l'Ourika, Cascades &amp; Village Berbère Authentique</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(348 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1520250497591?w=600&q=80&auto=format&fit=crop" alt="Imlil" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="49">€49</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-snowflake"></i> Imlil 1740m</span></div><h3 class="card-title">Imlil &amp; Ascension Partielle du Toubkal – Paysages Époustouflants</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(201 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-    </div>
-  </div>
-</section>
+    container.innerHTML = html || `<div style="text-align:center;padding:80px;color:var(--muted)">Aucune excursion disponible pour le moment.</div>`;
 
-<!-- Agadir Excursions -->
-<section id="agadir" class="section-anchor section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Excursions au départ de</div>
-      <h2 class="section-title">Agadir</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="excursions-grid">
-      <div class="tour-card" data-cat="agadir" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Plage" loading="lazy" /><span class="card-badge">-22%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="22">€22</span><span class="old">€28</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Plage</span></div><h3 class="card-title">Plage d'Agadir &amp; Souk El Had – Journée Détente</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="agadir" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&q=80&auto=format&fit=crop" alt="Essaouira depuis Agadir" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="30">€30</span><span class="old">€37</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Excursion Essaouira depuis Agadir – La Cité des Alizés</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(224 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-      <div class="tour-card" data-cat="agadir" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1593351415075?w=600&q=80&auto=format&fit=crop" alt="Vallée du Paradis" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
-              <div class="card-price"><span class="amount" data-eur="38">€38</span><span class="per">/pers.</span></div>
-              <span class="viewing-badge"></span>
-            </div>
-            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Anti-Atlas</span></div><h3 class="card-title">Vallée du Paradis &amp; Gorges d'Immouzer depuis Agadir</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(156 avis)</span></div></div>
-        <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
-      </div>
-    </div>
-  </div>
-</section>
+    // AOS init if available
+    if (typeof AOS !== 'undefined') AOS.refresh();
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container"><div class="cta-content">
-    <h2 class="cta-title">Vous ne Trouvez pas<br>ce que vous Cherchez <span>?</span></h2>
-    <p class="cta-desc">Nous créons des excursions personnalisées selon vos envies, dates et budget. Demandez un devis gratuit !</p>
-    <div class="cta-btns">
-      <a href="https://wa.me/212600333444" class="btn-white" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Excursion sur mesure</a>
-      <a href="contact.html" class="btn-outline-white"><i class="fas fa-envelope"></i> Demander un devis</a>
-    </div>
-  </div></div>
-</section>
+  } catch(e) {
+    console.error('Error loading data:', e);
+    document.getElementById('excursions-container').innerHTML = `
+      <div style="text-align:center;padding:80px">
+        <i class="fas fa-exclamation-triangle" style="font-size:2rem;color:#e53e3e;margin-bottom:16px"></i>
+        <p style="color:var(--muted)">Impossible de charger les excursions. Veuillez réessayer.</p>
+      </div>`;
+  }
+}
 
-<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div><img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="https://www.facebook.com/MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/maroc.excursion" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@MarocExcursion" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></div></div>
-    <div><div class="footer-heading">Excursions</div><ul class="footer-links"><li><a href="#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li><li><a href="#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li><li><a href="#cote"><i class="fas fa-chevron-right"></i> Côte Atlantique</a></li></ul></div>
-    <div><div class="footer-heading">Liens</div><ul class="footer-links"><li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> Qui sommes-nous</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
-    <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212500111222">+212 500 111 222</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-envelope"></i></div><div class="footer-contact-text"><span class="label">Email</span><a href="mailto:contact@maroc-excursion.ma">contact@maroc-excursion.ma</a></div></div></div>
-  </div>
-  <div class="footer-bottom">
-  <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Confidentialité</a> | <a href="terms.html">CGV</a></p>
-  <div class="footer-payment">
-    <span>Paiement sécurisé :</span>
-    <span class="footer-pay-icon">VISA</span>
-    <span class="footer-pay-icon">MC</span>
-    <span class="footer-pay-icon">PayPal</span>
-  </div>
-</div>
-</div></footer>
-
-
-<script>
 function filterCards(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.tour-card').forEach(card => {
-    const cats = (card.dataset.cat || '').split(' ');
-    card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+    const cats = card.dataset.cat || '';
+    card.closest('.tour-card').style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
   });
 }
+
+initPage();
 </script>
-<script src="assets/js/main.js" defer></script>
-<!-- Chat FAB -->
-<div class="chat-fab-wrap">
-  <div class="chat-menu">
-    <a href="https://wa.me/212600333444" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="tel:+212500111222" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
-    <a href="mailto:contact@maroc-excursion.ma" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
-  </div>
-  <button class="chat-fab" aria-label="Nous contacter">
-    <i class="fas fa-plus"></i>
-    <span class="chat-fab-badge">1</span>
-  </button>
-</div>
-<button class="back-to-top" aria-label="Haut de page"><i class="fas fa-chevron-up"></i></button>
-<div class="urgency-notif">
-  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
-  <div class="notif-text"></div>
-</div>
-<div class="mobile-action-bar">
-  <a href="tel:+212500111222" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
-  <a href="https://wa.me/212600333444" class="mob-action-btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  <a href="mailto:contact@maroc-excursion.ma" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
-</div>
 </body>
 </html>
