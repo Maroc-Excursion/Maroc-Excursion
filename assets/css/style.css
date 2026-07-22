@@ -277,18 +277,44 @@ h1, h2, h3, h4, h5 {
 
 .hero-slider { position: relative; width: 100%; height: 100%; }
 
+/* Ken Burns keyframes */
+@keyframes kenBurns1 {
+  0%   { transform: scale(1)    translateX(0)    translateY(0); }
+  100% { transform: scale(1.12) translateX(-2%)  translateY(-1%); }
+}
+@keyframes kenBurns2 {
+  0%   { transform: scale(1)    translateX(0)    translateY(0); }
+  100% { transform: scale(1.1)  translateX(2%)   translateY(-1.5%); }
+}
+@keyframes kenBurns3 {
+  0%   { transform: scale(1.08) translateX(-1%)  translateY(0); }
+  100% { transform: scale(1)    translateX(1%)   translateY(-2%); }
+}
+
 .hero-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 1.4s ease-in-out;
+  overflow: hidden;
 }
 .hero-slide.active { opacity: 1; }
+
+/* Ken Burns on active slide image */
+.hero-slide.active img {
+  animation: kenBurns1 8s ease-out forwards;
+}
+.hero-slide:nth-child(2).active img { animation-name: kenBurns2; }
+.hero-slide:nth-child(3).active img { animation-name: kenBurns3; }
+.hero-slide:nth-child(4).active img { animation-name: kenBurns1; }
+.hero-slide:nth-child(5).active img { animation-name: kenBurns2; }
+
 .hero-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -296,9 +322,9 @@ h1, h2, h3, h4, h5 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15,34,56,.45) 0%,
-    rgba(15,34,56,.25) 40%,
-    rgba(15,34,56,.65) 100%
+    rgba(10,26,46,.50) 0%,
+    rgba(10,26,46,.20) 35%,
+    rgba(10,26,46,.70) 100%
   );
 }
 
@@ -1500,78 +1526,6 @@ h1, h2, h3, h4, h5 {
 }
 
 
-    /* ============================================================
-     HERO VIDEO BACKGROUND
-     ============================================================ */
-
-    /* Hide old slider artifacts */
-    .hero-slider,
-    .hero-arrow,
-    .hero-dots { display: none !important; }
-
-    /* Video wrapper — covers full hero */
-    .hero-video-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    background: var(--navy);
-    pointer-events: none;
-    }
-
-    /* Scale iframe to always fill container (16:9 cover) */
-    .hero-video-bg iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 177.78vh;
-    height: 100vh;
-    min-width: 100%;
-    min-height: 56.25vw;
-    transform: translate(-50%, -50%);
-    border: none;
-    }
-
-    /* Fallback background image (iOS where autoplay is blocked) */
-    .hero-video-fallback {
-    display: none;
-    position: absolute;
-    inset: 0;
-    background: url('https://images.unsplash.com/photo-1494548162494-384bba4ab999?w=1920&q=85&auto=format&fit=crop')
-                center / cover no-repeat;
-    }
-
-    /* iOS Safari: hide iframe, show photo fallback */
-    @supports (-webkit-touch-callout: none) {
-    .hero-video-bg iframe  { display: none; }
-    .hero-video-fallback   { display: block; }
-    }
-
-    /* Floating mute badge */
-    .hero-mute-badge {
-    position: absolute;
-    bottom: 110px;
-    left: 24px;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(15, 34, 56, .65);
-    border: 1px solid rgba(200,155,60,.4);
-    color: rgba(255,255,255,.8);
-    font-size: .72rem;
-    letter-spacing: .06em;
-    padding: 6px 14px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
-    pointer-events: none;
-    }
-    .hero-mute-badge i { color: var(--gold); }
-
-    @media (max-width: 768px) {
-    .hero-mute-badge { bottom: 70px; left: 16px; }
-    }
-    
 
     /* ============================================================
      RESPONSIVE — Small phones  (≤ 480px)

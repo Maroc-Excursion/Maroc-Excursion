@@ -16,11 +16,18 @@
     slides[current].classList.remove('active');
     dots[current] && dots[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
+    // Reset Ken Burns by forcing reflow on the incoming slide image
+    const nextImg = slides[current].querySelector('img');
+    if (nextImg) {
+      nextImg.style.animation = 'none';
+      void nextImg.offsetWidth; // reflow
+      nextImg.style.animation = '';
+    }
     slides[current].classList.add('active');
     dots[current] && dots[current].classList.add('active');
   }
 
-  function startAuto() { timer = setInterval(() => goTo(current + 1), 5500); }
+  function startAuto() { timer = setInterval(() => goTo(current + 1), 7000); }
   function stopAuto()  { clearInterval(timer); }
 
   if (slides.length) {
