@@ -42,8 +42,25 @@
           <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
           <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
-        <div class="lang-switcher">
-          <i class="fas fa-globe"></i> FR &nbsp;<i class="fas fa-chevron-down" style="font-size:.6rem"></i>
+        <!-- Currency Switcher -->
+        <select class="currency-select" aria-label="Devise">
+          <option value="EUR">€ EUR</option>
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="MAD">MAD</option>
+        </select>
+        <!-- Language Switcher -->
+        <div class="lang-switcher-wrap">
+          <button class="lang-switcher-btn">
+            <i class="fas fa-globe"></i>
+            <span id="activeLangLabel">FR</span>
+            <i class="fas fa-chevron-down" style="font-size:.6rem"></i>
+          </button>
+          <div class="lang-dropdown">
+            <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+            <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+            <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+          </div>
         </div>
       </div>
     </div>
@@ -62,23 +79,23 @@
       <!-- Desktop Nav -->
       <nav class="main-nav" aria-label="Navigation principale">
         <div class="nav-item active">
-          <a href="index.html">Accueil</a>
+          <a href="index.html" data-i18n="nav_home">Accueil</a>
         </div>
 
         <div class="nav-item">
-          <a href="excursions.html">Excursions <i class="fas fa-chevron-down"></i></a>
+          <a href="excursions.html" data-i18n="nav_exc">Excursions <i class="fas fa-chevron-down"></i></a>
           <div class="dropdown">
             <a href="excursions.html#marrakech"><i class="fas fa-map-marker-alt"></i> Depuis Marrakech</a>
             <a href="excursions.html#agadir"><i class="fas fa-map-marker-alt"></i> Depuis Agadir</a>
             <a href="excursions.html#fes"><i class="fas fa-map-marker-alt"></i> Depuis Fès</a>
             <a href="excursions.html#casablanca"><i class="fas fa-map-marker-alt"></i> Depuis Casablanca</a>
             <a href="excursions.html#desert"><i class="fas fa-sun"></i> Désert du Sahara</a>
-            <a href="excursions.html#montagne"><i class="fas fa-mountain"></i> Atlas & Montagne</a>
+            <a href="excursions.html#montagne"><i class="fas fa-mountain"></i> Atlas &amp; Montagne</a>
           </div>
         </div>
 
         <div class="nav-item">
-          <a href="circuits.html">Circuits <i class="fas fa-chevron-down"></i></a>
+          <a href="circuits.html" data-i18n="nav_circ">Circuits <i class="fas fa-chevron-down"></i></a>
           <div class="dropdown">
             <a href="circuits.html#imperial"><i class="fas fa-landmark"></i> Villes Impériales</a>
             <a href="circuits.html#sud"><i class="fas fa-compass"></i> Circuit Sud Maroc</a>
@@ -89,7 +106,7 @@
         </div>
 
         <div class="nav-item">
-          <a href="transferts.html">Transferts <i class="fas fa-chevron-down"></i></a>
+          <a href="transferts.html" data-i18n="nav_trans">Transferts <i class="fas fa-chevron-down"></i></a>
           <div class="dropdown">
             <a href="transferts.html#aeroport"><i class="fas fa-plane-arrival"></i> Transfert Aéroport</a>
             <a href="transferts.html#hotel"><i class="fas fa-hotel"></i> Transfert Hôtel</a>
@@ -98,22 +115,26 @@
         </div>
 
         <div class="nav-item">
-          <a href="desert-agafay.html">Désert Agafay</a>
+          <a href="desert-agafay.html" data-i18n="nav_desert">Désert Agafay</a>
         </div>
 
         <div class="nav-item">
-          <a href="about.html">Qui sommes-nous ?</a>
+          <a href="about.html" data-i18n="nav_about">Qui sommes-nous ?</a>
         </div>
 
         <div class="nav-item">
-          <a href="contact.html">Contact</a>
+          <a href="blog.html" data-i18n="nav_blog">Blog</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
         </div>
       </nav>
 
       <!-- CTA -->
       <div class="nav-cta">
         <a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> WhatsApp
+          <i class="fab fa-whatsapp"></i> <span data-i18n="wa_btn">WhatsApp</span>
         </a>
       </div>
 
@@ -130,24 +151,25 @@
   <button class="mobile-nav-close" aria-label="Fermer">
     <i class="fas fa-times"></i>
   </button>
-  <a href="index.html">Accueil</a>
-  <a href="excursions.html">Excursions</a>
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="excursions.html" data-i18n="nav_exc">Excursions</a>
   <div class="mobile-sub">
     <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
     <a href="excursions.html#agadir">→ Depuis Agadir</a>
     <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas & Montagne</a>
+    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
   </div>
-  <a href="circuits.html">Circuits</a>
+  <a href="circuits.html" data-i18n="nav_circ">Circuits</a>
   <div class="mobile-sub">
     <a href="circuits.html#imperial">→ Villes Impériales</a>
     <a href="circuits.html#sud">→ Circuit Sud Maroc</a>
     <a href="circuits.html#sahara">→ Circuit Sahara</a>
   </div>
-  <a href="transferts.html">Transferts</a>
-  <a href="desert-agafay.html">Désert Agafay</a>
-  <a href="about.html">Qui sommes-nous ?</a>
-  <a href="contact.html">Contact</a>
+  <a href="transferts.html" data-i18n="nav_trans">Transferts</a>
+  <a href="desert-agafay.html" data-i18n="nav_desert">Désert Agafay</a>
+  <a href="about.html" data-i18n="nav_about">Qui sommes-nous ?</a>
+  <a href="blog.html" data-i18n="nav_blog">Blog</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
   <div class="mobile-cta">
     <a href="https://wa.me/212661223962" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
       <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
@@ -161,7 +183,7 @@
   <!-- Slider -->
   <div class="hero-slider">
     <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=1600&q=85&auto=format&fit=crop" alt="Médina de Marrakech" loading="eager" fetchpriority="high" decoding="async" />
+      <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=1600&q=85&auto=format&fit=crop" alt="Médina de Marrakech" loading="eager" />
     </div>
     <div class="hero-slide">
       <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=85&auto=format&fit=crop" alt="Dunes du Sahara" loading="lazy" />
@@ -181,16 +203,16 @@
 
   <!-- Content -->
   <div class="hero-content">
-    <span class="hero-badge"><i class="fas fa-star"></i> #1 Agence d'Excursions au Maroc</span>
-    <h1 class="hero-title">
+    <span class="hero-badge"><i class="fas fa-star"></i> <span data-i18n="hero_badge">#1 Agence d'Excursions au Maroc</span></span>
+    <h1 class="hero-title" data-i18n="hero_title">
       Découvrez la Magie<br>du <span>Maroc</span>
     </h1>
-    <p class="hero-subtitle">
+    <p class="hero-subtitle" data-i18n="hero_sub">
       Excursions premium, circuits inoubliables et aventures authentiques au cœur du Royaume Chérifien
     </p>
     <div class="hero-btns">
-      <a href="#excursions" class="btn-primary"><i class="fas fa-compass"></i> Explorer nos Excursions</a>
-      <a href="contact.html" class="btn-outline"><i class="fas fa-headset"></i> Nous Contacter</a>
+      <a href="#excursions" class="btn-primary"><i class="fas fa-compass"></i> <span data-i18n="hero_btn1">Explorer nos Excursions</span></a>
+      <a href="contact.html" class="btn-outline"><i class="fas fa-headset"></i> <span data-i18n="hero_btn2">Nous Contacter</span></a>
     </div>
   </div>
 
@@ -207,70 +229,70 @@
     <button class="hero-dot" aria-label="Slide 5"></button>
   </div>
 
-</section>
-
-<!-- Search Box — outside hero so it never covers the image -->
-<div class="search-box">
-  <div class="search-inner">
-    <div class="search-tabs">
-      <button class="search-tab active" data-tab="excursions">
-        <i class="fas fa-binoculars"></i> Excursions
-      </button>
-      <button class="search-tab" data-tab="circuits">
-        <i class="fas fa-route"></i> Circuits
-      </button>
-      <button class="search-tab" data-tab="transferts">
-        <i class="fas fa-car"></i> Transferts
-      </button>
-    </div>
-    <div class="search-form">
-      <div class="search-group">
-        <label for="destination">Destination / Excursion</label>
-        <select id="destination">
-          <option value="">Sélectionnez une excursion</option>
-          <optgroup label="Excursions Marrakech">
-            <option>Excursion Essaouira depuis Marrakech</option>
-            <option>Balade Chameau Palmeraie</option>
-            <option>Atlas Mountains &amp; Vallée de l'Ourika</option>
-            <option>Cascades d'Ouzoud</option>
-            <option>Désert Agafay Day Trip</option>
-          </optgroup>
-          <optgroup label="Circuits">
-            <option>Circuit Villes Impériales 7J</option>
-            <option>Circuit Désert Sahara 3J</option>
-            <option>Circuit Sud Maroc 5J</option>
-          </optgroup>
-        </select>
+  <!-- Search Box -->
+  <div class="search-box">
+    <div class="search-inner">
+      <div class="search-tabs">
+        <button class="search-tab active" data-tab="excursions">
+          <i class="fas fa-binoculars"></i> <span data-i18n="search_tab1">Excursions</span>
+        </button>
+        <button class="search-tab" data-tab="circuits">
+          <i class="fas fa-route"></i> <span data-i18n="search_tab2">Circuits</span>
+        </button>
+        <button class="search-tab" data-tab="transferts">
+          <i class="fas fa-car"></i> <span data-i18n="search_tab3">Transferts</span>
+        </button>
       </div>
-      <div class="search-group">
-        <label for="travel-date">Date de voyage</label>
-        <input type="date" id="travel-date" />
+      <div class="search-form">
+        <div class="search-group">
+          <label for="destination">Destination / Excursion</label>
+          <select id="destination">
+            <option value="">Sélectionnez une excursion</option>
+            <optgroup label="Excursions Marrakech">
+              <option>Excursion Essaouira depuis Marrakech</option>
+              <option>Balade Chameau Palmeraie</option>
+              <option>Atlas Mountains &amp; Vallée de l'Ourika</option>
+              <option>Cascades d'Ouzoud</option>
+              <option>Désert Agafay Day Trip</option>
+            </optgroup>
+            <optgroup label="Circuits">
+              <option>Circuit Villes Impériales 7J</option>
+              <option>Circuit Désert Sahara 3J</option>
+              <option>Circuit Sud Maroc 5J</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="search-group">
+          <label for="travel-date">Date de voyage</label>
+          <input type="date" id="travel-date" />
+        </div>
+        <div class="search-group">
+          <label for="adults">Adultes</label>
+          <select id="adults">
+            <option>1 Adulte</option>
+            <option selected>2 Adultes</option>
+            <option>3 Adultes</option>
+            <option>4 Adultes</option>
+            <option>5+ Adultes</option>
+          </select>
+        </div>
+        <div class="search-group">
+          <label for="children">Enfants</label>
+          <select id="children">
+            <option selected>0 Enfant</option>
+            <option>1 Enfant (-9)</option>
+            <option>2 Enfants</option>
+            <option>3 Enfants</option>
+          </select>
+        </div>
+        <button class="btn-search" onclick="handleSearch()">
+          <i class="fas fa-search"></i> Rechercher
+        </button>
       </div>
-      <div class="search-group">
-        <label for="adults">Adultes</label>
-        <select id="adults">
-          <option>1 Adulte</option>
-          <option selected>2 Adultes</option>
-          <option>3 Adultes</option>
-          <option>4 Adultes</option>
-          <option>5+ Adultes</option>
-        </select>
-      </div>
-      <div class="search-group">
-        <label for="children">Enfants</label>
-        <select id="children">
-          <option selected>0 Enfant</option>
-          <option>1 Enfant (-9)</option>
-          <option>2 Enfants</option>
-          <option>3 Enfants</option>
-        </select>
-      </div>
-      <button class="btn-search" onclick="handleSearch()">
-        <i class="fas fa-search"></i> Rechercher
-      </button>
     </div>
   </div>
-</div>
+
+</section>
 
 <!-- ===================== FEATURES STRIP ===================== -->
 <div class="features-strip">
@@ -281,16 +303,16 @@
         <h4>Prix les Plus Compétitifs</h4>
       </div>
       <div class="feature-card" data-aos="fade-up" data-delay="100">
-        <div class="feature-icon"><i class="fas fa-heart"></i></div>
-        <h4>Sélection Premium</h4>
+        <div class="feature-icon"><i class="fas fa-ban"></i></div>
+        <h4>Annulation Gratuite</h4>
       </div>
       <div class="feature-card" data-aos="fade-up" data-delay="200">
         <div class="feature-icon"><i class="fab fa-tripadvisor"></i></div>
         <h4>Recommandé Tripadvisor</h4>
       </div>
       <div class="feature-card" data-aos="fade-up" data-delay="300">
-        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
-        <h4>Réservation Simple & Rapide</h4>
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Paiement 100% Sécurisé</h4>
       </div>
       <div class="feature-card" data-aos="fade-up" data-delay="400">
         <div class="feature-icon"><i class="fas fa-headset"></i></div>
@@ -324,7 +346,9 @@
               <img src="https://images.unsplash.com/photo-1570731493743-6e29ea26db85?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" />
               <span class="card-badge">-35%</span>
               <span class="card-tag">Populaire</span>
-              <div class="card-price"><span class="amount">€28</span><span class="old">€43</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="old" data-eur-old="43">€43</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
@@ -348,7 +372,9 @@
             <div class="card-image">
               <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Balade Chameau" loading="lazy" />
               <span class="card-badge">-21%</span>
-              <div class="card-price"><span class="amount">€19</span><span class="old">€24</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="19">€19</span><span class="old" data-eur-old="24">€24</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
@@ -373,14 +399,16 @@
               <img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Atlas Mountains" loading="lazy" />
               <span class="card-badge">-18%</span>
               <span class="card-tag">Top</span>
-              <div class="card-price"><span class="amount">€32</span><span class="old">€39</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="32">€32</span><span class="old" data-eur-old="39">€39</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
                 <span><i class="fas fa-clock"></i> Journée entière</span>
                 <span><i class="fas fa-map-marker-alt"></i> Marrakech</span>
               </div>
-              <h3 class="card-title">Atlas Mountains & Vallée de l'Ourika avec Village Berbère</h3>
+              <h3 class="card-title">Atlas Mountains &amp; Vallée de l'Ourika avec Village Berbère</h3>
               <div class="card-rating">
                 <span class="stars">★★★★★</span>
                 <span class="rating-count">(312 avis)</span>
@@ -397,7 +425,9 @@
             <div class="card-image">
               <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Cascades d'Ouzoud" loading="lazy" />
               <span class="card-badge">-24%</span>
-              <div class="card-price"><span class="amount">€25</span><span class="old">€33</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="25">€25</span><span class="old" data-eur-old="33">€33</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
@@ -422,14 +452,16 @@
               <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Désert Agafay" loading="lazy" />
               <span class="card-badge">-30%</span>
               <span class="card-tag">Nouveau</span>
-              <div class="card-price"><span class="amount">€38</span><span class="old">€54</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="38">€38</span><span class="old" data-eur-old="54">€54</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
                 <span><i class="fas fa-clock"></i> Demi-journée</span>
                 <span><i class="fas fa-map-marker-alt"></i> Marrakech</span>
               </div>
-              <h3 class="card-title">Désert Agafay Coucher de Soleil & Dîner Berbère</h3>
+              <h3 class="card-title">Désert Agafay Coucher de Soleil &amp; Dîner Berbère</h3>
               <div class="card-rating">
                 <span class="stars">★★★★★</span>
                 <span class="rating-count">(421 avis)</span>
@@ -445,14 +477,16 @@
           <div class="tour-card">
             <div class="card-image">
               <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80&auto=format&fit=crop" alt="Fès Médina" loading="lazy" />
-              <div class="card-price"><span class="amount">€79</span> <span class="per">/pers.</span></div>
+              <span class="card-free-cancel"><i class="fas fa-check-circle"></i> <span class="badge-free-cancel">Annulation gratuite</span></span>
+              <div class="card-price"><span class="amount" data-eur="79">€79</span> <span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
             </div>
             <div class="card-body">
               <div class="card-meta">
                 <span><i class="fas fa-clock"></i> 2 jours</span>
                 <span><i class="fas fa-map-marker-alt"></i> Marrakech</span>
               </div>
-              <h3 class="card-title">Escapade 2 Jours Fès & Médina Millénaire</h3>
+              <h3 class="card-title">Escapade 2 Jours Fès &amp; Médina Millénaire</h3>
               <div class="card-rating">
                 <span class="stars">★★★★★</span>
                 <span class="rating-count">(165 avis)</span>
@@ -546,7 +580,7 @@
       </div>
       <div class="stat-item" data-aos="fade-up" data-delay="100">
         <span class="stat-number" data-count="150" data-suffix="+">0</span>
-        <div class="stat-label">Excursions & Circuits</div>
+        <div class="stat-label">Excursions &amp; Circuits</div>
       </div>
       <div class="stat-item" data-aos="fade-up" data-delay="200">
         <span class="stat-number" data-count="10" data-suffix=" ans">0</span>
@@ -585,7 +619,7 @@
             <div class="circuit-detail"><i class="fas fa-users"></i> Groupe ou privé</div>
             <div class="circuit-detail"><i class="fas fa-hotel"></i> Hôtels 3–4★</div>
             <div class="circuit-detail"><i class="fas fa-utensils"></i> Demi-pension</div>
-            <div class="circuit-detail"><i class="fas fa-car"></i> Transport inclus</div>
+            <div class="circuit-detail"><i class="fas fa-ban"></i> Annulation gratuite</div>
           </div>
           <p class="circuit-desc">
             Explorez les quatre villes impériales du Maroc : Casablanca, Rabat, Fès et Marrakech. Plongez dans l'histoire millénaire des médinas, admirez l'architecture andalouse-islamique et goûtez à la cuisine marocaine authentique.
@@ -593,7 +627,7 @@
           <div class="circuit-footer">
             <div class="circuit-price-box">
               <div class="from">À partir de</div>
-              <div class="price"><sup>€</sup>249</div>
+              <div class="price" data-eur-circuit="249"><sup>€</sup>249</div>
               <div class="per-person">par personne</div>
             </div>
             <a href="circuits.html#imperial" class="btn-green">
@@ -614,9 +648,9 @@
           <div class="circuit-details">
             <div class="circuit-detail"><i class="fas fa-clock"></i> 3 jours</div>
             <div class="circuit-detail"><i class="fas fa-users"></i> Groupe ou privé</div>
-            <div class="circuit-detail"><i class="fas fa-hotel"></i> Camp & Hôtel</div>
+            <div class="circuit-detail"><i class="fas fa-hotel"></i> Camp &amp; Hôtel</div>
             <div class="circuit-detail"><i class="fas fa-horse"></i> Chameau inclus</div>
-            <div class="circuit-detail"><i class="fas fa-car"></i> 4x4 disponible</div>
+            <div class="circuit-detail"><i class="fas fa-ban"></i> Annulation gratuite</div>
           </div>
           <p class="circuit-desc">
             Partez de Marrakech vers les dunes dorées de Merzouga. Traversez les gorges du Dadès, le col du Tichka, les kasbahs de la Route des Mille Kasbahs et dormez sous les étoiles du Sahara dans un camp berbère authentique.
@@ -624,7 +658,7 @@
           <div class="circuit-footer">
             <div class="circuit-price-box">
               <div class="from">À partir de</div>
-              <div class="price"><sup>€</sup>159</div>
+              <div class="price" data-eur-circuit="159"><sup>€</sup>159</div>
               <div class="per-person">par personne</div>
             </div>
             <a href="circuits.html#sahara" class="btn-green">
@@ -646,6 +680,7 @@
             <div class="circuit-detail"><i class="fas fa-users"></i> Privé uniquement</div>
             <div class="circuit-detail"><i class="fas fa-hotel"></i> Ryad 4★</div>
             <div class="circuit-detail"><i class="fas fa-utensils"></i> Petit-déjeuner</div>
+            <div class="circuit-detail"><i class="fas fa-ban"></i> Annulation gratuite</div>
           </div>
           <p class="circuit-desc">
             Découvrez les joyaux du Nord : Tanger, Tétouan, la Ville Bleue de Chefchaouen, et Asilah. Un itinéraire hors des sentiers battus entre mer, montagne et cultures méditerranéennes.
@@ -653,7 +688,7 @@
           <div class="circuit-footer">
             <div class="circuit-price-box">
               <div class="from">À partir de</div>
-              <div class="price"><sup>€</sup>199</div>
+              <div class="price" data-eur-circuit="199"><sup>€</sup>199</div>
               <div class="per-person">par personne</div>
             </div>
             <a href="circuits.html#nord" class="btn-green">
@@ -695,20 +730,27 @@
             <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
             <div class="why-point-text">
               <h4>Réservation 100% Sécurisée</h4>
-              <p>Paiements cryptés, remboursement garanti en cas d'annulation jusqu'à 24h avant.</p>
+              <p>Paiements cryptés, remboursement garanti en cas d'annulation jusqu'à 48h avant.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-icon"><i class="fas fa-ban"></i></div>
+            <div class="why-point-text">
+              <h4>Annulation Gratuite &amp; Flexible</h4>
+              <p>Annulez sans frais jusqu'à 48h avant votre excursion. Votre tranquillité d'esprit est notre priorité.</p>
             </div>
           </div>
           <div class="why-point">
             <div class="why-icon"><i class="fas fa-user-tie"></i></div>
             <div class="why-point-text">
-              <h4>Guides Certifiés & Bilingues</h4>
+              <h4>Guides Certifiés &amp; Multilingues</h4>
               <p>Nos guides parlent français, anglais, espagnol et arabe pour une expérience personnalisée.</p>
             </div>
           </div>
           <div class="why-point">
             <div class="why-icon"><i class="fas fa-star"></i></div>
             <div class="why-point-text">
-              <h4>Excellence & Qualité Premium</h4>
+              <h4>Excellence &amp; Qualité Premium</h4>
               <p>Véhicules climatisés, hôtels soigneusement sélectionnés, repas authentiques inclus.</p>
             </div>
           </div>
@@ -717,13 +759,6 @@
             <div class="why-point-text">
               <h4>Support 24h/7j en Temps Réel</h4>
               <p>Une équipe disponible à tout moment via WhatsApp, email ou téléphone pour vous assister.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-leaf"></i></div>
-            <div class="why-point-text">
-              <h4>Tourisme Responsable & Durable</h4>
-              <p>Nous travaillons avec des communautés locales et soutenons le tourisme solidaire marocain.</p>
             </div>
           </div>
         </div>
@@ -797,6 +832,35 @@
   </div>
 </section>
 
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text" data-aos="fade-right">
+        <div class="section-kicker" style="justify-content:flex-start;color:rgba(200,155,60,.85)">Offres &amp; Actualités</div>
+        <h2>Recevez nos <span>Meilleures Offres</span><br>en Avant-Première</h2>
+        <p>Inscrivez-vous à notre newsletter et recevez des promotions exclusives, des idées de voyages et des conseils d'experts pour explorer le Maroc.</p>
+        <ul class="newsletter-perks">
+          <li><i class="fas fa-tag"></i> Offres exclusives jusqu'à -40% réservées aux abonnés</li>
+          <li><i class="fas fa-bell"></i> Alertes de disponibilité pour les circuits populaires</li>
+          <li><i class="fas fa-map"></i> Guides de voyage et conseils d'experts</li>
+          <li><i class="fas fa-ban"></i> Désabonnement en un clic, à tout moment</li>
+        </ul>
+      </div>
+      <div class="newsletter-form-wrap" data-aos="fade-left">
+        <h3><i class="fas fa-paper-plane" style="color:var(--gold);font-size:1rem;margin-right:8px"></i> S'inscrire à la Newsletter</h3>
+        <p>Rejoignez +8 500 voyageurs déjà abonnés</p>
+        <form class="newsletter-form">
+          <input type="text" placeholder="Votre prénom" required />
+          <input type="email" placeholder="Votre adresse email" required />
+          <button type="submit"><i class="fas fa-paper-plane"></i> Je m'inscris gratuitement</button>
+        </form>
+        <p class="newsletter-disclaimer"><i class="fas fa-lock"></i> Vos données sont protégées. Pas de spam, promis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== CTA ===================== -->
 <section class="cta-section">
   <div class="container">
@@ -841,9 +905,9 @@
           <li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li>
           <li><a href="excursions.html#agadir"><i class="fas fa-chevron-right"></i> Depuis Agadir</a></li>
           <li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li>
-          <li><a href="excursions.html#montagne"><i class="fas fa-chevron-right"></i> Atlas & Montagne</a></li>
+          <li><a href="excursions.html#montagne"><i class="fas fa-chevron-right"></i> Atlas &amp; Montagne</a></li>
           <li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li>
-          <li><a href="excursions.html#cote"><i class="fas fa-chevron-right"></i> Côte Atlantique</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog Voyage</a></li>
         </ul>
       </div>
 
@@ -855,8 +919,8 @@
           <li><a href="circuits.html#sud"><i class="fas fa-chevron-right"></i> Circuit Sud</a></li>
           <li><a href="circuits.html#nord"><i class="fas fa-chevron-right"></i> Circuit Nord</a></li>
           <li><a href="circuits.html#sahara"><i class="fas fa-chevron-right"></i> Circuit Sahara</a></li>
-          <li><a href="circuits.html#aventure"><i class="fas fa-chevron-right"></i> Circuits Aventure</a></li>
           <li><a href="transferts.html"><i class="fas fa-chevron-right"></i> Transferts</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> Qui sommes-nous ?</a></li>
         </ul>
       </div>
 
@@ -897,33 +961,52 @@
 
     <div class="footer-bottom">
       <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Politique de confidentialité</a> | <a href="terms.html">Conditions générales</a></p>
-      <p>Conçu avec <span style="color:var(--gold)">♥</span> pour les voyageurs du monde entier</p>
+      <div class="footer-payment">
+        <span>Paiement sécurisé :</span>
+        <span class="footer-pay-icon">VISA</span>
+        <span class="footer-pay-icon">MC</span>
+        <span class="footer-pay-icon">PayPal</span>
+        <span class="footer-pay-icon">CMI</span>
+      </div>
     </div>
   </div>
 </footer>
 
 <!-- ===================== FLOATING ELEMENTS ===================== -->
-<a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+
+<!-- Chat FAB -->
+<div class="chat-fab-wrap">
+  <div class="chat-menu">
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
+    <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+  <button class="chat-fab" aria-label="Nous contacter">
+    <i class="fas fa-plus"></i>
+    <span class="chat-fab-badge">1</span>
+  </button>
+</div>
+
 <button class="back-to-top" aria-label="Retour en haut">
   <i class="fas fa-chevron-up"></i>
 </button>
 
+<!-- Urgency Notification -->
+<div class="urgency-notif">
+  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
+  <div class="notif-text"></div>
+</div>
+
+<!-- Mobile Action Bar -->
+<div class="mobile-action-bar">
+  <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
+</div>
+
 <!-- ===================== SCRIPTS ===================== -->
 <script>
-  // Set today's date as default (safe cross-browser approach)
-  (function(){
-    try {
-      const now = new Date();
-      const y = now.getFullYear();
-      const m = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const iso = y + '-' + m + '-' + day; // e.g. 2026-07-22
-      const el = document.getElementById('travel-date');
-      if (el) { el.setAttribute('value', iso); el.setAttribute('min', iso); }
-    } catch(e) {}
-  })();
+  document.getElementById('travel-date').valueAsDate = new Date();
 
   function handleSearch() {
     const dest = document.getElementById('destination').value;

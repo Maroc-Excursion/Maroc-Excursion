@@ -40,10 +40,8 @@
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-submit { width: 100%; padding: 15px; background: var(--green); color: var(--white); border: none; border-radius: 10px; font-family: inherit; font-size: .95rem; font-weight: 700; letter-spacing: .04em; cursor: pointer; transition: all var(--trans); display: flex; align-items: center; justify-content: center; gap: 8px; }
     .form-submit:hover { background: #0a4436; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(14,90,71,.4); }
-    .map-wrap { border-radius: 16px; overflow: hidden; margin-top: 52px; box-shadow: var(--shadow); height: 380px; background: var(--light); display: flex; align-items: center; justify-content: center; }
-    .map-placeholder { text-align: center; color: #888; }
-    .map-placeholder i { font-size: 3rem; color: var(--green); margin-bottom: 12px; display: block; }
-    .whatsapp-cta { background: #25D366; border-radius: 16px; padding: 36px 40px; text-align: center; margin: 52px 0 0; }
+    .map-wrap { border-radius: 16px; overflow: hidden; margin-top: 52px; box-shadow: var(--shadow); }
+    .whatsapp-cta { background: #25D366; border-radius: 16px; padding: 36px 40px; text-align: center; margin: 28px 0 0; }
     .whatsapp-cta h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 10px; }
     .whatsapp-cta p { color: rgba(255,255,255,.85); margin-bottom: 20px; }
     .btn-wa-big { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: #25D366; padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all var(--trans); }
@@ -52,62 +50,75 @@
   </style>
 </head>
 <body>
+
+<!-- TOPBAR -->
 <div class="topbar">
   <div class="container"><div class="inner">
-    <div class="contact-info"><a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a><a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a></div>
-    <div class="right-side"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="lang-switcher"><i class="fas fa-globe"></i> FR</div></div>
+    <div class="contact-info">
+      <a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a>
+      <a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a>
+    </div>
+    <div class="right-side">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <select class="currency-select" aria-label="Devise">
+        <option value="EUR">€ EUR</option>
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="MAD">MAD</option>
+      </select>
+      <div class="lang-switcher-wrap">
+        <button class="lang-switcher-btn"><i class="fas fa-globe"></i> FR <i class="fas fa-chevron-down" style="font-size:.6rem"></i></button>
+        <div class="lang-dropdown">
+          <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
+    </div>
   </div></div>
 </div>
-<header class="site-header"><div class="container"><div class="nav-inner">
-  <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
-  <nav class="main-nav">
-    <div class="nav-item"><a href="index.html">Accueil</a></div>
-    <div class="nav-item"><a href="excursions.html">Excursions</a></div>
-    <div class="nav-item"><a href="circuits.html">Circuits</a></div>
-    <div class="nav-item"><a href="transferts.html">Transferts</a></div>
-    <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
-    <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
-    <div class="nav-item active"><a href="contact.html">Contact</a></div>
-  </nav>
-  <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-  <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div></div></header>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
+    <nav class="main-nav">
+      <div class="nav-item"><a href="index.html" data-i18n="nav_home">Accueil</a></div>
+      <div class="nav-item"><a href="excursions.html" data-i18n="nav_exc">Excursions</a></div>
+      <div class="nav-item"><a href="circuits.html" data-i18n="nav_circ">Circuits</a></div>
+      <div class="nav-item"><a href="transferts.html" data-i18n="nav_trans">Transferts</a></div>
+      <div class="nav-item"><a href="desert-agafay.html" data-i18n="nav_desert">Désert Agafay</a></div>
+      <div class="nav-item"><a href="about.html" data-i18n="nav_about">Qui sommes-nous ?</a></div>
+      <div class="nav-item"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
+      <div class="nav-item active"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
+    </nav>
+    <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> <span data-i18n="wa_btn">WhatsApp</span></a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div></div>
+</header>
 
 <!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="Navigation mobile">
-  <button class="mobile-nav-close" aria-label="Fermer">
-    <i class="fas fa-times"></i>
-  </button>
+<nav class="mobile-nav">
+  <button class="mobile-nav-close"><i class="fas fa-times"></i></button>
   <a href="index.html">Accueil</a>
   <a href="excursions.html">Excursions</a>
-  <div class="mobile-sub">
-    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
-    <a href="excursions.html#agadir">→ Depuis Agadir</a>
-    <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
-  </div>
   <a href="circuits.html">Circuits</a>
-  <div class="mobile-sub">
-    <a href="circuits.html#imperial">→ Villes Impériales</a>
-    <a href="circuits.html#sud">→ Circuit Sud Maroc</a>
-    <a href="circuits.html#sahara">→ Circuit Sahara</a>
-  </div>
   <a href="transferts.html">Transferts</a>
   <a href="desert-agafay.html">Désert Agafay</a>
   <a href="about.html">Qui sommes-nous ?</a>
+  <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
   <div class="mobile-cta">
-    <a href="https://wa.me/212661223962" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
-      <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
-    </a>
+    <a href="https://wa.me/212661223962" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Réservez via WhatsApp</a>
   </div>
 </nav>
 
-
-
-<section class="page-hero" style="--after-bg:var(--cream)">
+<section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Accueil</a><i class="fas fa-chevron-right"></i> Contact</div>
+    <div class="breadcrumb"><a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> Contact</div>
     <h1>Contactez-Nous</h1>
     <p style="color:rgba(255,255,255,.7);max-width:480px;margin:10px auto 0;font-size:.95rem">Notre équipe est disponible 7j/7 pour répondre à toutes vos questions</p>
   </div>
@@ -123,19 +134,34 @@
           <p>Que vous souhaitiez réserver une excursion ou créer un circuit sur mesure, nous sommes là pour vous accompagner.</p>
           <div class="info-item">
             <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="info-text"><div class="label">Téléphone & WhatsApp</div><a href="tel:+212524370878">+212 524 370 878</a><a href="tel:+212661223962">+212 661 223 962</a></div>
+            <div class="info-text">
+              <div class="label">Téléphone &amp; WhatsApp</div>
+              <a href="tel:+212524370878">+212 524 370 878</a>
+              <a href="tel:+212661223962">+212 661 223 962</a>
+            </div>
           </div>
           <div class="info-item">
             <div class="info-icon"><i class="fas fa-envelope"></i></div>
-            <div class="info-text"><div class="label">Email</div><a href="mailto:booking@marocexcursion.com">booking@marocexcursion.com</a></div>
+            <div class="info-text">
+              <div class="label">Email</div>
+              <a href="mailto:booking@marocexcursion.com">booking@marocexcursion.com</a>
+            </div>
           </div>
           <div class="info-item">
             <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="info-text"><div class="label">Adresse</div><span>Marrakech, Maroc</span><span>Agadir, Maroc</span></div>
+            <div class="info-text">
+              <div class="label">Adresse</div>
+              <span>Marrakech, Maroc</span>
+              <span>Agadir, Maroc</span>
+            </div>
           </div>
           <div class="info-item">
             <div class="info-icon"><i class="fas fa-clock"></i></div>
-            <div class="info-text"><div class="label">Horaires</div><span>Lun–Sam : 08h00 – 20h00</span><span>Dim : 09h00 – 17h00</span></div>
+            <div class="info-text">
+              <div class="label">Horaires</div>
+              <span>Lun–Sam : 08h00 – 20h00</span>
+              <span>Dim : 09h00 – 17h00</span>
+            </div>
           </div>
           <div class="contact-socials">
             <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -151,6 +177,7 @@
           <a href="https://wa.me/212661223962?text=Bonjour%20Maroc%20Excursion%2C%20je%20souhaite%20des%20informations%20sur%20vos%20excursions." class="btn-wa-big" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Écrire sur WhatsApp</a>
         </div>
       </div>
+
       <!-- Form Block -->
       <div class="contact-form-block" data-aos="fade-left">
         <h3>Envoyez-nous un message</h3>
@@ -186,29 +213,98 @@
         </form>
       </div>
     </div>
-    <!-- Map placeholder -->
+
+    <!-- Google Maps Embed -->
     <div class="map-wrap" data-aos="fade-up">
-      <div class="map-placeholder">
-        <i class="fas fa-map-marker-alt"></i>
-        <h3 style="color:var(--navy);margin-bottom:8px">Marrakech, Maroc</h3>
-        <p>Notre équipe vous accueille au cœur de la Ville Rouge</p>
-        <a href="https://maps.google.com/?q=Marrakech,Maroc" target="_blank" rel="noopener" class="btn-green" style="margin-top:14px;display:inline-flex"><i class="fas fa-external-link-alt"></i> Voir sur Google Maps</a>
-      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108823.61649699928!2d-8.073212874999999!3d31.6294723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sMarrakech!5e0!3m2!1sfr!2sma!4v1720000000000!5m2!1sfr!2sma"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Maroc Excursion – Marrakech, Maroc">
+      </iframe>
     </div>
   </div>
 </section>
 
-<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div><img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
-    <div><div class="footer-heading">Excursions</div><ul class="footer-links"><li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li><li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li></ul></div>
-    <div><div class="footer-heading">Circuits</div><ul class="footer-links"><li><a href="circuits.html#imperial"><i class="fas fa-chevron-right"></i> Villes Impériales</a></li><li><a href="circuits.html#sahara"><i class="fas fa-chevron-right"></i> Circuit Sahara</a></li></ul></div>
-    <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212524370878">+212 524 370 878</a></div></div></div>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" />
+        <p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Excursions</div>
+        <ul class="footer-links">
+          <li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li>
+          <li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li>
+          <li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Liens Utiles</div>
+        <ul class="footer-links">
+          <li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog Voyage</a></li>
+          <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Confidentialité</a></li>
+          <li><a href="terms.html"><i class="fas fa-chevron-right"></i> CGV</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="footer-contact-text">
+            <span class="label">Téléphone</span>
+            <a href="tel:+212524370878">+212 524 370 878</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-text">
+            <span class="label">Email</span>
+            <a href="mailto:booking@marocexcursion.com">booking@marocexcursion.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Confidentialité</a> | <a href="terms.html">CGV</a></p>
+    </div>
   </div>
-  <div class="footer-bottom"><p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
-</div></footer>
-<a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</footer>
+
+<!-- Chat FAB -->
+<div class="chat-fab-wrap">
+  <div class="chat-menu">
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
+    <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+  <button class="chat-fab" aria-label="Contact"><i class="fas fa-plus"></i><span class="chat-fab-badge">1</span></button>
+</div>
 <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<div class="urgency-notif">
+  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
+  <div class="notif-text"></div>
+</div>
+<div class="mobile-action-bar">
+  <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
+</div>
+
 <script>
 function handleContactForm(e) {
   e.preventDefault();
@@ -216,13 +312,7 @@ function handleContactForm(e) {
   const msg = document.getElementById('message').value;
   const service = document.getElementById('service').value;
   const phone = document.getElementById('phone').value;
-  const waText = encodeURIComponent('Bonjour Maroc Excursion,
-
-Je m'appelle ' + name + '.
-Service: ' + service + (phone ? '
-Tél: ' + phone : '') + '
-
-' + msg);
+  const waText = encodeURIComponent('Bonjour Maroc Excursion,\n\nJe m\'appelle ' + name + '.\nService: ' + service + (phone ? '\nTél: ' + phone : '') + '\n\n' + msg);
   window.open('https://wa.me/212661223962?text=' + waText, '_blank');
 }
 document.getElementById('travel-date2') && (document.getElementById('travel-date2').valueAsDate = new Date());

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog Maroc Excursion – Conseils, guides de voyage et inspirations pour visiter le Maroc avec style." />
+  <title>Blog Voyage Maroc | Maroc Excursion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%); padding: 100px 0 70px; text-align: center; position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
+    .page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,.65); font-size: .85rem; margin-bottom: 14px; }
+    .breadcrumb a { color: var(--gold); }
+
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    .blog-featured-main {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 420px;
+    }
+    .blog-featured-main img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+    .blog-featured-main:hover img { transform: scale(1.04); }
+    .blog-featured-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,34,56,.9) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+    }
+    .blog-featured-content .blog-cat { margin-bottom: 10px; }
+    .blog-featured-content h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 10px; line-height: 1.35; }
+    .blog-featured-content p { color: rgba(255,255,255,.75); font-size: .85rem; line-height: 1.6; margin-bottom: 16px; }
+    .blog-featured-side { display: flex; flex-direction: column; gap: 18px; }
+    .blog-side-card {
+      display: flex;
+      gap: 14px;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all var(--trans);
+      cursor: pointer;
+    }
+    .blog-side-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(15,34,56,.14); }
+    .blog-side-img { width: 110px; flex-shrink: 0; }
+    .blog-side-img img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-side-body { padding: 14px 14px 14px 0; display: flex; flex-direction: column; justify-content: center; }
+    .blog-side-body h4 { font-size: .88rem; font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: 6px; }
+    .blog-side-body span { font-size: .75rem; color: #999; }
+
+    @media(max-width: 900px) { .blog-featured { grid-template-columns: 1fr; } .blog-featured-main { height: 280px; } .blog-featured-side { flex-direction: row; overflow-x: auto; } .blog-side-card { min-width: 260px; } }
+    @media(max-width: 600px) { .blog-featured-side { flex-direction: column; } .blog-side-card { min-width: auto; } }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container"><div class="inner">
+    <div class="contact-info">
+      <a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a>
+      <a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a>
+    </div>
+    <div class="right-side">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <select class="currency-select" aria-label="Devise">
+        <option value="EUR">€ EUR</option>
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="MAD">MAD</option>
+      </select>
+      <div class="lang-switcher-wrap">
+        <button class="lang-switcher-btn"><i class="fas fa-globe"></i> <span id="activeLangLabel">FR</span> <i class="fas fa-chevron-down" style="font-size:.6rem"></i></button>
+        <div class="lang-dropdown">
+          <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
+    <nav class="main-nav">
+      <div class="nav-item"><a href="index.html" data-i18n="nav_home">Accueil</a></div>
+      <div class="nav-item"><a href="excursions.html" data-i18n="nav_exc">Excursions</a></div>
+      <div class="nav-item"><a href="circuits.html" data-i18n="nav_circ">Circuits</a></div>
+      <div class="nav-item"><a href="transferts.html" data-i18n="nav_trans">Transferts</a></div>
+      <div class="nav-item"><a href="desert-agafay.html" data-i18n="nav_desert">Désert Agafay</a></div>
+      <div class="nav-item"><a href="about.html" data-i18n="nav_about">Qui sommes-nous ?</a></div>
+      <div class="nav-item active"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
+      <div class="nav-item"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
+    </nav>
+    <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> <span data-i18n="wa_btn">WhatsApp</span></a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div></div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <button class="mobile-nav-close"><i class="fas fa-times"></i></button>
+  <a href="index.html">Accueil</a>
+  <a href="excursions.html">Excursions</a>
+  <a href="circuits.html">Circuits</a>
+  <a href="transferts.html">Transferts</a>
+  <a href="desert-agafay.html">Désert Agafay</a>
+  <a href="about.html">Qui sommes-nous ?</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-cta">
+    <a href="https://wa.me/212661223962" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Réservez via WhatsApp</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> Blog</div>
+    <h1>Blog & Guides de Voyage</h1>
+    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:10px auto 0;font-size:.95rem">Conseils d'experts, itinéraires et inspirations pour découvrir le Maroc authentique</p>
+  </div>
+</section>
+
+<!-- BLOG CONTENT -->
+<section class="section-py" style="background:var(--cream)">
+  <div class="container">
+
+    <!-- Featured -->
+    <div class="blog-featured" data-aos="fade-up">
+      <a href="#article1" class="blog-featured-main">
+        <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=900&q=85&auto=format&fit=crop" alt="Guide Marrakech" loading="lazy" />
+        <div class="blog-featured-overlay">
+          <div class="blog-featured-content">
+            <span class="blog-cat"><i class="fas fa-map-marker-alt"></i> Guide de Voyage</span>
+            <h2>Guide Complet de Marrakech : Les 15 Incontournables à Visiter</h2>
+            <p>De la Djemaa el-Fna aux souks colorés, en passant par les palais et jardins secrets — tout ce qu'il faut voir, faire et goûter dans la Ville Rouge.</p>
+            <span class="blog-read-more" style="color:var(--gold)">Lire l'article <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      <div class="blog-featured-side">
+        <a href="#article2" class="blog-side-card">
+          <div class="blog-side-img">
+            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=300&q=80&auto=format&fit=crop" alt="Sahara" loading="lazy" />
+          </div>
+          <div class="blog-side-body">
+            <span class="blog-cat" style="font-size:.65rem;padding:3px 8px"><i class="fas fa-star"></i> Conseils</span>
+            <h4>Comment Préparer un Circuit au Désert du Sahara ?</h4>
+            <span><i class="fas fa-calendar" style="color:var(--gold)"></i> 15 Juin 2026</span>
+          </div>
+        </a>
+        <a href="#article3" class="blog-side-card">
+          <div class="blog-side-img">
+            <img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=300&q=80&auto=format&fit=crop" alt="Atlas" loading="lazy" />
+          </div>
+          <div class="blog-side-body">
+            <span class="blog-cat" style="font-size:.65rem;padding:3px 8px"><i class="fas fa-mountain"></i> Randonnée</span>
+            <h4>Trekking dans l'Atlas : Guide pour Débutants</h4>
+            <span><i class="fas fa-calendar" style="color:var(--gold)"></i> 3 Juin 2026</span>
+          </div>
+        </a>
+        <a href="#article4" class="blog-side-card">
+          <div class="blog-side-img">
+            <img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=300&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" />
+          </div>
+          <div class="blog-side-body">
+            <span class="blog-cat" style="font-size:.65rem;padding:3px 8px"><i class="fas fa-umbrella-beach"></i> Côte</span>
+            <h4>Essaouira : La Cité des Alizés en 24 Heures</h4>
+            <span><i class="fas fa-calendar" style="color:var(--gold)"></i> 22 Mai 2026</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- All Articles -->
+    <div class="section-heading" data-aos="fade-up">
+      <div class="section-kicker">Tous nos articles</div>
+      <h2 class="section-title">Inspirations & Conseils</h2>
+      <span class="section-divider"></span>
+    </div>
+
+    <div class="blog-grid">
+
+      <div class="blog-card" id="article1" data-aos="fade-up">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1539020140153-e479b8b638be?w=600&q=80&auto=format&fit=crop" alt="Marrakech" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-map-marker-alt"></i> Guide de Voyage</span>
+          <h3 class="blog-card-title">Guide Complet de Marrakech : Les 15 Incontournables à Visiter</h3>
+          <p class="blog-card-excerpt">La Djemaa el-Fna, les souks, le Jardin Majorelle, le Palais Bahia... Découvrez tout ce qu'il faut voir et faire dans la Ville Rouge avec notre guide détaillé.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 25 Juin 2026</span>
+            <span><i class="fas fa-clock"></i> 8 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="blog-card" id="article2" data-aos="fade-up" data-delay="100">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Sahara" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-star"></i> Conseils Pratiques</span>
+          <h3 class="blog-card-title">Comment Préparer un Circuit au Désert du Sahara ? Tout ce qu'il Faut Savoir</h3>
+          <p class="blog-card-excerpt">Quelle saison choisir ? Que mettre dans sa valise ? Comment éviter les arnaques ? Notre guide complet pour préparer sereinement votre aventure saharienne.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 15 Juin 2026</span>
+            <span><i class="fas fa-clock"></i> 6 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="blog-card" id="article3" data-aos="fade-up" data-delay="200">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Atlas" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-mountain"></i> Randonnée</span>
+          <h3 class="blog-card-title">Trekking dans le Haut Atlas : Guide Complet pour Débutants et Confirmés</h3>
+          <p class="blog-card-excerpt">De la Vallée de l'Ourika à Imlil, en passant par les gorges du Dadès — les plus beaux itinéraires de randonnée dans le Haut Atlas marocain avec niveaux et conseils.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 3 Juin 2026</span>
+            <span><i class="fas fa-clock"></i> 10 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="blog-card" id="article4" data-aos="fade-up">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-umbrella-beach"></i> Côte Atlantique</span>
+          <h3 class="blog-card-title">Essaouira en 24 Heures : Itinéraire Parfait dans la Cité des Alizés</h3>
+          <p class="blog-card-excerpt">Remparts, port de pêche, médina bleue et cuisine de fruits de mer... Comment passer une journée inoubliable à Essaouira depuis Marrakech ou Agadir.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 22 Mai 2026</span>
+            <span><i class="fas fa-clock"></i> 5 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="blog-card" data-aos="fade-up" data-delay="100">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Agafay" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-sun"></i> Désert Agafay</span>
+          <h3 class="blog-card-title">Désert Agafay : Pourquoi c'est la Plus Belle Excursion depuis Marrakech ?</h3>
+          <p class="blog-card-excerpt">Coucher de soleil sur les dunes de pierre, dîner berbère sous les étoiles, nuit en glamping de luxe... Le désert Agafay, une expérience unique à 30 minutes de Marrakech.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 10 Mai 2026</span>
+            <span><i class="fas fa-clock"></i> 7 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="blog-card" data-aos="fade-up" data-delay="200">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80&auto=format&fit=crop" alt="Fès" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat"><i class="fas fa-landmark"></i> Villes Impériales</span>
+          <h3 class="blog-card-title">Circuit des 4 Villes Impériales : L'Itinéraire Parfait pour Découvrir le Maroc</h3>
+          <p class="blog-card-excerpt">Casablanca, Rabat, Fès, Marrakech — les quatre capitales historiques du Maroc en 7 jours. Notre itinéraire détaillé jour par jour avec toutes les adresses incontournables.</p>
+          <div class="blog-card-meta">
+            <span><i class="fas fa-calendar"></i> 28 Avril 2026</span>
+            <span><i class="fas fa-clock"></i> 12 min de lecture</span>
+          </div>
+          <span class="blog-read-more">Lire l'article <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container"><div class="cta-content">
+    <h2 class="cta-title">Inspiré par nos Articles ?<br><span>Réservez votre Aventure !</span></h2>
+    <p class="cta-desc">Notre équipe d'experts est disponible 7j/7 pour transformer votre inspiration en un voyage inoubliable.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/212661223962" class="btn-white" target="_blank"><i class="fab fa-whatsapp"></i> Planifier mon voyage</a>
+      <a href="excursions.html" class="btn-outline-white"><i class="fas fa-compass"></i> Voir nos excursions</a>
+    </div>
+  </div></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" />
+        <p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Excursions</div>
+        <ul class="footer-links">
+          <li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li>
+          <li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li>
+          <li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Liens Utiles</div>
+        <ul class="footer-links">
+          <li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li>
+          <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> À propos</a></li>
+          <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Confidentialité</a></li>
+          <li><a href="terms.html"><i class="fas fa-chevron-right"></i> CGV</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="footer-contact-text">
+            <span class="label">Téléphone</span>
+            <a href="tel:+212524370878">+212 524 370 878</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="footer-contact-text">
+            <span class="label">WhatsApp</span>
+            <a href="https://wa.me/212661223962" target="_blank">+212 661 223 962</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-text">
+            <span class="label">Email</span>
+            <a href="mailto:booking@marocexcursion.com">booking@marocexcursion.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Confidentialité</a> | <a href="terms.html">CGV</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Chat -->
+<div class="chat-fab-wrap">
+  <div class="chat-menu">
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
+    <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+  <button class="chat-fab" aria-label="Contact">
+    <i class="fas fa-plus"></i>
+    <span class="chat-fab-badge">1</span>
+  </button>
+</div>
+<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<div class="urgency-notif">
+  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
+  <div class="notif-text"></div>
+</div>
+<!-- Mobile Action Bar -->
+<div class="mobile-action-bar">
+  <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

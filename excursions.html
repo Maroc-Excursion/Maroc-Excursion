@@ -30,10 +30,34 @@
   </style>
 </head>
 <body>
-<div class="topbar"><div class="container"><div class="inner">
-  <div class="contact-info"><a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a><a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a></div>
-  <div class="right-side"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="lang-switcher"><i class="fas fa-globe"></i> FR</div></div>
-</div></div></div>
+<div class="topbar">
+  <div class="container"><div class="inner">
+    <div class="contact-info">
+      <a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a>
+      <a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a>
+    </div>
+    <div class="right-side">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <select class="currency-select" aria-label="Devise">
+        <option value="EUR">€ EUR</option>
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="MAD">MAD</option>
+      </select>
+      <div class="lang-switcher-wrap">
+        <button class="lang-switcher-btn"><i class="fas fa-globe"></i> <span id="activeLangLabel">FR</span> <i class="fas fa-chevron-down" style="font-size:.6rem"></i></button>
+        <div class="lang-dropdown">
+          <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
 <header class="site-header"><div class="container"><div class="nav-inner">
   <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
   <nav class="main-nav">
@@ -50,7 +74,8 @@
     <div class="nav-item"><a href="transferts.html">Transferts</a></div>
     <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
     <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
-    <div class="nav-item"><a href="contact.html">Contact</a></div>
+          <div class="nav-item"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
+      <div class="nav-item"><a href="contact.html">Contact</a></div>
   </nav>
   <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
   <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -120,33 +145,51 @@
     </div>
     <div class="excursions-grid">
       <div class="tour-card" data-cat="marrakech" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><span class="card-badge">-35%</span><span class="card-tag">Populaire</span><div class="card-price"><span class="amount">€28</span><span class="old">€43</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-car"></i> Transport inclus</span></div><h3 class="card-title">Excursion d'une journée à Essaouira depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(247 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><span class="card-badge">-35%</span><span class="card-tag">Populaire</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="old">€43</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-car"></i> Transport inclus</span></div><h3 class="card-title">Excursion d'une journée à Essaouira depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(247 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="marrakech" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Palmeraie" loading="lazy" /><span class="card-badge">-21%</span><div class="card-price"><span class="amount">€19</span><span class="old">€24</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2–3 heures</span><span><i class="fas fa-star" style="color:var(--gold)"></i> Premium</span></div><h3 class="card-title">Balade à Dos de Chameau dans la Palmeraie de Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(389 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Palmeraie" loading="lazy" /><span class="card-badge">-21%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="19">€19</span><span class="old">€24</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2–3 heures</span><span><i class="fas fa-star" style="color:var(--gold)"></i> Premium</span></div><h3 class="card-title">Balade à Dos de Chameau dans la Palmeraie de Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(389 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="marrakech montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><div class="card-price"><span class="amount">€32</span><span class="old">€39</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Montagne</span></div><h3 class="card-title">Atlas Mountains & Vallée de l'Ourika avec Village Berbère</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(312 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="32">€32</span><span class="old">€39</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Montagne</span></div><h3 class="card-title">Atlas Mountains & Vallée de l'Ourika avec Village Berbère</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(312 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="marrakech" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Ouzoud" loading="lazy" /><span class="card-badge">-24%</span><div class="card-price"><span class="amount">€25</span><span class="old">€33</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Baignade</span></div><h3 class="card-title">Cascades d'Ouzoud – La Plus Grande Chute d'Eau du Maroc</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(198 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Ouzoud" loading="lazy" /><span class="card-badge">-24%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="25">€25</span><span class="old">€33</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Baignade</span></div><h3 class="card-title">Cascades d'Ouzoud – La Plus Grande Chute d'Eau du Maroc</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(198 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="marrakech desert" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Agafay" loading="lazy" /><span class="card-badge">-30%</span><span class="card-tag">Nouveau</span><div class="card-price"><span class="amount">€38</span><span class="old">€54</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-sun"></i> Coucher de soleil</span></div><h3 class="card-title">Désert Agafay Coucher de Soleil & Dîner Berbère Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(421 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Agafay" loading="lazy" /><span class="card-badge">-30%</span><span class="card-tag">Nouveau</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="38">€38</span><span class="old">€54</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-sun"></i> Coucher de soleil</span></div><h3 class="card-title">Désert Agafay Coucher de Soleil & Dîner Berbère Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(421 avis)</span></div></div>
         <div class="card-footer"><a href="desert-agafay.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="marrakech montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80&auto=format&fit=crop" alt="Fès" loading="lazy" /><div class="card-price"><span class="amount">€79</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-hotel"></i> Hôtel inclus</span></div><h3 class="card-title">Escapade 2 Jours à Fès & Médina Millénaire</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(165 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600&q=80&auto=format&fit=crop" alt="Fès" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="79">€79</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-hotel"></i> Hôtel inclus</span></div><h3 class="card-title">Escapade 2 Jours à Fès & Médina Millénaire</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(165 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
     </div>
@@ -163,18 +206,27 @@
     </div>
     <div class="excursions-grid">
       <div class="tour-card" data-cat="desert" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Merzouga" loading="lazy" /><span class="card-tag" style="background:var(--gold)">Best-seller</span><div class="card-price"><span class="amount">€159</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 3 jours</span><span><i class="fas fa-horse"></i> Chameau inclus</span></div><h3 class="card-title">Circuit Désert Merzouga 3 Jours – Dunes & Nuit Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(504 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop" alt="Merzouga" loading="lazy" /><span class="card-tag" style="background:var(--gold)">Best-seller</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="159">€159</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 3 jours</span><span><i class="fas fa-horse"></i> Chameau inclus</span></div><h3 class="card-title">Circuit Désert Merzouga 3 Jours – Dunes & Nuit Sous les Étoiles</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(504 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="desert" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Zagora" loading="lazy" /><div class="card-price"><span class="amount">€99</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-sun"></i> Désert Zagora</span></div><h3 class="card-title">Zagora & Désert 2 Jours depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(287 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Zagora" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="99">€99</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> 2 jours</span><span><i class="fas fa-sun"></i> Désert Zagora</span></div><h3 class="card-title">Zagora & Désert 2 Jours depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(287 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="desert marrakech" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Quad Desert" loading="lazy" /><span class="card-badge">-15%</span><div class="card-price"><span class="amount">€45</span><span class="old">€53</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-truck-monster"></i> Quad inclus</span></div><h3 class="card-title">Quad & Chameau dans le Désert Agafay – Aventure Garantie</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(334 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop" alt="Quad Desert" loading="lazy" /><span class="card-badge">-15%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="45">€45</span><span class="old">€53</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-truck-monster"></i> Quad inclus</span></div><h3 class="card-title">Quad & Chameau dans le Désert Agafay – Aventure Garantie</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(334 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
     </div>
@@ -191,18 +243,27 @@
     </div>
     <div class="excursions-grid">
       <div class="tour-card" data-cat="cote" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><div class="card-price"><span class="amount">€28</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Essaouira – La Cité des Alizés et ses Remparts Historiques</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(412 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Essaouira – La Cité des Alizés et ses Remparts Historiques</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(412 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="cote agadir" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Beach" loading="lazy" /><div class="card-price"><span class="amount">€22</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Agadir</span></div><h3 class="card-title">Plage d'Agadir & Souk El Had – Journée Côtière</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Beach" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="22">€22</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Agadir</span></div><h3 class="card-title">Plage d'Agadir & Souk El Had – Journée Côtière</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="cote" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80&auto=format&fit=crop" alt="Dakhla" loading="lazy" /><div class="card-price"><span class="amount">€35</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-fish"></i> Pêche incluse</span></div><h3 class="card-title">Sortie Pêche & Découverte de la Côte Atlantique</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(95 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80&auto=format&fit=crop" alt="Dakhla" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="35">€35</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-fish"></i> Pêche incluse</span></div><h3 class="card-title">Sortie Pêche & Découverte de la Côte Atlantique</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(95 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
     </div>
@@ -220,18 +281,27 @@
     </div>
     <div class="excursions-grid">
       <div class="tour-card" data-cat="montagne" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Toubkal" loading="lazy" /><span class="card-badge">-20%</span><div class="card-price"><span class="amount">€35</span><span class="old">€44</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> 2000m+</span></div><h3 class="card-title">Trekking dans les Montagnes du Haut Atlas depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(276 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop" alt="Toubkal" loading="lazy" /><span class="card-badge">-20%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="35">€35</span><span class="old">€44</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> 2000m+</span></div><h3 class="card-title">Trekking dans les Montagnes du Haut Atlas depuis Marrakech</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(276 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="montagne" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><div class="card-price"><span class="amount">€28</span><span class="old">€34</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Cascades</span></div><h3 class="card-title">Vallée de l'Ourika, Cascades &amp; Village Berbère Authentique</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(348 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop" alt="Ourika" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="28">€28</span><span class="old">€34</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-water"></i> Cascades</span></div><h3 class="card-title">Vallée de l'Ourika, Cascades &amp; Village Berbère Authentique</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(348 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="montagne" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop" alt="Imlil" loading="lazy" /><div class="card-price"><span class="amount">€49</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-snowflake"></i> Imlil 1740m</span></div><h3 class="card-title">Imlil &amp; Ascension Partielle du Toubkal – Paysages Époustouflants</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(201 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop" alt="Imlil" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="49">€49</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée</span><span><i class="fas fa-snowflake"></i> Imlil 1740m</span></div><h3 class="card-title">Imlil &amp; Ascension Partielle du Toubkal – Paysages Époustouflants</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(201 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
     </div>
@@ -248,18 +318,27 @@
     </div>
     <div class="excursions-grid">
       <div class="tour-card" data-cat="agadir" data-aos="fade-up">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Plage" loading="lazy" /><span class="card-badge">-22%</span><div class="card-price"><span class="amount">€22</span><span class="old">€28</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Plage</span></div><h3 class="card-title">Plage d'Agadir &amp; Souk El Had – Journée Détente</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop" alt="Agadir Plage" loading="lazy" /><span class="card-badge">-22%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="22">€22</span><span class="old">€28</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Demi-journée</span><span><i class="fas fa-umbrella-beach"></i> Plage</span></div><h3 class="card-title">Plage d'Agadir &amp; Souk El Had – Journée Détente</h3><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(178 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="agadir" data-aos="fade-up" data-delay="100">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira depuis Agadir" loading="lazy" /><span class="card-badge">-18%</span><div class="card-price"><span class="amount">€30</span><span class="old">€37</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Excursion Essaouira depuis Agadir – La Cité des Alizés</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(224 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop" alt="Essaouira depuis Agadir" loading="lazy" /><span class="card-badge">-18%</span><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="30">€30</span><span class="old">€37</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-wind"></i> Essaouira</span></div><h3 class="card-title">Excursion Essaouira depuis Agadir – La Cité des Alizés</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(224 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
       <div class="tour-card" data-cat="agadir" data-aos="fade-up" data-delay="200">
-        <div class="card-image"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80&auto=format&fit=crop" alt="Vallée du Paradis" loading="lazy" /><div class="card-price"><span class="amount">€38</span><span class="per">/pers.</span></div></div>
-        <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Anti-Atlas</span></div><h3 class="card-title">Vallée du Paradis &amp; Gorges d'Immouzer depuis Agadir</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(156 avis)</span></div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80&auto=format&fit=crop" alt="Vallée du Paradis" loading="lazy" /><span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>
+              <div class="card-price"><span class="amount" data-eur="38">€38</span><span class="per">/pers.</span></div>
+              <span class="viewing-badge"></span>
+            </div>
+            <div class="card-body"><div class="card-meta"><span><i class="fas fa-clock"></i> Journée entière</span><span><i class="fas fa-mountain"></i> Anti-Atlas</span></div><h3 class="card-title">Vallée du Paradis &amp; Gorges d'Immouzer depuis Agadir</h3><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(156 avis)</span></div></div>
         <div class="card-footer"><a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a><button class="card-wishlist"><i class="far fa-heart"></i></button></div>
       </div>
     </div>
@@ -285,10 +364,18 @@
     <div><div class="footer-heading">Liens</div><ul class="footer-links"><li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> Qui sommes-nous</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
     <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212524370878">+212 524 370 878</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-envelope"></i></div><div class="footer-contact-text"><span class="label">Email</span><a href="mailto:booking@marocexcursion.com">booking@marocexcursion.com</a></div></div></div>
   </div>
-  <div class="footer-bottom"><p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
+  <div class="footer-bottom">
+  <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Confidentialité</a> | <a href="terms.html">CGV</a></p>
+  <div class="footer-payment">
+    <span>Paiement sécurisé :</span>
+    <span class="footer-pay-icon">VISA</span>
+    <span class="footer-pay-icon">MC</span>
+    <span class="footer-pay-icon">PayPal</span>
+  </div>
+</div>
 </div></footer>
-<a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+
 <script>
 function filterCards(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -300,5 +387,27 @@ function filterCards(cat, btn) {
 }
 </script>
 <script src="assets/js/main.js" defer></script>
+<!-- Chat FAB -->
+<div class="chat-fab-wrap">
+  <div class="chat-menu">
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
+    <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+  <button class="chat-fab" aria-label="Nous contacter">
+    <i class="fas fa-plus"></i>
+    <span class="chat-fab-badge">1</span>
+  </button>
+</div>
+<button class="back-to-top" aria-label="Haut de page"><i class="fas fa-chevron-up"></i></button>
+<div class="urgency-notif">
+  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
+  <div class="notif-text"></div>
+</div>
+<div class="mobile-action-bar">
+  <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
+</div>
 </body>
 </html>

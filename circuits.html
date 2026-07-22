@@ -40,10 +40,34 @@
   </style>
 </head>
 <body>
-<div class="topbar"><div class="container"><div class="inner">
-  <div class="contact-info"><a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a><a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a></div>
-  <div class="right-side"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="lang-switcher"><i class="fas fa-globe"></i> FR</div></div>
-</div></div></div>
+<div class="topbar">
+  <div class="container"><div class="inner">
+    <div class="contact-info">
+      <a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a>
+      <a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a>
+    </div>
+    <div class="right-side">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <select class="currency-select" aria-label="Devise">
+        <option value="EUR">€ EUR</option>
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="MAD">MAD</option>
+      </select>
+      <div class="lang-switcher-wrap">
+        <button class="lang-switcher-btn"><i class="fas fa-globe"></i> <span id="activeLangLabel">FR</span> <i class="fas fa-chevron-down" style="font-size:.6rem"></i></button>
+        <div class="lang-dropdown">
+          <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
 <header class="site-header"><div class="container"><div class="nav-inner">
   <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
   <nav class="main-nav">
@@ -61,7 +85,8 @@
     <div class="nav-item"><a href="transferts.html">Transferts</a></div>
     <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
     <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
-    <div class="nav-item"><a href="contact.html">Contact</a></div>
+          <div class="nav-item"><a href="blog.html" data-i18n="nav_blog">Blog</a></div>
+      <div class="nav-item"><a href="contact.html">Contact</a></div>
   </nav>
   <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
   <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -362,10 +387,40 @@
     <div><div class="footer-heading">Excursions</div><ul class="footer-links"><li><a href="excursions.html"><i class="fas fa-chevron-right"></i> Toutes les excursions</a></li><li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li></ul></div>
     <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212524370878">+212 524 370 878</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div><div class="footer-contact-text"><span class="label">WhatsApp</span><a href="https://wa.me/212661223962">+212 661 223 962</a></div></div></div>
   </div>
-  <div class="footer-bottom"><p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
+  <div class="footer-bottom">
+  <p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés. | <a href="privacy.html">Confidentialité</a> | <a href="terms.html">CGV</a></p>
+  <div class="footer-payment">
+    <span>Paiement sécurisé :</span>
+    <span class="footer-pay-icon">VISA</span>
+    <span class="footer-pay-icon">MC</span>
+    <span class="footer-pay-icon">PayPal</span>
+  </div>
+</div>
 </div></footer>
-<a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+
 <script src="assets/js/main.js" defer></script>
+<!-- Chat FAB -->
+<div class="chat-fab-wrap">
+  <div class="chat-menu">
+    <a href="https://wa.me/212661223962" class="chat-menu-item wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:+212524370878" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
+    <a href="mailto:booking@marocexcursion.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+  </div>
+  <button class="chat-fab" aria-label="Nous contacter">
+    <i class="fas fa-plus"></i>
+    <span class="chat-fab-badge">1</span>
+  </button>
+</div>
+<button class="back-to-top" aria-label="Haut de page"><i class="fas fa-chevron-up"></i></button>
+<div class="urgency-notif">
+  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
+  <div class="notif-text"></div>
+</div>
+<div class="mobile-action-bar">
+  <a href="tel:+212524370878" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
+  <a href="https://wa.me/212661223962" class="mob-action-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="mailto:booking@marocexcursion.com" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
+</div>
 </body>
 </html>
