@@ -1447,7 +1447,7 @@ h1, h2, h3, h4, h5 {
   body { padding-bottom: 70px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .topbar .contact-info { gap: 10px; }
   .topbar .contact-info .hide-sm { display: none; }
   .topbar .right-side .social-links { display: none; }
@@ -1485,13 +1485,13 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 5px 18px rgba(0,0,0,.22);
   }
   .search-box {
-    display: none;
+    display: none !important;
     left: 12px;
     right: 12px;
     bottom: 18px;
     padding: 0;
   }
-  .search-box.mobile-open { display: block; }
+  .search-box.mobile-open { display: block !important; }
   .search-mobile-toggle.is-hidden { display: none; }
   .circuit-body { padding: 18px; }
   .cta-btns { flex-direction: column; align-items: center; }
