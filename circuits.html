@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Circuits organisés au Maroc – Villes Impériales, Désert Sahara, Nord Maroc – Maroc Excursion." />
+  <title>Circuits au Maroc | Maroc Excursion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <style>
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%); padding: 100px 0 70px; text-align: center; position: relative; overflow: hidden; }
+    .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
+    .page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,.65); font-size: .85rem; margin-bottom: 14px; }
+    .breadcrumb a { color: var(--gold); }
+    .section-anchor { padding-top: 90px; margin-top: -90px; }
+    .itinerary { margin-top: 24px; }
+    .itinerary-day { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+    .day-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .82rem; }
+    .day-content strong { color: var(--navy); font-size: .88rem; display: block; }
+    .day-content span { font-size: .82rem; color: #777; }
+    .includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .include-item { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: #555; }
+    .include-item i { color: var(--green); font-size: .8rem; }
+    .circuit-hero-img { height: 300px; object-fit: cover; width: 100%; border-radius: var(--radius) var(--radius) 0 0; }
+    .circuit-full { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-bottom: 36px; transition: all var(--trans); }
+    .circuit-full:hover { box-shadow: 0 16px 50px rgba(15,34,56,.18); }
+    .circuit-full-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .circuit-full-left { padding: 36px; border-right: 1px solid rgba(0,0,0,.07); }
+    .circuit-full-right { padding: 36px; background: var(--cream); }
+    .circuit-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .circuit-badge { padding: 4px 12px; border-radius: 50px; font-size: .72rem; font-weight: 700; letter-spacing: .04em; }
+    .badge-green { background: rgba(14,90,71,.1); color: var(--green); }
+    .badge-gold { background: rgba(200,155,60,.15); color: #a07820; }
+    @media(max-width:768px) { .circuit-full-body { grid-template-columns: 1fr; } .circuit-full-left { border-right: none; border-bottom: 1px solid rgba(0,0,0,.07); } .includes-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="topbar"><div class="container"><div class="inner">
+  <div class="contact-info"><a href="tel:+212524370878"><i class="fas fa-phone-alt"></i> +212 524 370 878</a><a href="tel:+212661223962" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 661 223 962</a></div>
+  <div class="right-side"><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div><div class="lang-switcher"><i class="fas fa-globe"></i> FR</div></div>
+</div></div></div>
+<header class="site-header"><div class="container"><div class="nav-inner">
+  <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Maroc Excursion" /></a>
+  <nav class="main-nav">
+    <div class="nav-item"><a href="index.html">Accueil</a></div>
+    <div class="nav-item"><a href="excursions.html">Excursions</a></div>
+    <div class="nav-item active"><a href="circuits.html">Circuits <i class="fas fa-chevron-down"></i></a>
+      <div class="dropdown">
+        <a href="#imperial"><i class="fas fa-landmark"></i> Villes Impériales</a>
+        <a href="#sahara"><i class="fas fa-sun"></i> Circuit Sahara</a>
+        <a href="#sud"><i class="fas fa-compass"></i> Circuit Sud</a>
+        <a href="#nord"><i class="fas fa-route"></i> Circuit Nord</a>
+        <a href="#aventure"><i class="fas fa-hiking"></i> Aventure</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="transferts.html">Transferts</a></div>
+    <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
+    <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
+    <div class="nav-item"><a href="contact.html">Contact</a></div>
+  </nav>
+  <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</div></div></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><i class="fas fa-chevron-right"></i> Circuits</div>
+    <h1>Circuits Organisés au Maroc</h1>
+    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:10px auto 0;font-size:.95rem">Itinéraires soigneusement conçus pour vous faire vivre l'authenticité du Maroc du Nord au Sud</p>
+  </div>
+</section>
+
+<!-- Circuit Imperial -->
+<section id="imperial" class="section-anchor section-py" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-heading" data-aos="fade-up">
+      <div class="section-kicker">7 Jours / 6 Nuits</div>
+      <h2 class="section-title">Circuit Villes Impériales</h2>
+      <span class="section-divider"></span>
+    </div>
+    <div class="circuit-full" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&q=85&auto=format&fit=crop" alt="Fès Villes Impériales" loading="lazy" class="circuit-hero-img" />
+      <div class="circuit-full-body">
+        <div class="circuit-full-left">
+          <div class="circuit-badge-row">
+            <span class="circuit-badge badge-green">Best-seller</span>
+            <span class="circuit-badge badge-gold">7 jours</span>
+            <span class="circuit-badge badge-green">Groupe & Privé</span>
+          </div>
+          <h3 style="font-size:1.4rem;color:var(--navy);margin-bottom:12px">Les Quatre Royales : Casablanca, Rabat, Fès & Marrakech</h3>
+          <p style="color:#666;font-size:.88rem;line-height:1.8;margin-bottom:20px">Plongez dans l'histoire millénaire du Maroc à travers ses quatre villes impériales. Un voyage exceptionnel entre architecture andalouse-islamique, médinas labyrinthiques, palais royaux et traditions culinaires authentiques.</p>
+          <div class="itinerary">
+            <div class="itinerary-day"><div class="day-num">J1</div><div class="day-content"><strong>Casablanca – Arrivée & Hassan II</strong><span>Visite de la Grande Mosquée Hassan II, Corniche, El Hank</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J2</div><div class="day-content"><strong>Rabat – Capitale Royale</strong><span>Mausolée Mohammed V, Tour Hassan, Kasbah des Oudayas</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J3</div><div class="day-content"><strong>Fès – Médina Millénaire</strong><span>Al-Qarawiyyin, Tanneries Chouara, Musée Borj Nord</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J4</div><div class="day-content"><strong>Fès – Mérinides & Bab Boujloud</strong><span>Tombeaux Mérinides, Medersa Bou Inania, souks</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J5</div><div class="day-content"><strong>Route vers Marrakech</strong><span>Palmeraie d'Ifrane, Cèdres d'Azrou, col du Zad</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J6</div><div class="day-content"><strong>Marrakech – La Ville Rose</strong><span>Jemaa el-Fna, Bahia, Saadiens, souks & médina</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J7</div><div class="day-content"><strong>Départ depuis Marrakech</strong><span>Dernier petit-déjeuner & transfert aéroport</span></div></div>
+          </div>
+        </div>
+        <div class="circuit-full-right">
+          <h4 style="font-size:1rem;color:var(--navy);margin-bottom:16px;font-family:'Poppins',sans-serif">Ce circuit inclut</h4>
+          <div class="includes-grid">
+            <div class="include-item"><i class="fas fa-check-circle"></i> Transport climatisé</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Guide francophone</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Hôtels 3–4★</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Demi-pension</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Entrées monuments</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Eaux en bouteille</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Assurance voyage</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Wifi dans le bus</div>
+          </div>
+          <div style="margin-top:28px;padding:20px;background:var(--white);border-radius:10px;border:1px solid rgba(200,155,60,.2)">
+            <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">À partir de</div>
+            <div style="font-size:2.4rem;font-weight:700;color:var(--green);font-family:'Playfair Display',serif"><sup style="font-size:1rem;font-family:'Poppins',sans-serif">€</sup>249 <span style="font-size:.85rem;color:#888;font-family:'Poppins',sans-serif;font-weight:400">/ personne</span></div>
+            <div style="font-size:.78rem;color:#888;margin-bottom:18px">Prix pour 2 personnes. Groupes : tarifs dégressifs.</div>
+            <a href="contact.html" class="btn-green" style="width:100%;justify-content:center;margin-bottom:10px"><i class="fas fa-calendar-check"></i> Réserver ce circuit</a>
+            <a href="https://wa.me/212661223962?text=Bonjour%2C%20je%20suis%20intéressé%20par%20le%20Circuit%20Villes%20Impériales%207%20jours." class="btn-gold" style="width:100%;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Circuit Sahara -->
+<section id="sahara" class="section-anchor section-py" style="background:var(--white)">
+  <div class="container">
+    <div class="section-heading" data-aos="fade-up">
+      <div class="section-kicker">3 Jours / 2 Nuits</div>
+      <h2 class="section-title">Circuit Désert du Sahara</h2>
+      <span class="section-divider"></span>
+    </div>
+    <div class="circuit-full" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=85&auto=format&fit=crop" alt="Désert Sahara Merzouga" loading="lazy" class="circuit-hero-img" />
+      <div class="circuit-full-body">
+        <div class="circuit-full-left">
+          <div class="circuit-badge-row"><span class="circuit-badge badge-gold">Coup de ♥</span><span class="circuit-badge badge-green">3 jours</span><span class="circuit-badge badge-gold">Nuit dans le désert</span></div>
+          <h3 style="font-size:1.4rem;color:var(--navy);margin-bottom:12px">Marrakech → Gorges du Dadès → Merzouga → Marrakech</h3>
+          <p style="color:#666;font-size:.88rem;line-height:1.8;margin-bottom:20px">Le circuit incontournable du Maroc : traversez les paysages extraordinaires de l'Atlas, les kasbahs de la Route des Mille Kasbahs, les gorges du Dadès et Todra, pour finir sous les étoiles dans un camp berbère au cœur des dunes de Merzouga.</p>
+          <div class="itinerary">
+            <div class="itinerary-day"><div class="day-num">J1</div><div class="day-content"><strong>Marrakech → Aït Benhaddou → Ouarzazate</strong><span>Col du Tichka (2260m), Ksar Aït Benhaddou (UNESCO), studios de cinéma</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J2</div><div class="day-content"><strong>Ouarzazate → Gorges du Dadès → Merzouga</strong><span>Vallée du Drâa, roses de M'Gouna, Gorges Todra, dunes Erg Chebbi</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J3</div><div class="day-content"><strong>Lever de soleil → Retour à Marrakech</strong><span>Balade chameau à l'aube, Route des Kasbahs, retour en soirée</span></div></div>
+          </div>
+        </div>
+        <div class="circuit-full-right">
+          <h4 style="font-size:1rem;color:var(--navy);margin-bottom:16px;font-family:'Poppins',sans-serif">Ce circuit inclut</h4>
+          <div class="includes-grid">
+            <div class="include-item"><i class="fas fa-check-circle"></i> 4x4 ou minibus</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Guide expert</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Camp luxe désert</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Chameau inclus</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Pension complète</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Musique berbère</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Nuit sous les étoiles</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Photos souvenirs</div>
+          </div>
+          <div style="margin-top:28px;padding:20px;background:var(--white);border-radius:10px;border:1px solid rgba(200,155,60,.2)">
+            <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">À partir de</div>
+            <div style="font-size:2.4rem;font-weight:700;color:var(--green);font-family:'Playfair Display',serif"><sup style="font-size:1rem;font-family:'Poppins',sans-serif">€</sup>159 <span style="font-size:.85rem;color:#888;font-family:'Poppins',sans-serif;font-weight:400">/ personne</span></div>
+            <div style="font-size:.78rem;color:#888;margin-bottom:18px">Départs tous les jours depuis Marrakech.</div>
+            <a href="contact.html" class="btn-green" style="width:100%;justify-content:center;margin-bottom:10px"><i class="fas fa-calendar-check"></i> Réserver ce circuit</a>
+            <a href="https://wa.me/212661223962?text=Bonjour%2C%20je%20suis%20intéressé%20par%20le%20Circuit%20Désert%20Sahara%203%20jours." class="btn-gold" style="width:100%;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Circuit Nord -->
+<section id="nord" class="section-anchor section-py" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-heading" data-aos="fade-up">
+      <div class="section-kicker">5 Jours / 4 Nuits</div>
+      <h2 class="section-title">Circuit Nord Maroc</h2>
+      <span class="section-divider"></span>
+    </div>
+    <div class="circuit-full" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1200&q=85&auto=format&fit=crop" alt="Chefchaouen" loading="lazy" class="circuit-hero-img" />
+      <div class="circuit-full-body">
+        <div class="circuit-full-left">
+          <div class="circuit-badge-row"><span class="circuit-badge badge-green">5 jours</span><span class="circuit-badge badge-gold">Privatif</span></div>
+          <h3 style="font-size:1.4rem;color:var(--navy);margin-bottom:12px">Tanger, Tétouan, Chefchaouen & Asilah</h3>
+          <p style="color:#666;font-size:.88rem;line-height:1.8;margin-bottom:20px">Une plongée dans le Maroc méditerranéen et montagnard : la légendaire Ville Bleue de Chefchaouen, la perle du Nord Tétouan, les blancs remparts d'Asilah et le détroit de Gibraltar depuis Tanger.</p>
+          <div class="itinerary">
+            <div class="itinerary-day"><div class="day-num">J1</div><div class="day-content"><strong>Casablanca / Rabat → Tanger</strong><span>Arrivée, Casbah des Sultans, Grottes d'Hercule</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J2</div><div class="day-content"><strong>Tanger → Asilah → Tétouan</strong><span>Remparts d'Asilah, fresques murales, médina UNESCO Tétouan</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J3</div><div class="day-content"><strong>Chefchaouen – La Ville Bleue</strong><span>Rues bleues, Ras el-Maa, artisanat local, médina pittoresque</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J4</div><div class="day-content"><strong>Parc National de Talassemtane</strong><span>Pont de Dieu, forêt de cèdres, randonnée panoramique</span></div></div>
+            <div class="itinerary-day"><div class="day-num">J5</div><div class="day-content"><strong>Retour & Départ</strong><span>Transfert aéroport Tanger ou Casablanca</span></div></div>
+          </div>
+        </div>
+        <div class="circuit-full-right">
+          <h4 style="font-size:1rem;color:var(--navy);margin-bottom:16px;font-family:'Poppins',sans-serif">Ce circuit inclut</h4>
+          <div class="includes-grid">
+            <div class="include-item"><i class="fas fa-check-circle"></i> Véhicule privatif</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Guide bilingue</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Ryad 4★</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Petit-déjeuner</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Entrées incluses</div>
+            <div class="include-item"><i class="fas fa-check-circle"></i> Wifi à bord</div>
+          </div>
+          <div style="margin-top:28px;padding:20px;background:var(--white);border-radius:10px;border:1px solid rgba(200,155,60,.2)">
+            <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">À partir de</div>
+            <div style="font-size:2.4rem;font-weight:700;color:var(--green);font-family:'Playfair Display',serif"><sup style="font-size:1rem;font-family:'Poppins',sans-serif">€</sup>199 <span style="font-size:.85rem;color:#888;font-family:'Poppins',sans-serif;font-weight:400">/ personne</span></div>
+            <div style="font-size:.78rem;color:#888;margin-bottom:18px">Sur réservation uniquement. Départs flexibles.</div>
+            <a href="contact.html" class="btn-green" style="width:100%;justify-content:center;margin-bottom:10px"><i class="fas fa-calendar-check"></i> Réserver ce circuit</a>
+            <a href="https://wa.me/212661223962?text=Bonjour%2C%20je%20suis%20intéressé%20par%20le%20Circuit%20Nord%20Maroc%205%20jours." class="btn-gold" style="width:100%;justify-content:center" target="_blank"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container"><div class="cta-content">
+    <h2 class="cta-title">Circuit <span>Sur Mesure</span> ?</h2>
+    <p class="cta-desc">Vous avez des dates spécifiques, un budget ou des envies particulières ? Nous créons votre circuit personnalisé en 24h.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/212661223962" class="btn-white" target="_blank"><i class="fab fa-whatsapp"></i> Demander mon circuit perso</a>
+      <a href="contact.html" class="btn-outline-white"><i class="fas fa-paper-plane"></i> Formulaire de contact</a>
+    </div>
+  </div></div>
+</section>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-grid">
+    <div><img src="assets/images/logo.png" alt="Maroc Excursion" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+    <div><div class="footer-heading">Circuits</div><ul class="footer-links"><li><a href="#imperial"><i class="fas fa-chevron-right"></i> Villes Impériales</a></li><li><a href="#sahara"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li><li><a href="#nord"><i class="fas fa-chevron-right"></i> Nord Maroc</a></li></ul></div>
+    <div><div class="footer-heading">Excursions</div><ul class="footer-links"><li><a href="excursions.html"><i class="fas fa-chevron-right"></i> Toutes les excursions</a></li><li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li></ul></div>
+    <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212524370878">+212 524 370 878</a></div></div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div><div class="footer-contact-text"><span class="label">WhatsApp</span><a href="https://wa.me/212661223962">+212 661 223 962</a></div></div></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
+</div></footer>
+<a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
