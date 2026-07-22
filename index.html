@@ -182,56 +182,42 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" aria-label="Hero section">
 
-  <!-- Slider -->
-  <div class="hero-slider">
-    <div class="hero-slide active">
-      <img src="https://images.unsplash.com/photo-1494548162494-384bba4ab999?w=1600&q=85&auto=format&fit=crop" alt="Médina de Marrakech" loading="eager" />
+    <!-- ▶ Background Video: Morocco 4K — autoplay, muted, loop -->
+    <div class="hero-video-bg">
+      <iframe
+        src="https://www.youtube.com/embed/93bCtFAaQQI?autoplay=1&mute=1&loop=1&playlist=93bCtFAaQQI&controls=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&showinfo=0"
+        frameborder="0"
+        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        title="Maroc Traditions 4K"
+        aria-hidden="true">
+      </iframe>
+      <!-- Fallback for iOS / blocked autoplay -->
+      <div class="hero-video-fallback"></div>
     </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1600&q=85&auto=format&fit=crop" alt="Dunes du Sahara" loading="lazy" />
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=1600&q=85&auto=format&fit=crop" alt="Atlas Mountains Morocco" loading="lazy" />
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1600&q=85&auto=format&fit=crop" alt="Essaouira Maroc" loading="lazy" />
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=1600&q=85&auto=format&fit=crop" alt="Chefchaouen Maroc" loading="lazy" />
-    </div>
-  </div>
 
-  <div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-  <!-- Content -->
-  <div class="hero-content">
-    <span class="hero-badge"><i class="fas fa-star"></i> <span data-i18n="hero_badge">#1 Agence d'Excursions au Maroc</span></span>
-    <h1 class="hero-title" data-i18n="hero_title">
-      Découvrez la Magie<br>du <span>Maroc</span>
-    </h1>
-    <p class="hero-subtitle" data-i18n="hero_sub">
-      Excursions premium, circuits inoubliables et aventures authentiques au cœur du Royaume Chérifien
-    </p>
-    <div class="hero-btns">
-      <a href="#excursions" class="btn-primary"><i class="fas fa-compass"></i> <span data-i18n="hero_btn1">Explorer nos Excursions</span></a>
-      <a href="contact.html" class="btn-outline"><i class="fas fa-headset"></i> <span data-i18n="hero_btn2">Nous Contacter</span></a>
+    <!-- Content -->
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-star"></i> <span data-i18n="hero_badge">#1 Agence d'Excursions au Maroc</span></span>
+      <h1 class="hero-title" data-i18n="hero_title">
+        Découvrez la Magie<br>du <span>Maroc</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero_sub">
+        Excursions premium, circuits inoubliables et aventures authentiques au cœur du Royaume Chérifien
+      </p>
+      <div class="hero-btns">
+        <a href="#excursions" class="btn-primary"><i class="fas fa-compass"></i> <span data-i18n="hero_btn1">Explorer nos Excursions</span></a>
+        <a href="contact.html" class="btn-outline"><i class="fas fa-headset"></i> <span data-i18n="hero_btn2">Nous Contacter</span></a>
+      </div>
     </div>
-  </div>
 
-  <!-- Arrows -->
-  <button class="hero-arrow prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
-  <button class="hero-arrow next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
+    <!-- Mute indicator badge -->
+    <div class="hero-mute-badge" title="Vidéo sans son">
+      <i class="fas fa-volume-mute"></i>
+    </div>
 
-  <!-- Dots -->
-  <div class="hero-dots">
-    <button class="hero-dot active" aria-label="Slide 1"></button>
-    <button class="hero-dot" aria-label="Slide 2"></button>
-    <button class="hero-dot" aria-label="Slide 3"></button>
-    <button class="hero-dot" aria-label="Slide 4"></button>
-    <button class="hero-dot" aria-label="Slide 5"></button>
-  </div>
-
-  <!-- Mobile search toggle -->
+      <!-- Mobile search toggle -->
   <button class="search-mobile-toggle" type="button" aria-expanded="false" aria-controls="hero-search-box">
     <i class="fas fa-search"></i> Rechercher une excursion
   </button>
@@ -299,7 +285,8 @@
     </div>
   </div>
 
-</section>
+
+    </section>
 
 <!-- ===================== FEATURES STRIP ===================== -->
 <div class="features-strip">
