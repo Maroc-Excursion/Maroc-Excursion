@@ -70,8 +70,40 @@
     <div class="nav-item active"><a href="contact.html">Contact</a></div>
   </nav>
   <div class="nav-cta"><a href="https://wa.me/212661223962" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-  <button class="hamburger"><span></span><span></span><span></span></button>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></div></header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" aria-label="Navigation mobile">
+  <button class="mobile-nav-close" aria-label="Fermer">
+    <i class="fas fa-times"></i>
+  </button>
+  <a href="index.html">Accueil</a>
+  <a href="excursions.html">Excursions</a>
+  <div class="mobile-sub">
+    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
+    <a href="excursions.html#agadir">→ Depuis Agadir</a>
+    <a href="excursions.html#desert">→ Désert du Sahara</a>
+    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
+  </div>
+  <a href="circuits.html">Circuits</a>
+  <div class="mobile-sub">
+    <a href="circuits.html#imperial">→ Villes Impériales</a>
+    <a href="circuits.html#sud">→ Circuit Sud Maroc</a>
+    <a href="circuits.html#sahara">→ Circuit Sahara</a>
+  </div>
+  <a href="transferts.html">Transferts</a>
+  <a href="desert-agafay.html">Désert Agafay</a>
+  <a href="about.html">Qui sommes-nous ?</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-cta">
+    <a href="https://wa.me/212661223962" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
+    </a>
+  </div>
+</nav>
+
+
 
 <section class="page-hero" style="--after-bg:var(--cream)">
   <div class="container">
@@ -173,7 +205,7 @@
     <div><div class="footer-heading">Circuits</div><ul class="footer-links"><li><a href="circuits.html#imperial"><i class="fas fa-chevron-right"></i> Villes Impériales</a></li><li><a href="circuits.html#sahara"><i class="fas fa-chevron-right"></i> Circuit Sahara</a></li></ul></div>
     <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212524370878">+212 524 370 878</a></div></div></div>
   </div>
-  <div class="footer-bottom"><p>© 2025 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
+  <div class="footer-bottom"><p>© 2026 <a href="index.html">Maroc Excursion</a>. Tous droits réservés.</p></div>
 </div></footer>
 <a href="https://wa.me/212661223962" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <button class="back-to-top"><i class="fas fa-chevron-up"></i></button>
@@ -183,8 +215,15 @@ function handleContactForm(e) {
   const name = document.getElementById('fname').value + ' ' + document.getElementById('lname').value;
   const msg = document.getElementById('message').value;
   const service = document.getElementById('service').value;
-  const waText = encodeURIComponent(`Bonjour Maroc Excursion,\n\nJe m'appelle ${name}.\nService: ${service}\n${msg}`);
-  alert('Merci ! Nous avons bien reçu votre message. Notre équipe vous contactera sous 2 heures. Vous pouvez aussi nous joindre directement sur WhatsApp pour une réponse immédiate.');
+  const phone = document.getElementById('phone').value;
+  const waText = encodeURIComponent('Bonjour Maroc Excursion,
+
+Je m'appelle ' + name + '.
+Service: ' + service + (phone ? '
+Tél: ' + phone : '') + '
+
+' + msg);
+  window.open('https://wa.me/212661223962?text=' + waText, '_blank');
 }
 document.getElementById('travel-date2') && (document.getElementById('travel-date2').valueAsDate = new Date());
 </script>
