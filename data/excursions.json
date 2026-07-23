@@ -3,17 +3,22 @@
     "id": "essaouira",
     "cityId": "marrakech",
     "title": "Excursion d'une journée à Essaouira depuis Marrakech",
-    "image": "https://images.unsplash.com/photo-1505832018823-50331d70d237?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/essaouira-picnic-plage.jpg",
     "price": 28,
     "oldPrice": 43,
     "duration": "Journée entière",
     "category": "marrakech",
-    "tags": ["Populaire"],
+    "tags": [
+      "Populaire"
+    ],
     "badge": "-35%",
     "freeCancel": true,
     "rating": 5,
     "reviews": 247,
-    "meta": ["fas fa-clock|Journée entière", "fas fa-car|Transport inclus"],
+    "meta": [
+      "fas fa-clock|Journée entière",
+      "fas fa-car|Transport inclus"
+    ],
     "active": true,
     "order": 1
   },
@@ -21,7 +26,7 @@
     "id": "chameau-palmeraie",
     "cityId": "marrakech",
     "title": "Balade à Dos de Chameau dans la Palmeraie de Marrakech",
-    "image": "https://images.unsplash.com/photo-1509266272358-7701da638078?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/palmeraie-chameau.jpg",
     "price": 19,
     "oldPrice": 24,
     "duration": "2–3 heures",
@@ -31,7 +36,10 @@
     "freeCancel": true,
     "rating": 5,
     "reviews": 389,
-    "meta": ["fas fa-clock|2–3 heures", "fas fa-star|Premium"],
+    "meta": [
+      "fas fa-clock|2–3 heures",
+      "fas fa-star|Premium"
+    ],
     "active": true,
     "order": 2
   },
@@ -39,17 +47,22 @@
     "id": "ourika",
     "cityId": "marrakech",
     "title": "Atlas Mountains & Vallée de l'Ourika avec Village Berbère",
-    "image": "https://images.unsplash.com/photo-1578469645742-46cae010e5d4?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/ourika-randonnee.jpg",
     "price": 32,
     "oldPrice": 39,
     "duration": "Journée entière",
     "category": "marrakech montagne",
-    "tags": ["Top"],
+    "tags": [
+      "Top"
+    ],
     "badge": "-18%",
     "freeCancel": true,
     "rating": 5,
     "reviews": 312,
-    "meta": ["fas fa-clock|Journée entière", "fas fa-mountain|Montagne"],
+    "meta": [
+      "fas fa-clock|Journée entière",
+      "fas fa-mountain|Montagne"
+    ],
     "active": true,
     "order": 3
   },
@@ -57,7 +70,7 @@
     "id": "ouzoud",
     "cityId": "marrakech",
     "title": "Excursion aux Cascades d'Ouzoud avec Baignade",
-    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/ouzoud-cascades.jpg",
     "price": 25,
     "oldPrice": 33,
     "duration": "Journée entière",
@@ -67,7 +80,10 @@
     "freeCancel": true,
     "rating": 4,
     "reviews": 198,
-    "meta": ["fas fa-clock|Journée entière", "fas fa-water|Baignade"],
+    "meta": [
+      "fas fa-clock|Journée entière",
+      "fas fa-water|Baignade"
+    ],
     "active": true,
     "order": 4
   },
@@ -75,17 +91,22 @@
     "id": "agafay",
     "cityId": "marrakech",
     "title": "Désert Agafay Coucher de Soleil & Dîner Berbère",
-    "image": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/agafay-coucher-soleil.jpg",
     "price": 38,
     "oldPrice": 54,
     "duration": "Demi-journée",
     "category": "marrakech desert",
-    "tags": ["Nouveau"],
+    "tags": [
+      "Nouveau"
+    ],
     "badge": "-30%",
     "freeCancel": true,
     "rating": 5,
     "reviews": 421,
-    "meta": ["fas fa-clock|Demi-journée", "fas fa-sun|Coucher de soleil"],
+    "meta": [
+      "fas fa-clock|Demi-journée",
+      "fas fa-sun|Coucher de soleil"
+    ],
     "active": true,
     "order": 5
   },
@@ -93,17 +114,22 @@
     "id": "merzouga",
     "cityId": "marrakech",
     "title": "Circuit Désert Merzouga 3 Jours – Dunes & Nuit Sous les Étoiles",
-    "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/merzouga-camp-coucher.jpg",
     "price": 159,
     "oldPrice": null,
     "duration": "3 jours",
     "category": "marrakech desert",
-    "tags": ["Best-seller"],
+    "tags": [
+      "Best-seller"
+    ],
     "badge": null,
     "freeCancel": true,
     "rating": 5,
     "reviews": 504,
-    "meta": ["fas fa-clock|3 jours", "fas fa-horse|Chameau inclus"],
+    "meta": [
+      "fas fa-clock|3 jours",
+      "fas fa-horse|Chameau inclus"
+    ],
     "active": true,
     "order": 6
   },
@@ -111,7 +137,7 @@
     "id": "zagora",
     "cityId": "marrakech",
     "title": "Zagora & Désert 2 Jours depuis Marrakech",
-    "image": "https://images.unsplash.com/photo-1510915228340-7bc6ad0ea224?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/zagora-route-palmiers.jpg",
     "price": 99,
     "oldPrice": null,
     "duration": "2 jours",
@@ -121,7 +147,10 @@
     "freeCancel": true,
     "rating": 4,
     "reviews": 287,
-    "meta": ["fas fa-clock|2 jours", "fas fa-sun|Désert Zagora"],
+    "meta": [
+      "fas fa-clock|2 jours",
+      "fas fa-sun|Désert Zagora"
+    ],
     "active": true,
     "order": 7
   },
@@ -129,7 +158,7 @@
     "id": "quad-agafay",
     "cityId": "marrakech",
     "title": "Quad & Chameau dans le Désert Agafay – Aventure Garantie",
-    "image": "https://images.unsplash.com/photo-1519671482749-73f68cd0ab6b?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/agafay-quad-caravane.jpg",
     "price": 45,
     "oldPrice": 53,
     "duration": "Demi-journée",
@@ -139,7 +168,10 @@
     "freeCancel": true,
     "rating": 5,
     "reviews": 334,
-    "meta": ["fas fa-clock|Demi-journée", "fas fa-truck-monster|Quad inclus"],
+    "meta": [
+      "fas fa-clock|Demi-journée",
+      "fas fa-truck-monster|Quad inclus"
+    ],
     "active": true,
     "order": 8
   },
@@ -147,7 +179,7 @@
     "id": "toubkal",
     "cityId": "marrakech",
     "title": "Trekking dans les Montagnes du Haut Atlas depuis Marrakech",
-    "image": "https://images.unsplash.com/photo-1502786129293-79981df4e639?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/toubkal-sommet.jpg",
     "price": 35,
     "oldPrice": 44,
     "duration": "Journée entière",
@@ -157,7 +189,10 @@
     "freeCancel": true,
     "rating": 5,
     "reviews": 276,
-    "meta": ["fas fa-clock|Journée entière", "fas fa-mountain|2000m+"],
+    "meta": [
+      "fas fa-clock|Journée entière",
+      "fas fa-mountain|2000m+"
+    ],
     "active": true,
     "order": 9
   },
@@ -165,7 +200,7 @@
     "id": "imlil",
     "cityId": "marrakech",
     "title": "Imlil & Ascension Partielle du Toubkal – Paysages Époustouflants",
-    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80&auto=format&fit=crop",
+    "image": "assets/images/imlil-village.jpg",
     "price": 49,
     "oldPrice": null,
     "duration": "Journée",
@@ -175,7 +210,10 @@
     "freeCancel": true,
     "rating": 5,
     "reviews": 201,
-    "meta": ["fas fa-clock|Journée", "fas fa-snowflake|Imlil 1740m"],
+    "meta": [
+      "fas fa-clock|Journée",
+      "fas fa-snowflake|Imlil 1740m"
+    ],
     "active": true,
     "order": 10
   }

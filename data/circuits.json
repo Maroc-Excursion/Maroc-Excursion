@@ -3,7 +3,7 @@
     "id": "villes-imperiales",
     "title": "Circuit Villes Impériales",
     "subtitle": "Les Quatre Royales : Casablanca, Rabat, Fès & Marrakech",
-    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=1200&q=85&auto=format&fit=crop",
+    "image": "assets/images/casablanca-hassan2.jpg",
     "duration": "7 Jours / 6 Nuits",
     "price": 249,
     "tags": [
@@ -66,7 +66,7 @@
     "id": "desert-sahara",
     "title": "Circuit Désert du Sahara",
     "subtitle": "Marrakech → Gorges du Dadès → Merzouga → Marrakech",
-    "image": "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=85&auto=format&fit=crop",
+    "image": "assets/images/desert-nuit-etoiles.jpg",
     "duration": "3 Jours / 2 Nuits",
     "price": 159,
     "tags": [
@@ -109,7 +109,7 @@
     "id": "sud-maroc",
     "title": "Circuit Sud Maroc",
     "subtitle": "Marrakech → Ouarzazate → Drâa → Zagora → Marrakech",
-    "image": "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=1200&q=85&auto=format&fit=crop",
+    "image": "assets/images/dades-gorges.jpg",
     "duration": "5 Jours / 4 Nuits",
     "price": 199,
     "tags": [
