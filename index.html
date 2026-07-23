@@ -1,735 +1,763 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ochre Morocco – Découvrez les meilleures excursions, circuits et activités depuis Marrakech, la ville rose du Maroc." />
-  <meta name="keywords" content="excursions maroc, circuits maroc, marrakech excursion, sahara desert, atlas mountains, tourisme maroc" />
-  <meta property="og:title" content="Ochre Morocco – Discover the Magic of Morocco" />
-  <meta property="og:description" content="Excursions premium depuis Marrakech – désert Agafay, Atlas, Essaouira, Sahara et plus encore." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.ochremorocco.com/" />
-  <meta property="og:image" content="assets/images/marrakech-koutoubia-coucher.jpg" />
-  <title>Ochre Morocco – Discover the Magic of Morocco</title>
-  <link rel="preload" as="image" href="assets/images/marrakech-koutoubia-coucher.jpg" />
-
-  <!-- Fonts -->
+  <meta name="description" content="Ochre Morocco – Best price excursions from Marrakech. Airport transfer, Agafay desert, hot air balloon, quad, camel ride, day trips and desert tours." />
+  <title>Ochre Morocco – Marrakech Excursions Best Prices</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c8922b;
+      --green: #1e6b3c;
+      --dark: #1a1a1a;
+      --light: #f7f3ee;
+      --white: #ffffff;
+      --muted: #666;
+      --red: #e53935;
+    }
+    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); }
+    a { text-decoration: none; color: inherit; }
 
-<style>
-#excursions .section-heading,
-#excursions .excursions-grid .tour-card,
-.features-strip .feature-card { opacity: 1 !important; transform: none !important; }
-</style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- build: 2026-07-23T23:24:11.923Z -->
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--dark);
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: .82rem;
+    }
+    .topbar a { color: #fff; margin-right: 16px; }
+    .topbar a i { margin-right: 4px; }
+    .topbar .fab.fa-whatsapp { color: #25d366; }
+
+    /* ── HEADER ── */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; }
+    .logo-text span { color: var(--gold); }
+    nav { display: flex; gap: 24px; align-items: center; font-size: .9rem; font-weight: 500; }
+    nav a { color: var(--dark); transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .btn-wa-header {
+      background: #25d366;
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: background .2s;
+    }
+    .btn-wa-header:hover { background: #1ebe5d; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+    }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.45) 0%, rgba(0,0,0,.65) 100%);
+    }
+    .hero-content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; color: #fff; padding: 0 20px;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(6px);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.15; margin-bottom: 10px; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: 1rem; opacity: .9; max-width: 500px; margin-bottom: 22px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      padding: 12px 24px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s;
+    }
+    .btn-gold:hover { background: #b07d20; }
+    .btn-wa {
+      background: #25d366; color: #fff;
+      padding: 12px 24px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s;
+    }
+    .btn-wa:hover { background: #1ebe5d; }
+
+    /* ── SECTION ── */
+    .section { padding: 52px 24px; max-width: 1200px; margin: 0 auto; }
+    .section-kicker {
+      font-size: .75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 6px; text-align: center;
+    }
+    .section-title {
+      font-size: 1.9rem; font-weight: 800; text-align: center;
+      margin-bottom: 6px; color: var(--dark);
+    }
+    .section-sub {
+      text-align: center; color: var(--muted);
+      font-size: .9rem; margin-bottom: 36px;
+    }
+    .divider {
+      width: 48px; height: 3px; background: var(--gold);
+      margin: 12px auto 32px; border-radius: 2px;
+    }
+
+    /* ── CATEGORY LABEL ── */
+    .cat-label {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--dark); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .cat-label i { color: var(--gold); }
+
+    /* ── GRID ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
+    .card-img {
+      position: relative; height: 180px; overflow: hidden;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .card:hover .card-img img { transform: scale(1.05); }
+    .badge-discount {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--red); color: #fff;
+      padding: 3px 9px; border-radius: 50px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .badge-tag {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--green); color: #fff;
+      padding: 3px 9px; border-radius: 50px;
+      font-size: .72rem; font-weight: 700;
+    }
+    .card-price-overlay {
+      position: absolute; bottom: 10px; left: 10px;
+      display: flex; align-items: baseline; gap: 6px;
+    }
+    .price-new {
+      background: rgba(0,0,0,.75); color: #fff;
+      padding: 4px 10px; border-radius: 8px;
+      font-size: .95rem; font-weight: 800;
+    }
+    .price-old {
+      background: rgba(0,0,0,.5); color: rgba(255,255,255,.7);
+      padding: 3px 8px; border-radius: 6px;
+      font-size: .78rem; text-decoration: line-through;
+    }
+    .card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .card-title { font-size: .95rem; font-weight: 700; color: var(--dark); line-height: 1.3; }
+    .card-features { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .card-features li {
+      font-size: .78rem; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .card-features li i { color: var(--green); font-size: .7rem; }
+    .card-footer-btn {
+      margin-top: auto; padding: 10px 16px 14px;
+    }
+    .btn-book {
+      width: 100%; background: #25d366; color: #fff;
+      padding: 10px; border-radius: 8px;
+      font-weight: 700; font-size: .85rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      border: none; cursor: pointer; transition: background .2s;
+    }
+    .btn-book:hover { background: #1ebe5d; }
+
+    /* ── GRAND BUGGY special card ── */
+    .card-price-options {
+      display: flex; gap: 10px; flex-wrap: wrap; margin: 4px 0;
+    }
+    .price-option {
+      background: var(--light);
+      border-radius: 8px; padding: 6px 12px;
+      font-size: .82rem; font-weight: 600;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .price-option .opt-label { font-size: .7rem; color: var(--muted); font-weight: 400; }
+    .price-option .opt-val { color: var(--dark); }
+    .price-option .opt-old { font-size: .68rem; color: var(--red); text-decoration: line-through; }
+
+    /* ── BOOKING CTA ── */
+    .booking-cta {
+      background: linear-gradient(135deg, #1e6b3c 0%, #25853d 100%);
+      color: #fff; text-align: center;
+      padding: 52px 24px;
+    }
+    .booking-cta h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+    .booking-cta p { font-size: 1rem; opacity: .9; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .booking-info {
+      background: rgba(255,255,255,.12);
+      border-radius: 12px; padding: 20px 24px;
+      max-width: 380px; margin: 0 auto 28px;
+      text-align: left;
+    }
+    .booking-info p { font-weight: 700; font-size: .9rem; margin-bottom: 10px; opacity: 1; }
+    .booking-info ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .booking-info ul li { font-size: .85rem; display: flex; align-items: center; gap: 8px; }
+    .booking-info ul li i { color: #25d366; }
+    .btn-wa-big {
+      background: #25d366; color: #fff;
+      padding: 16px 36px; border-radius: 50px;
+      font-weight: 800; font-size: 1.1rem;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background .2s; box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-wa-big:hover { background: #1ebe5d; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.7);
+      text-align: center; padding: 28px 24px;
+      font-size: .85rem;
+    }
+    footer a { color: var(--gold); }
+    .footer-social { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.1); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s; font-size: .9rem;
+    }
+    .footer-social a:hover { background: var(--gold); }
+
+    /* ── FLOAT WA ── */
+    .float-wa {
+      position: fixed; bottom: 22px; right: 22px;
+      background: #25d366; color: #fff;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; box-shadow: 0 4px 16px rgba(37,211,102,.45);
+      z-index: 999; transition: transform .2s;
+    }
+    .float-wa:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 1.6rem; }
+      .section-title { font-size: 1.5rem; }
+      .services-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+      .card-img { height: 140px; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===================== TOP BAR ===================== -->
+<!-- TOPBAR -->
 <div class="topbar">
-  <div class="container">
-    <div class="inner">
-      <div class="contact-info">
-        <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
-        <a href="tel:+212694170004" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 694 170 004</a>
-        <a href="mailto:contact@ochre-morocco.com" class="hide-sm"><i class="fas fa-envelope"></i> contact@ochre-morocco.com</a>
-      </div>
-      <div class="right-side">
-        <div class="social-links">
-          <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@ochremorocco" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.youtube.com/@OchreMorocco" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        </div>
-        <!-- Currency Switcher -->
-        <select class="currency-select" aria-label="Devise">
-          <option value="EUR">€ EUR</option>
-          <option value="USD">$ USD</option>
-          <option value="GBP">£ GBP</option>
-          <option value="MAD">MAD</option>
-        </select>
-        <!-- Language Switcher -->
-        <div class="lang-switcher-wrap">
-          <button class="lang-switcher-btn">
-            <i class="fas fa-globe"></i>
-            <span id="activeLangLabel">FR</span>
-            <i class="fas fa-chevron-down" style="font-size:.6rem"></i>
-          </button>
-          <div class="lang-dropdown">
-            <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
-            <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
-            <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
-          <button class="lang-option" data-lang="ar"><span class="lang-flag">🇲🇦</span> العربية</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
+    <a href="https://wa.me/212694170004" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:contact@ochre-morocco.com" class="hide-sm"><i class="fas fa-envelope"></i> contact@ochre-morocco.com</a>
   </div>
 </div>
 
-<!-- ===================== HEADER ===================== -->
-<header class="site-header" id="header">
-  <div class="container">
-    <div class="nav-inner">
-      <!-- Logo -->
-      <a href="index.html" class="site-logo" aria-label="Ochre Morocco Accueil">
-        <img src="assets/images/logo.png" alt="Ochre Morocco Logo" />
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="main-nav" aria-label="Navigation principale">
-        <div class="nav-item active">
-          <a href="index.html" data-i18n="nav_home">Accueil</a>
-        </div>
-
-        <div class="nav-item">
-          <a href="excursions.html" data-i18n="nav_exc">Excursions <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown">
-            <a href="excursions.html#marrakech"><i class="fas fa-map-marker-alt"></i> Depuis Marrakech</a>
-            <a href="excursions.html#desert"><i class="fas fa-sun"></i> Désert du Sahara</a>
-            <a href="excursions.html#montagne"><i class="fas fa-mountain"></i> Atlas &amp; Montagne</a>
-            <a href="desert-agafay.html"><i class="fas fa-campground"></i> Désert Agafay</a>
-          </div>
-        </div>
-
-        <div class="nav-item">
-          <a href="circuits.html" data-i18n="nav_circ">Circuits <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown">
-            <a href="circuits.html#sud"><i class="fas fa-compass"></i> Circuit Sud Maroc</a>
-            <a href="circuits.html#sahara"><i class="fas fa-sun"></i> Circuit Sahara</a>
-          </div>
-        </div>
-
-        <div class="nav-item">
-          <a href="transferts.html" data-i18n="nav_trans">Transferts <i class="fas fa-chevron-down"></i></a>
-          <div class="dropdown">
-            <a href="transferts.html#aeroport"><i class="fas fa-plane-arrival"></i> Transfert Aéroport</a>
-            <a href="transferts.html#hotel"><i class="fas fa-hotel"></i> Transfert Hôtel</a>
-            <a href="transferts.html#prive"><i class="fas fa-car"></i> Transfert Privé</a>
-          </div>
-        </div>
-
-
-
-
-        <div class="nav-item">
-          <a href="contact.html" data-i18n="nav_contact">Contact</a>
-        </div>
-      </nav>
-
-      <!-- CTA -->
-      <div class="nav-cta">
-        <a href="https://wa.me/212694170004" class="btn-whatsapp" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> <span data-i18n="wa_btn">WhatsApp</span>
-        </a>
-      </div>
-
-      <!-- Hamburger -->
-      <button class="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Ochre Morocco" />
+    <span class="logo-text">Ochre <span>Morocco</span></span>
   </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="transferts.html">Transfers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="https://wa.me/212694170004" class="btn-wa-header" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+  </a>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="Navigation mobile">
-  <button class="mobile-nav-close" aria-label="Fermer">
-    <i class="fas fa-times"></i>
-  </button>
-  <a href="index.html" data-i18n="nav_home">Accueil</a>
-  <a href="excursions.html" data-i18n="nav_exc">Excursions</a>
-  <div class="mobile-sub">
-    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
-    <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
-  </div>
-  
-  <a href="transferts.html" data-i18n="nav_trans">Transferts</a>
-  
-  
-  
-  <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <div class="mobile-cta">
-    <a href="https://wa.me/212694170004" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
-      <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
-    </a>
-  </div>
-</nav>
-
-<!-- ===================== HERO ===================== -->
-<section class="hero" aria-label="Hero section">
-
-    <!-- Slider -->
-    <div class="hero-slider">
-      <div class="hero-slide active">
-        <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="Médina de Marrakech" loading="eager" fetchpriority="high" decoding="sync" />
-      </div>
-      <div class="hero-slide">
-        <img src="assets/images/sahara-caravane-coucher.jpg" decoding="async" alt="Dunes du Sahara" loading="lazy" />
-      </div>
-      <div class="hero-slide">
-        <img src="assets/images/ourika-randonnee.jpg" decoding="async" alt="Atlas Mountains Morocco" loading="lazy" />
-      </div>
-      <div class="hero-slide">
-        <img src="assets/images/essaouira-remparts-vagues.jpg" decoding="async" alt="Essaouira Maroc" loading="lazy" />
-      </div>
-    </div>
-
-    <div class="hero-overlay"></div>
-
-    <!-- Content -->
-    <div class="hero-content">
-      <span class="hero-badge"><i class="fas fa-star"></i> <span data-i18n="hero_badge">#1 Agence d'Excursions au Maroc</span></span>
-      <h1 class="hero-title" data-i18n="hero_title">
-        Découvrez la Magie<br>du <span>Maroc</span>
-      </h1>
-      <p class="hero-subtitle" data-i18n="hero_sub">
-        Excursions premium, circuits inoubliables et aventures authentiques au cœur du Royaume Chérifien
-      </p>
-      <div class="hero-btns">
-        <a href="#excursions" class="btn-primary"><i class="fas fa-compass"></i> <span data-i18n="hero_btn1">Explorer nos Excursions</span></a>
-        <a href="contact.html" class="btn-outline"><i class="fas fa-headset"></i> <span data-i18n="hero_btn2">Nous Contacter</span></a>
-      </div>
-    </div>
-
-    <!-- Arrows -->
-    <button class="hero-arrow prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
-    <button class="hero-arrow next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
-
-    <!-- Dots -->
-    <div class="hero-dots">
-      <button class="hero-dot active" aria-label="Slide 1"></button>
-      <button class="hero-dot" aria-label="Slide 2"></button>
-      <button class="hero-dot" aria-label="Slide 3"></button>
-      <button class="hero-dot" aria-label="Slide 4"></button>
-      <button class="hero-dot" aria-label="Slide 5"></button>
-    </div>
-
-      <!-- Mobile search toggle -->
-  <button class="search-mobile-toggle" type="button" aria-expanded="false" aria-controls="hero-search-box">
-    <i class="fas fa-search"></i> Rechercher une excursion
-  </button>
-
-  <!-- Search Box -->
-  <div class="search-box" id="hero-search-box">
-    <div class="search-inner">
-      <div class="search-tabs">
-        <button class="search-tab active" data-tab="excursions">
-          <i class="fas fa-binoculars"></i> <span data-i18n="search_tab1">Excursions</span>
-        </button>
-        <button class="search-tab" data-tab="circuits">
-          <i class="fas fa-route"></i> <span data-i18n="search_tab2">Circuits</span>
-        </button>
-        <button class="search-tab" data-tab="transferts">
-          <i class="fas fa-car"></i> <span data-i18n="search_tab3">Transferts</span>
-        </button>
-      </div>
-      <div class="search-form">
-        <div class="search-group">
-          <label for="destination">Destination / Excursion</label>
-          <select class="search-destination" id="dest-select" aria-label="Destination"><option value="">Sélectionnez une excursion</option></select>
-        </div>
-        <div class="search-group">
-          <label for="travel-date">Date de voyage</label>
-          <input type="date" id="travel-date" />
-        </div>
-        <div class="search-group">
-          <label for="adults">Adultes</label>
-          <select id="adults">
-            <option>1 Adulte</option>
-            <option selected>2 Adultes</option>
-            <option>3 Adultes</option>
-            <option>4 Adultes</option>
-            <option>5+ Adultes</option>
-          </select>
-        </div>
-        <div class="search-group">
-          <label for="children">Enfants</label>
-          <select id="children">
-            <option selected>0 Enfant</option>
-            <option>1 Enfant (-9)</option>
-            <option>2 Enfants</option>
-            <option>3 Enfants</option>
-          </select>
-        </div>
-        <button class="btn-search" onclick="handleSearch()">
-          <i class="fas fa-search"></i> Rechercher
-        </button>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="Marrakech" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge"><i class="fas fa-star"></i> Marrakech Excursions – Best Prices</span>
+    <h1>Discover Morocco<br>with <span>Ochre Morocco</span></h1>
+    <p>Adventures & excursions from Marrakech at the best prices. Book via WhatsApp in seconds.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold"><i class="fas fa-search"></i> View All Services</a>
+      <a href="https://wa.me/212694170004" class="btn-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Book Now</a>
     </div>
   </div>
+</section>
 
+<!-- SERVICES -->
+<div id="services">
+  <div class="section">
 
-    
-    </section>
+    <!-- ── CATEGORY 1: ACTIVITIES ── -->
+    <span class="section-kicker">Our Services</span>
+    <h2 class="section-title">All Our Activities & Excursions</h2>
+    <p class="section-sub">Departure from Marrakech – Fast & comfortable service</p>
+    <div class="divider"></div>
 
-<!-- ===================== FEATURES STRIP ===================== -->
-<div class="features-strip">
-  <div class="container">
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon"><i class="fas fa-tag"></i></div>
-        <h4>Prix les Plus Compétitifs</h4>
+    <div class="cat-label"><i class="fas fa-bolt"></i> Activities & Adventures</div>
+    <div class="services-grid">
+
+      <!-- Airport Transfer -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/vehicule-berline-aeroport.jpg" alt="Airport Transfer" loading="lazy" />
+          <span class="badge-discount">-50%</span>
+          <span class="badge-tag">Best Price</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€5</span>
+            <span class="price-old">€10</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Airport Transfer – Hotel ↔ Airport</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Hotel ↔ Airport</li>
+            <li><i class="fas fa-check-circle"></i> Fast & comfortable service</li>
+            <li><i class="fas fa-check-circle"></i> Private vehicle</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Airport Transfer" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €5
+          </a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><i class="fas fa-ban"></i></div>
-        <h4>Annulation Gratuite</h4>
+
+      <!-- Agafay Desert Pack -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/agafay-quad-caravane.jpg" alt="Agafay Desert Pack" loading="lazy" />
+          <span class="badge-discount">-49%</span>
+          <span class="badge-tag">Popular</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€25</span>
+            <span class="price-old">€49</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Agafay Desert Pack</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Quad</li>
+            <li><i class="fas fa-check-circle"></i> Camel Ride</li>
+            <li><i class="fas fa-check-circle"></i> Dinner Show</li>
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Agafay Desert Pack" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €25
+          </a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><i class="fab fa-tripadvisor"></i></div>
-        <h4>Recommandé Tripadvisor</h4>
+
+      <!-- Hot Air Balloon -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/desert-nuit-etoiles.jpg" alt="Hot Air Balloon" loading="lazy" />
+          <span class="badge-discount">-19%</span>
+          <span class="badge-tag">Wow Experience</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€89</span>
+            <span class="price-old">€110</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Hot Air Balloon</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+            <li><i class="fas fa-check-circle"></i> Moroccan breakfast included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Hot Air Balloon" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €89
+          </a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-        <h4>Paiement 100% Sécurisé</h4>
+
+      <!-- Paragliding -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/toubkal-sommet.jpg" alt="Paragliding" loading="lazy" />
+          <div class="card-price-overlay">
+            <span class="price-new">€80</span>
+          </div>
+          <span class="badge-tag">Adventure</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Paragliding</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Stunning Atlas view</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Paragliding" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €80
+          </a>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><i class="fas fa-headset"></i></div>
-        <h4>Assistance 24h/7j</h4>
+
+      <!-- Petit Buggy -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/agafay-buggy.jpg" alt="Petit Buggy" loading="lazy" />
+          <div class="card-price-overlay">
+            <span class="price-new">€50</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Petit Buggy – Palmeraie (2H)</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> 2 hours</li>
+            <li><i class="fas fa-check-circle"></i> Buggy Tour</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Petit Buggy Palmeraie" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €50
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
+
+      <!-- Grand Buggy -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/agafay-buggy.jpg" alt="Grand Buggy" loading="lazy" />
+          <span class="badge-discount">-20%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">from €60</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Grand Buggy – Palmeraie</div>
+          <div class="card-price-options">
+            <div class="price-option">
+              <span class="opt-label">1 Hour</span>
+              <span class="opt-val">€60</span>
+              <span class="opt-old">€75</span>
+            </div>
+            <div class="price-option">
+              <span class="opt-label">2 Hours</span>
+              <span class="opt-val">€90</span>
+              <span class="opt-old">€110</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Grand Buggy Palmeraie" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book
+          </a>
+        </div>
+      </div>
+
+      <!-- Quad -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/agafay-quad-caravane.jpg" alt="Quad Palmeraie" loading="lazy" />
+          <span class="badge-discount">-20%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€20</span>
+            <span class="price-old">€25</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Quad – Palmeraie</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> 1–2 hours</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Quad Palmeraie" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €20
+          </a>
+        </div>
+      </div>
+
+      <!-- Camel Ride -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/palmeraie-chameau.jpg" alt="Camel Ride" loading="lazy" />
+          <div class="card-price-overlay">
+            <span class="price-new">€15</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Camel Ride – Palmeraie</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> 1–2 hours</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Camel Ride Palmeraie" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €15
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /activities grid -->
+
+    <!-- ── CATEGORY 2: DAY EXCURSIONS ── -->
+    <div class="cat-label"><i class="fas fa-sun"></i> Day Excursions</div>
+    <div class="services-grid">
+
+      <!-- Essaouira -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/essaouira-picnic-plage.jpg" alt="Essaouira" loading="lazy" />
+          <span class="badge-discount">-32%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€15</span>
+            <span class="price-old">€22</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Essaouira – Full Day</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Essaouira excursion" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €15
+          </a>
+        </div>
+      </div>
+
+      <!-- Ouzoud -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/ouzoud-cascades.jpg" alt="Ouzoud Waterfalls" loading="lazy" />
+          <span class="badge-discount">-32%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€15</span>
+            <span class="price-old">€22</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Ouzoud Waterfalls – Full Day</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Ouzoud Waterfalls" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €15
+          </a>
+        </div>
+      </div>
+
+      <!-- Ourika -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/ourika-randonnee.jpg" alt="Ourika Valley" loading="lazy" />
+          <span class="badge-discount">-32%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€15</span>
+            <span class="price-old">€22</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Ourika Valley – With Guide</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Guide included</li>
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Ourika Valley" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €15
+          </a>
+        </div>
+      </div>
+
+      <!-- Ait Ben Haddou -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/dades-gorges.jpg" alt="Ait Ben Haddou" loading="lazy" />
+          <span class="badge-discount">-32%</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€25</span>
+            <span class="price-old">€37</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Aït Ben Haddou & Ouarzazate – Full Day</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> UNESCO site</li>
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Ait Ben Haddou and Ouarzazate" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €25
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /day excursions grid -->
+
+    <!-- ── CATEGORY 3: DESERT TOURS ── -->
+    <div class="cat-label"><i class="fas fa-campground"></i> Desert Tours</div>
+    <div class="services-grid">
+
+      <!-- Zagora -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/zagora-route-palmiers.jpg" alt="Zagora Desert" loading="lazy" />
+          <span class="badge-discount">-39%</span>
+          <span class="badge-tag">Best Seller</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€55</span>
+            <span class="price-old">€90</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Zagora Desert – 2 Days / 1 Night</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Camel ride included</li>
+            <li><i class="fas fa-check-circle"></i> Hotel / camp included</li>
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Zagora Desert 2 days" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €55
+          </a>
+        </div>
+      </div>
+
+      <!-- Merzouga -->
+      <div class="card">
+        <div class="card-img">
+          <img src="assets/images/merzouga-camp-coucher.jpg" alt="Merzouga Desert" loading="lazy" />
+          <span class="badge-discount">-42%</span>
+          <span class="badge-tag">Top</span>
+          <div class="card-price-overlay">
+            <span class="price-new">€70</span>
+            <span class="price-old">€120</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Merzouga Desert – 3 Days / 2 Nights</div>
+          <ul class="card-features">
+            <li><i class="fas fa-check-circle"></i> Camel ride included</li>
+            <li><i class="fas fa-check-circle"></i> Luxury camp included</li>
+            <li><i class="fas fa-check-circle"></i> Transport included</li>
+          </ul>
+        </div>
+        <div class="card-footer-btn">
+          <a href="https://wa.me/212694170004?text=Hello, I want to book: Merzouga Desert 3 days" class="btn-book" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Book – €70
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /desert tours grid -->
+
+  </div><!-- /section -->
 </div>
 
-<!-- ===================== TOP EXCURSIONS ===================== -->
-
-<section class="section-py" style="background:var(--cream)" id="excursions">
-  <div class="container">
-    <div class="section-heading">
-      <div class="section-kicker">Nos Meilleures Offres</div>
-      <h2 class="section-title">Top Excursions au Maroc</h2>
-      <span class="section-divider"></span>
-      <p class="section-subtitle">Vivez des expériences inoubliables avec nos excursions soigneusement sélectionnées depuis les principales villes du Maroc</p>
-    </div>
-    <div class="excursions-grid" id="home-excursions-grid">
-      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">
-        <div style="display:inline-block;width:24px;height:24px;border:3px solid rgba(0,0,0,.1);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite"></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px">
-      <a href="excursions.html" class="btn-outline">Voir toutes nos excursions <i class="fas fa-arrow-right"></i></a>
-    </div>
+<!-- BOOKING CTA -->
+<section class="booking-cta">
+  <h2><i class="fab fa-whatsapp"></i> Book via WhatsApp</h2>
+  <p>Send us a message on WhatsApp with the following information and we'll confirm your booking immediately.</p>
+  <div class="booking-info">
+    <p>📩 Send us:</p>
+    <ul>
+      <li><i class="fas fa-user"></i> Your name</li>
+      <li><i class="fas fa-users"></i> Number of people</li>
+      <li><i class="fas fa-hotel"></i> Hotel name</li>
+      <li><i class="fas fa-calendar-alt"></i> Date of activity</li>
+    </ul>
   </div>
+  <a href="https://wa.me/212694170004" class="btn-wa-big" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> +212 694 170 004
+  </a>
 </section>
 
-<!-- ===================== DESTINATIONS ===================== -->
-<section class="section-py" style="background:var(--white);">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Depuis Marrakech</div>
-      <h2 class="section-title">Nos Destinations Phares</h2>
-      <p class="section-desc">Depuis Marrakech, partez découvrir les plus beaux paysages du Maroc en excursion d'une journée</p>
-      <span class="section-divider"></span>
-    </div>
-
-    <div class="destinations-grid">
-      <div class="dest-card" data-aos="fade-right">
-        <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="Marrakech" loading="lazy" />
-        <div class="dest-overlay">
-          <div class="dest-info">
-            <div class="dest-name">Marrakech</div>
-            <div class="dest-count">24 excursions disponibles</div>
-          </div>
-        </div>
-      </div>
-      <div class="dest-card" data-aos="fade-up" data-delay="100">
-        <img src="assets/images/sahara-caravane-coucher.jpg" decoding="async" alt="Sahara Desert" loading="lazy" />
-        <div class="dest-overlay">
-          <div class="dest-info">
-            <div class="dest-name">Sahara</div>
-            <div class="dest-count">8 circuits</div>
-          </div>
-        </div>
-      </div>
-      <div class="dest-card" data-aos="fade-up" data-delay="100">
-        <img src="assets/images/essaouira-plage-remparts.jpg" alt="Essaouira" loading="lazy" />
-        <div class="dest-overlay">
-          <div class="dest-info">
-            <div class="dest-name">Essaouira</div>
-            <div class="dest-count">5 excursions</div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@ochremorocco" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.youtube.com/@OchreMorocco" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
   </div>
-</section>
-
-<!-- ===================== STATS ===================== -->
-<div class="stats-section">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item" data-aos="fade-up">
-        <span class="stat-number" data-count="12500" data-suffix="+">0</span>
-        <div class="stat-label">Clients Satisfaits</div>
-      </div>
-      <div class="stat-item" data-aos="fade-up" data-delay="100">
-        <span class="stat-number" data-count="150" data-suffix="+">0</span>
-        <div class="stat-label">Excursions &amp; Circuits</div>
-      </div>
-      <div class="stat-item" data-aos="fade-up" data-delay="200">
-        <span class="stat-number" data-count="10" data-suffix=" ans">0</span>
-        <div class="stat-label">D'Expérience</div>
-      </div>
-      <div class="stat-item" data-aos="fade-up" data-delay="300">
-        <span class="stat-number" data-count="98" data-suffix="%">0</span>
-        <div class="stat-label">Taux de Satisfaction</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ===================== WHY CHOOSE US ===================== -->
-<section class="section-py why-section">
-  <div class="container">
-    <div class="why-grid">
-      <div class="why-image-block" data-aos="fade-right">
-        <img src="assets/images/guide-marrakech-groupe.jpg" alt="Guide Ochre Morocco" />
-        <div class="why-badge-float">
-          <span class="big">10+</span>
-          <small>Années d'Expérience</small>
-        </div>
-      </div>
-      <div data-aos="fade-left">
-        <div class="section-kicker">Notre Engagement</div>
-        <h2 class="section-title" style="margin-bottom:16px">Pourquoi Choisir<br>Ochre Morocco ?</h2>
-        <p style="color:#666;font-size:.93rem;margin-bottom:28px;line-height:1.8">
-          Depuis plus de 10 ans, nous créons des expériences de voyage authentiques et mémorables au Maroc. Notre équipe de guides passionnés et bilingues vous accompagne à chaque étape.
-        </p>
-        <div class="why-points">
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="why-point-text">
-              <h4>Réservation 100% Sécurisée</h4>
-              <p>Paiements cryptés, remboursement garanti en cas d'annulation jusqu'à 48h avant.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-ban"></i></div>
-            <div class="why-point-text">
-              <h4>Annulation Gratuite &amp; Flexible</h4>
-              <p>Annulez sans frais jusqu'à 48h avant votre excursion. Votre tranquillité d'esprit est notre priorité.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-user-tie"></i></div>
-            <div class="why-point-text">
-              <h4>Guides Certifiés &amp; Multilingues</h4>
-              <p>Nos guides parlent français, anglais, espagnol et arabe pour une expérience personnalisée.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-star"></i></div>
-            <div class="why-point-text">
-              <h4>Excellence &amp; Qualité Premium</h4>
-              <p>Véhicules climatisés, hôtels soigneusement sélectionnés, repas authentiques inclus.</p>
-            </div>
-          </div>
-          <div class="why-point">
-            <div class="why-icon"><i class="fas fa-headset"></i></div>
-            <div class="why-point-text">
-              <h4>Support 24h/7j en Temps Réel</h4>
-              <p>Une équipe disponible à tout moment via WhatsApp, email ou téléphone pour vous assister.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TESTIMONIALS ===================== -->
-<section class="section-py testimonials-section">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Ils nous font confiance</div>
-      <h2 class="section-title">Ce que Disent nos Voyageurs</h2>
-      <p class="section-desc">Plus de 12 500 clients satisfaits de leur expérience avec Ochre Morocco</p>
-      <span class="section-divider"></span>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card" data-aos="fade-up">
-        <div class="quote-icon">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "Une expérience absolument magnifique ! Le circuit Sahara était parfaitement organisé. Notre guide Ahmed était exceptionnel, passionné et très professionnel. Je recommande vivement Ochre Morocco !"
-        </p>
-        <div class="testimonial-author">
-          <img src="assets/images/avatar-sophie.jpg" alt="Sophie M." class="author-avatar" loading="lazy" />
-          <div>
-            <div class="author-name">Sophie M.</div>
-            <div class="author-info"><i class="fas fa-map-marker-alt" style="color:var(--gold);font-size:.7rem"></i> Paris, France</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card" data-aos="fade-up" data-delay="100">
-        <div class="quote-icon">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "La balade à dos de chameau dans la Palmeraie était magique ! Tout était parfaitement organisé, le guide parlait très bien français, et nous avons adoré chaque instant. Marrakech avec Ochre Morocco, c'est la meilleure décision de notre voyage !"
-        </p>
-        <div class="testimonial-author">
-          <img src="assets/images/avatar-thomas.jpg" alt="Thomas B." class="author-avatar" loading="lazy" />
-          <div>
-            <div class="author-name">Thomas B.</div>
-            <div class="author-info"><i class="fas fa-map-marker-alt" style="color:var(--gold);font-size:.7rem"></i> Lyon, France</div>
-          </div>
-        </div>
-      </div>
-      </div>
-
-      <div class="testimonial-card" data-aos="fade-up" data-delay="200">
-        <div class="quote-icon">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">
-          "La excursión a Essaouira fue increíble. El transporte fue puntual, el guía muy simpático y el precio inmejorable. Ya he reservado para el próximo año el circuito del desierto. ¡Gracias!"
-        </p>
-        <div class="testimonial-author">
-          <img src="assets/images/avatar-maria.jpg" alt="Maria G." class="author-avatar" loading="lazy" />
-          <div>
-            <div class="author-name">Maria G.</div>
-            <div class="author-info"><i class="fas fa-map-marker-alt" style="color:var(--gold);font-size:.7rem"></i> Madrid, España</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-40" data-aos="fade-up">
-      <a href="https://www.tripadvisor.com" target="_blank" rel="noopener" class="btn-outline" style="border-color:var(--green);color:var(--green);">
-        <i class="fab fa-tripadvisor"></i> Voir tous les avis sur TripAdvisor
-      </a>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ===================== CTA ===================== -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-content">
-      <h2 class="cta-title">Prêt à Découvrir la<br><span>Magie du Maroc ?</span></h2>
-      <p class="cta-desc">Contactez-nous dès maintenant pour une consultation gratuite et personnalisée. Votre aventure marocaine commence ici.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/212694170004" class="btn-white" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp"></i> Réserver via WhatsApp
-        </a>
-        <a href="contact.html" class="btn-outline-white">
-          <i class="fas fa-paper-plane"></i> Envoyer une demande
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div>
-        <img src="assets/images/logo.png" alt="Ochre Morocco" class="footer-logo" />
-        <p class="footer-tagline">
-          Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc. Vivez le Maroc comme jamais auparavant.
-        </p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@OchreMorocco" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@ochremorocco" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.tripadvisor.com/Profile/OchreMorocco" target="_blank" rel="noopener" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
-        </div>
-      </div>
-
-      <!-- Excursions -->
-      <div>
-        <div class="footer-heading">Excursions</div>
-        <ul class="footer-links">
-          <li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li>
-          <li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li>
-          <li><a href="excursions.html#montagne"><i class="fas fa-chevron-right"></i> Atlas &amp; Montagne</a></li>
-          <li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li>
-          
-        </ul>
-      </div>
-
-      
-        <ul class="footer-links">
-          <li><a href="circuits.html#sud"><i class="fas fa-chevron-right"></i> Circuit Sud</a></li>
-          <li><a href="circuits.html#sahara"><i class="fas fa-chevron-right"></i> Circuit Sahara</a></li>
-          <li><a href="transferts.html"><i class="fas fa-chevron-right"></i> Transferts</a></li>
-          <li><a href="about.html"><i class="fas fa-chevron-right"></i> Qui sommes-nous ?</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <div class="footer-heading">Nous Contacter</div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <div class="footer-contact-text">
-            <span class="label">Téléphone</span>
-            <a href="tel:+212694170004">+212 694 170 004</a>
-            <a href="tel:+212694170004">+212 694 170 004</a>
-          </div>
-        </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="footer-contact-text">
-            <span class="label">WhatsApp</span>
-            <a href="https://wa.me/212694170004" target="_blank" rel="noopener">+212 694 170 004</a>
-          </div>
-        </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
-          <div class="footer-contact-text">
-            <span class="label">Email</span>
-            <a href="mailto:contact@ochre-morocco.com">contact@ochre-morocco.com</a>
-          </div>
-        </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="footer-contact-text">
-            <span class="label">Adresse</span>
-            <span>Marrakech, Maroc</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 <a href="index.html">Ochre Morocco</a>. Tous droits réservés.</p>
-      <div class="footer-payment">
-        <span>Paiement sécurisé :</span>
-        <span class="footer-pay-icon">VISA</span>
-        <span class="footer-pay-icon">MC</span>
-        <span class="footer-pay-icon">PayPal</span>
-        <span class="footer-pay-icon">CMI</span>
-      </div>
-    </div>
-  </div>
+  <p>© 2026 <a href="index.html">Ochre Morocco</a> – All rights reserved. Marrakech, Morocco.</p>
 </footer>
 
-<!-- ===================== FLOATING ELEMENTS ===================== -->
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/212694170004" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-<!-- Chat FAB -->
-<div class="chat-fab-wrap">
-  <div class="chat-menu">
-    <a href="https://wa.me/212694170004" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="tel:+212694170004" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
-    <a href="mailto:contact@ochre-morocco.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
-  </div>
-  <button class="chat-fab" aria-label="Nous contacter">
-    <i class="fas fa-plus"></i>
-    <span class="chat-fab-badge">1</span>
-  </button>
-</div>
-
-<button class="back-to-top" aria-label="Retour en haut">
-  <i class="fas fa-chevron-up"></i>
-</button>
-
-<!-- Urgency Notification -->
-<div class="urgency-notif">
-  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
-  <div class="notif-text"></div>
-</div>
-
-
-<!-- ===================== SCRIPTS ===================== -->
-<script>
-  document.getElementById('travel-date').valueAsDate = new Date();
-
-  function handleSearch() {
-    const dest = document.getElementById('destination').value;
-    if (!dest) { alert('Veuillez sélectionner une destination ou une excursion.'); return; }
-    window.location.href = 'excursions.html';
-  }
-</script>
-<script src="assets/js/main.js" defer></script>
-
-
-<style>
-@keyframes spin { to { transform: rotate(360deg); } }
-.excursions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
-@media(max-width:900px){ .excursions-grid { grid-template-columns:1fr 1fr; } }
-@media(max-width:600px){ .excursions-grid { grid-column-start: unset; grid-template-columns:1fr; } }
-</style>
-<script>
-(async function() {
-  const RAW = 'https://raw.githubusercontent.com/Maroc-Excursion/Maroc-Excursion/main';
-  try {
-    const [cities, excursions, settings] = await Promise.all([
-      fetch(RAW+'/data/cities.json?t='+Date.now()).then(r=>r.json()).catch(()=>[]),
-      fetch(RAW+'/data/excursions.json?t='+Date.now()).then(r=>r.json()).catch(()=>[]),
-      fetch(RAW+'/data/settings.json?t='+Date.now()).then(r=>r.json()).catch(()=>({})),
-    ]);
-
-    // Update contact info
-    if(settings.contact) {
-      const wa = settings.contact.whatsapp || '212694170004';
-      document.querySelectorAll('a[href*="wa.me"]').forEach(el => el.href = 'https://wa.me/'+wa);
-      document.querySelectorAll('.search-cta-wa').forEach(el => el.href = 'https://wa.me/'+wa);
-    }
-
-    // Fill search dropdown
-    const sel = document.getElementById('dest-select');
-    if(sel) {
-      const active = excursions.filter(e=>e.active!==false);
-      active.forEach(e => {
-        const o = document.createElement('option');
-        o.value = e.id; o.textContent = e.title;
-        sel.appendChild(o);
-      });
-    }
-
-    // Fill home excursions grid (max 6)
-    const grid = document.getElementById('home-excursions-grid');
-    if(grid) {
-      const active = excursions.filter(e=>e.active!==false).slice(0,6);
-      if(!active.length) { grid.innerHTML = '<p style="text-align:center;color:var(--muted);grid-column:1/-1">Aucune excursion disponible.</p>'; return; }
-      grid.innerHTML = active.map(e => {
-        const stars = Array.from({length:5},(_,i)=>'<span style="color:'+(i<(e.rating||5)?'#f59e0b':'#d1d5db')+'">★</span>').join('');
-        return `<div class="tour-card" data-cat="${e.category||e.cityId}">
-          <div class="card-image">
-            <img src="${e.image}" alt="${e.title}" loading="lazy"/>
-            ${e.badge?'<span class="card-badge">'+e.badge+'</span>':''}
-            ${e.tags&&e.tags[0]?'<span class="card-tag">'+e.tags[0]+'</span>':''}
-            ${e.freeCancel!==false?'<span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>':''}
-            <div class="card-price"><span class="amount" data-eur="${e.price}">€${e.price}</span>${e.oldPrice?'<span class="old">€'+e.oldPrice+'</span>':''}<span class="per">/pers.</span></div>
-            <span class="viewing-badge"></span>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">${(e.meta||[]).slice(0,2).map(m=>{const[ic,lb]=m.split('|');return '<span><i class="'+ic+'"></i> '+lb+'</span>';}).join('')}</div>
-            <h3 class="card-title">${e.title}</h3>
-            <div class="card-rating"><span class="stars">${stars}</span><span class="rating-count">(${e.reviews||0} avis)</span></div>
-          </div>
-          <div class="card-footer">
-            <a href="contact.html" class="card-link">Réserver <i class="fas fa-arrow-right"></i></a>
-            <button class="card-wishlist"><i class="far fa-heart"></i></button>
-          </div>
-        </div>`;
-      }).join('');
-      if(typeof AOS!=='undefined') AOS.refresh();
-    }
-  } catch(err) { console.error('Data load error:', err); }
-})();
-</script>
 </body>
 </html>
