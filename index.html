@@ -26,6 +26,12 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+<style>
+#excursions .section-heading,
+#excursions .excursions-grid .tour-card,
+.features-strip .feature-card { opacity: 1 !important; transform: none !important; }
+</style>
 </head>
 <body>
 
@@ -286,23 +292,23 @@
 <div class="features-strip">
   <div class="container">
     <div class="features-grid">
-      <div class="feature-card" data-aos="fade-up" data-delay="0">
+      <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-tag"></i></div>
         <h4>Prix les Plus Compétitifs</h4>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-delay="100">
+      <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-ban"></i></div>
         <h4>Annulation Gratuite</h4>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-delay="200">
+      <div class="feature-card">
         <div class="feature-icon"><i class="fab fa-tripadvisor"></i></div>
         <h4>Recommandé Tripadvisor</h4>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-delay="300">
+      <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
         <h4>Paiement 100% Sécurisé</h4>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-delay="400">
+      <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-headset"></i></div>
         <h4>Assistance 24h/7j</h4>
       </div>
@@ -314,7 +320,7 @@
 
 <section class="section-py" style="background:var(--cream)" id="excursions">
   <div class="container">
-    <div class="section-heading" data-aos="fade-up">
+    <div class="section-heading">
       <div class="section-kicker">Nos Meilleures Offres</div>
       <h2 class="section-title">Top Excursions au Maroc</h2>
       <span class="section-divider"></span>
@@ -879,7 +885,7 @@
       if(!active.length) { grid.innerHTML = '<p style="text-align:center;color:var(--muted);grid-column:1/-1">Aucune excursion disponible.</p>'; return; }
       grid.innerHTML = active.map(e => {
         const stars = Array.from({length:5},(_,i)=>'<span style="color:'+(i<(e.rating||5)?'#f59e0b':'#d1d5db')+'">★</span>').join('');
-        return `<div class="tour-card" data-cat="${e.category||e.cityId}" data-aos="fade-up">
+        return `<div class="tour-card" data-cat="${e.category||e.cityId}">
           <div class="card-image">
             <img src="${e.image}" alt="${e.title}" loading="lazy"/>
             ${e.badge?'<span class="card-badge">'+e.badge+'</span>':''}
