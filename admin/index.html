@@ -240,27 +240,27 @@ textarea.form-control{resize:vertical;min-height:80px}
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section">Général</div>
-    <div class="nav-item active" onclick="showPage('dashboard')">
+    <div class="nav-item active" onclick=\"showPage('dashboard',this)\">
       <i class="fas fa-chart-pie nav-icon"></i> Tableau de bord
     </div>
     <div class="nav-section">Contenu</div>
-    <div class="nav-item" onclick="showPage('cities')">
+    <div class="nav-item" onclick=\"showPage('cities',this)\">
       <i class="fas fa-city nav-icon"></i> Villes
       <span class="nav-badge" id="badge-cities">1</span>
     </div>
-    <div class="nav-item" onclick="showPage('excursions')">
+    <div class="nav-item" onclick=\"showPage('excursions',this)\">
       <i class="fas fa-hiking nav-icon"></i> Excursions
       <span class="nav-badge" id="badge-excursions">0</span>
     </div>
-    <div class="nav-item" onclick="showPage('circuits')">
+    <div class="nav-item" onclick=\"showPage('circuits',this)\">
       <i class="fas fa-route nav-icon"></i> Circuits
       <span class="nav-badge" id="badge-circuits">0</span>
     </div>
-    <div class="nav-item" onclick="showPage('transfers')">
+    <div class="nav-item" onclick=\"showPage('transfers',this)\">
       <i class="fas fa-shuttle-van nav-icon"></i> Transferts
     </div>
     <div class="nav-section">Configuration</div>
-    <div class="nav-item" onclick="showPage('settings')">
+    <div class="nav-item" onclick=\"showPage('settings',this)\">
       <i class="fas fa-cog nav-icon"></i> Paramètres
     </div>
   </nav>
@@ -625,6 +625,14 @@ let DATA = { cities: [], excursions: [], circuits: [], transfers: [], settings: 
 let FILE_SHAS = {};
 let currentPage = 'dashboard';
 
+// Fix relative image paths (JSON stores paths relative to root, admin is in /admin/ subdir)
+function imgSrc(path) {
+  if (!path) return '';
+  if (path.startsWith('http') || path.startsWith('//')) return path;
+  if (path.startsWith('../')) return path;
+  return '../' + path;
+}
+
 // ════════════════════════════════════════
 // GITHUB API
 // ════════════════════════════════════════
@@ -634,7 +642,8 @@ async function ghGet(path) {
   });
   if (!res.ok) throw new Error(`GET ${path} failed: ${res.status}`);
   const d = await res.json();
-  return { data: JSON.parse(atob(d.content.replace(/\n/g, ''))), sha: d.sha };
+  const bytes = Uint8Array.from(atob(d.content.replace(/\n/g,'')), c => c.charCodeAt(0));
+  return { data: JSON.parse(new TextDecoder('utf-8').decode(bytes)), sha: d.sha };
 }
 
 async function ghPut(path, data, sha, message) {
@@ -717,9 +726,9 @@ async function loadAllData() {
 
 function getDefaultTransfers() {
   return [
-    { id: 'berline', type: 'Berline', model: 'Mercedes Classe E / Similaire', capacity: '1–3 personnes', price: 18, image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=500&q=80', features: ['Climatisé', 'Wifi', '2 valises'], popular: false },
-    { id: 'minibus', type: 'Minibus', model: 'Mercedes Sprinter 8 Places', capacity: '4–8 personnes', price: 35, image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&q=80', features: ['Climatisé', 'Wifi', '8 valises'], popular: true },
-    { id: '4x4', type: '4x4 Luxe', model: 'Toyota Land Cruiser / Land Rover', capacity: '1–6 personnes', price: 55, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80', features: ['Tout terrain', 'Climatisé', 'Confort premium'], popular: false }
+    { id: 'berline', type: 'Berline', model: 'Mercedes Classe E / Similaire', capacity: '1–3 personnes', price: 18, image: 'assets/images/vehicule-berline-aeroport.jpg', features: ['Climatisé', 'Wifi', '2 valises'], popular: false },
+    { id: 'minibus', type: 'Minibus', model: 'Mercedes Sprinter 8 Places', capacity: '4–8 personnes', price: 35, image: 'assets/images/vehicule-minibus.jpg', features: ['Climatisé', 'Wifi', '8 valises'], popular: true },
+    { id: '4x4', type: '4x4 Luxe', model: 'Toyota Land Cruiser / Land Rover', capacity: '1–6 personnes', price: 55, image: 'assets/images/vehicule-4x4-desert.jpg', features: ['Tout terrain', 'Climatisé', 'Confort premium'], popular: false }
   ];
 }
 
@@ -737,9 +746,9 @@ async function saveData(key, data, commitMsg) {
 // NAVIGATION
 // ════════════════════════════════════════
 const pageLabels = { dashboard: 'Tableau de bord', cities: 'Villes', excursions: 'Excursions', circuits: 'Circuits', transfers: 'Transferts', settings: 'Paramètres' };
-function showPage(name) {
+function showPage(name, clickedEl) {
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  event?.target?.closest('.nav-item')?.classList.add('active');
+  (clickedEl || document.querySelector(`.nav-item[onclick*="'${name}'"]`))?.closest('.nav-item')?.classList.add('active');
   document.querySelectorAll('#page-dashboard,#page-cities,#page-excursions,#page-circuits,#page-transfers,#page-settings')
     .forEach(el => el.style.display = 'none');
   document.getElementById(`page-${name}`).style.display = 'block';
@@ -787,7 +796,7 @@ function renderDashboard() {
     ${recent.map(e => {
       const city = DATA.cities.find(c => c.id === e.cityId);
       return `<tr>
-        <td><img src="${e.image}" class="td-img"/></td>
+        <td><img src="${imgSrc(e.image)}" class="td-img" onerror="this.style.display='none'"/></td>
         <td class="td-title">${e.title}</td>
         <td>${city?.name || e.cityId}</td>
         <td><strong>€${e.price}</strong>${e.oldPrice ? `<span style="color:var(--muted);text-decoration:line-through;font-size:.75rem;margin-left:4px">€${e.oldPrice}</span>` : ''}</td>
@@ -805,7 +814,7 @@ function renderCities() {
   if (!DATA.cities.length) { grid.innerHTML = `<div class="empty-state"><i class="fas fa-city"></i><p>Aucune ville. Cliquez sur "Ajouter une ville".</p></div>`; return; }
   grid.innerHTML = DATA.cities.map(city => `
     <div class="city-card">
-      <img src="${city.image || 'https://images.unsplash.com/photo-1494548162494-384bba4ab999?w=600&q=80'}" class="city-img" onerror="this.style.display='none'"/>
+      <img src="${imgSrc(city.image) || '../assets/images/marrakech-koutoubia-coucher.jpg'}" class="city-img" onerror="this.style.display='none'"/>
       <div class="city-body">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <div class="city-name">${city.name}</div>
@@ -893,7 +902,7 @@ function renderExcursions() {
   ${list.map(e => {
     const city = DATA.cities.find(c => c.id === e.cityId);
     return `<tr>
-      <td><img src="${e.image}" class="td-img" onerror="this.style.display='none'"/></td>
+      <td><img src="${imgSrc(e.image)}" class="td-img" onerror="this.style.display='none'"/></td>
       <td class="td-title">${e.title}${e.tags?.length ? `<div class="td-sub">${e.tags.join(', ')}</div>` : ''}</td>
       <td>${city?.name || e.cityId}</td>
       <td><strong>€${e.price}</strong>${e.oldPrice ? `<br><span style="color:var(--muted);text-decoration:line-through;font-size:.75rem">€${e.oldPrice}</span>` : ''}</td>
@@ -962,6 +971,7 @@ async function saveExcursion() {
 async function toggleExc(id, active) {
   const excursions = DATA.excursions.map(e => e.id === id ? { ...e, active } : e);
   await saveData('excursions', excursions, `Admin: Toggle excursion ${id}`);
+  renderExcursions();
   updateBadges();
 }
 
@@ -975,7 +985,7 @@ function renderCircuits() {
   if (!list.length) { el.innerHTML = `<div class="empty-state"><i class="fas fa-route"></i><p>Aucun circuit trouvé.</p></div>`; return; }
   el.innerHTML = `<table><thead><tr><th>Image</th><th>Titre</th><th>Durée</th><th>Prix</th><th>Actif</th><th>Actions</th></tr></thead><tbody>
   ${list.map(c => `<tr>
-    <td><img src="${c.image}" class="td-img" onerror="this.style.display='none'"/></td>
+    <td><img src="${imgSrc(c.image)}" class="td-img" onerror="this.style.display='none'"/></td>
     <td class="td-title">${c.title}<div class="td-sub">${c.subtitle || ''}</div></td>
     <td><span class="badge badge-info">${c.duration}</span></td>
     <td><strong>€${c.price}</strong>/pers.</td>
@@ -1029,7 +1039,7 @@ async function saveCircuit() {
 async function toggleCircuit(id, active) {
   const circuits = DATA.circuits.map(c => c.id === id ? { ...c, active } : c);
   await saveData('circuits', circuits, `Admin: Toggle circuit ${id}`);
-  updateBadges();
+  renderCircuits(); updateBadges();
 }
 
 // ════════════════════════════════════════
@@ -1040,7 +1050,7 @@ function renderTransfers() {
   if (!DATA.transfers.length) { el.innerHTML = `<div class="empty-state"><i class="fas fa-shuttle-van"></i><p>Aucun véhicule configuré.</p></div>`; return; }
   el.innerHTML = `<table><thead><tr><th>Image</th><th>Véhicule</th><th>Capacité</th><th>Prix</th><th>Populaire</th><th>Actions</th></tr></thead><tbody>
   ${DATA.transfers.map(t => `<tr>
-    <td><img src="${t.image}" class="td-img" onerror="this.style.display='none'"/></td>
+    <td><img src="${imgSrc(t.image)}" class="td-img" onerror="this.style.display='none'"/></td>
     <td><strong>${t.type}</strong><div class="td-sub">${t.model}</div></td>
     <td>${t.capacity}</td>
     <td><strong>€${t.price}</strong>/trajet</td>
