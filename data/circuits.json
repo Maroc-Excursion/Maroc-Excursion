@@ -59,7 +59,7 @@
       "Assurance voyage",
       "Wifi dans le bus"
     ],
-    "active": true,
+    "active": false,
     "order": 1
   },
   {
