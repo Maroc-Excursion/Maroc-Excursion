@@ -21,6 +21,7 @@
     .filter-inner { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .filter-btn { padding: 8px 18px; border-radius: 50px; border: 1.5px solid rgba(0,0,0,.12); background: var(--white); font-size: .82rem; font-weight: 600; color: var(--text); cursor: pointer; transition: all var(--trans); }
     .filter-btn:hover, .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    #excursions-container .tour-card { opacity: 1 !important; transform: none !important; }
     .excursions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .tour-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all var(--trans); }
     .tour-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,34,56,.18); }
@@ -163,7 +164,7 @@ function cardHTML(exc) {
   const tagHTML = exc.tags && exc.tags.length ? `<span class="card-tag">${exc.tags[0]}</span>` : '';
   const cancelHTML = exc.freeCancel !== false ? `<span class="card-free-cancel"><i class="fas fa-check-circle"></i> Annulation gratuite</span>` : '';
   return `
-  <div class="tour-card" data-cat="${exc.category || exc.cityId}" data-aos="fade-up">
+  <div class="tour-card" data-cat="${exc.category || exc.cityId}">
     <div class="card-image">
       <img src="${exc.image}" alt="${exc.title}" loading="lazy"/>
       ${badgeHTML}${tagHTML}${cancelHTML}
@@ -248,7 +249,7 @@ async function initPage() {
       html += `
       <section id="${city.id}" class="section-anchor section-py" style="background:var(--cream)">
         <div class="container">
-          <div class="section-heading" data-aos="fade-up">
+          <div class="section-heading">
             <div class="section-kicker">Excursions au départ de</div>
             <h2 class="section-title">${city.name}</h2>
             <span class="section-divider"></span>
@@ -264,7 +265,7 @@ async function initPage() {
       html += `
       <section id="desert" class="section-anchor section-py" style="background:var(--white)">
         <div class="container">
-          <div class="section-heading" data-aos="fade-up">
+          <div class="section-heading">
             <div class="section-kicker">Aventure</div>
             <h2 class="section-title">Désert du Sahara</h2>
             <span class="section-divider"></span>
@@ -280,7 +281,7 @@ async function initPage() {
       html += `
       <section id="montagne" class="section-anchor section-py" style="background:var(--cream)">
         <div class="container">
-          <div class="section-heading" data-aos="fade-up">
+          <div class="section-heading">
             <div class="section-kicker">Nature & Altitude</div>
             <h2 class="section-title">Atlas & Montagne</h2>
             <span class="section-divider"></span>
@@ -291,6 +292,7 @@ async function initPage() {
     }
 
     container.innerHTML = html || `<div style="text-align:center;padding:80px;color:var(--muted)">Aucune excursion disponible pour le moment.</div>`;
+    if (typeof AOS !== 'undefined') { AOS.refresh(); }
 
     // AOS init if available
     if (typeof AOS !== 'undefined') AOS.refresh();
