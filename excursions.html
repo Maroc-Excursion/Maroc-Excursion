@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <style>
-    .page-hero { background: linear-gradient(135deg, var(--green) 0%, #0a4436 100%); padding: 100px 0 70px; text-align: center; position: relative; overflow: hidden; }
+    .page-hero { background: linear-gradient(135deg, var(--green) 0%, #0a4436 100%); padding: 100px 0 0; text-align: center; position: relative; overflow: hidden; }
     .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
     .page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
     .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,.65); font-size: .85rem; margin-bottom: 14px; }
@@ -25,7 +25,7 @@
     .excursions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .tour-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all var(--trans); }
     .tour-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,34,56,.18); }
-    .section-anchor { padding-top: 160px; margin-top: -160px; }
+    .section-anchor { padding-top: 90px; margin-top: -90px; }
     .loading-state { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 60px; color: var(--muted); }
     .spinner { width: 24px; height: 24px; border: 3px solid rgba(0,0,0,.1); border-top-color: var(--green); border-radius: 50%; animation: spin .7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
