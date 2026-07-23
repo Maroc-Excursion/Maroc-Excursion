@@ -300,6 +300,26 @@
       search_tab2:    'Circuitos',
       search_tab3:    'Traslados',
       free_cancel:    'Cancelación gratuita',
+    },
+    ar: {
+      nav_home:       'الرئيسية',
+      nav_exc:        'الرحلات',
+      nav_circ:       'الجولات',
+      nav_trans:      'التنقلات',
+      nav_desert:     'صحراء أكافاي',
+      nav_about:      'من نحن',
+      nav_contact:    'اتصل بنا',
+      nav_blog:       'المدونة',
+      hero_badge:     '#1 وكالة رحلات في المغرب',
+      hero_title:     'اكتشف سحر<br><span>المغرب</span>',
+      hero_sub:       'رحلات فاخرة، جولات لا تُنسى ومغامرات أصيلة في قلب المملكة الشريفة',
+      hero_btn1:      'استكشف رحلاتنا',
+      hero_btn2:      'اتصل بنا',
+      wa_btn:         'واتساب',
+      search_tab1:    'الرحلات',
+      search_tab2:    'الجولات',
+      search_tab3:    'التنقلات',
+      free_cancel:    'إلغاء مجاني',
     }
   };
 
@@ -329,8 +349,14 @@
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
-    // Update html lang attribute
+    // Update html lang attribute + direction
     document.documentElement.lang = lang;
+    document.documentElement.dir  = (lang === 'ar') ? 'rtl' : 'ltr';
+
+    // Update visible label in the switcher button
+    const labelMap = { fr: 'FR', en: 'EN', es: 'ES', ar: 'ع' };
+    const lbl = document.getElementById('activeLangLabel');
+    if (lbl) lbl.textContent = labelMap[lang] || lang.toUpperCase();
 
     // Re-apply free cancel labels
     document.querySelectorAll('.badge-free-cancel').forEach(el => {

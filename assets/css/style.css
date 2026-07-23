@@ -1316,41 +1316,6 @@ h1, h2, h3, h4, h5 {
 .notif-text strong { color: var(--navy); }
 .notif-text em { color: var(--green); font-style: normal; }
 
-/* ---------- MOBILE ACTION BAR ---------- */
-.mobile-action-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--white);
-  border-top: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 -4px 20px rgba(15,34,56,.1);
-  z-index: 970;
-  padding: 8px 12px;
-  gap: 8px;
-}
-.mob-action-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  padding: 8px 4px;
-  border-radius: 8px;
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  transition: all var(--trans);
-  color: var(--white);
-}
-.mob-action-btn i { font-size: 1.1rem; }
-.mob-action-btn.phone { background: var(--green); }
-.mob-action-btn.whatsapp { background: #25D366; }
-.mob-action-btn.email { background: var(--navy); }
-.mob-action-btn:hover { opacity: .88; transform: translateY(-1px); }
 
 /* ---------- MOBILE MENU ---------- */
 .mobile-nav {
@@ -1455,7 +1420,6 @@ h1, h2, h3, h4, h5 {
   .main-nav, .nav-cta { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
-  .mobile-action-bar { display: flex; }
   .hero { height: 85vh; max-height: 700px; }
   .hero-content { padding-bottom: 200px; }
   .tour-card { flex: 0 0 calc(50% - 12px); }
@@ -1609,3 +1573,28 @@ h1, h2, h3, h4, h5 {
     .destinations-grid { grid-template-columns: 1fr; }
     }
     
+/* ── RTL / Arabic support ───────────────────────────────────────── */
+html[dir="rtl"] body { font-family: 'Cairo', 'Poppins', sans-serif; }
+html[dir="rtl"] .topbar-inner,
+html[dir="rtl"] .nav-container { flex-direction: row-reverse; }
+html[dir="rtl"] .main-nav { flex-direction: row-reverse; }
+html[dir="rtl"] .dropdown { right: auto; left: 0; text-align: right; }
+html[dir="rtl"] .lang-dropdown { right: auto; left: 0; text-align: right; }
+html[dir="rtl"] .hero-content { text-align: right; }
+html[dir="rtl"] .hero-actions { justify-content: flex-end; }
+html[dir="rtl"] .section-heading { text-align: right; }
+html[dir="rtl"] .card-body { text-align: right; }
+html[dir="rtl"] .card-meta,
+html[dir="rtl"] .card-footer { flex-direction: row-reverse; }
+html[dir="rtl"] .why-point { flex-direction: row-reverse; text-align: right; }
+html[dir="rtl"] .testimonial-card { text-align: right; }
+html[dir="rtl"] .testimonial-author { flex-direction: row-reverse; }
+html[dir="rtl"] .chat-menu { left: 0; right: auto; }
+html[dir="rtl"] .urgency-notif { left: auto; right: 24px; transform: translateX(120%); }
+html[dir="rtl"] .urgency-notif.show { transform: translateX(0); }
+html[dir="rtl"] .footer-col { text-align: right; }
+html[dir="rtl"] .mobile-nav { transform: translateX(-100%); }
+html[dir="rtl"] .mobile-nav.open { transform: translateX(0); }
+html[dir="rtl"] .mobile-sub { padding-left: 0; padding-right: 16px; }
+html[dir="rtl"] .circuit-card { flex-direction: row-reverse; }
+html[dir="rtl"] .circuit-body { text-align: right; }

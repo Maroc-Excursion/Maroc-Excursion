@@ -32,6 +32,7 @@
 #excursions .excursions-grid .tour-card,
 .features-strip .feature-card { opacity: 1 !important; transform: none !important; }
 </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -69,6 +70,7 @@
             <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
             <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
             <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+          <button class="lang-option" data-lang="ar"><span class="lang-flag">🇲🇦</span> العربية</button>
           </div>
         </div>
       </div>
@@ -176,16 +178,16 @@
     <!-- Slider -->
     <div class="hero-slider">
       <div class="hero-slide active">
-        <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="Médina de Marrakech" loading="eager" />
+        <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="Médina de Marrakech" loading="eager" fetchpriority="high" decoding="sync" />
       </div>
       <div class="hero-slide">
-        <img src="assets/images/sahara-caravane-coucher.jpg" alt="Dunes du Sahara" loading="lazy" />
+        <img src="assets/images/sahara-caravane-coucher.jpg" decoding="async" alt="Dunes du Sahara" loading="lazy" />
       </div>
       <div class="hero-slide">
-        <img src="assets/images/ourika-randonnee.jpg" alt="Atlas Mountains Morocco" loading="lazy" />
+        <img src="assets/images/ourika-randonnee.jpg" decoding="async" alt="Atlas Mountains Morocco" loading="lazy" />
       </div>
       <div class="hero-slide">
-        <img src="assets/images/essaouira-remparts-vagues.jpg" alt="Essaouira Maroc" loading="lazy" />
+        <img src="assets/images/essaouira-remparts-vagues.jpg" decoding="async" alt="Essaouira Maroc" loading="lazy" />
       </div>
     </div>
 
@@ -347,7 +349,7 @@
         </div>
       </div>
       <div class="dest-card" data-aos="fade-up" data-delay="100">
-        <img src="assets/images/sahara-caravane-coucher.jpg" alt="Sahara Desert" loading="lazy" />
+        <img src="assets/images/sahara-caravane-coucher.jpg" decoding="async" alt="Sahara Desert" loading="lazy" />
         <div class="dest-overlay">
           <div class="dest-info">
             <div class="dest-name">Sahara</div>
@@ -407,7 +409,7 @@
       <!-- Circuit 2 -->
       <div class="circuit-card" data-aos="fade-up" data-delay="100">
         <div class="circuit-image">
-          <img src="assets/images/sahara-caravane-coucher.jpg" alt="Désert Sahara" loading="lazy" />
+          <img src="assets/images/sahara-caravane-coucher.jpg" decoding="async" alt="Désert Sahara" loading="lazy" />
           <span class="card-badge" style="background:var(--gold)">Coup de ♥</span>
         </div>
         <div class="circuit-body">
@@ -732,12 +734,6 @@
   <div class="notif-text"></div>
 </div>
 
-<!-- Mobile Action Bar -->
-<div class="mobile-action-bar">
-  <a href="tel:+212500111222" class="mob-action-btn phone"><i class="fas fa-phone-alt"></i> Appeler</a>
-  <a href="https://wa.me/212600333444" class="mob-action-btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  <a href="mailto:contact@maroc-excursion.ma" class="mob-action-btn email"><i class="fas fa-envelope"></i> Email</a>
-</div>
 
 <!-- ===================== SCRIPTS ===================== -->
 <script>
