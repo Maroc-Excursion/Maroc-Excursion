@@ -1,388 +1,264 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Transferts aéroport et transport privé depuis Marrakech – Ochre Morocco." />
-  <title>Transferts | Ochre Morocco</title>
+  <meta name="description" content="Airport transfer Marrakech – Hotel to airport, private vehicle, best price €5. Book on WhatsApp instantly." />
+  <title>Airport Transfer – Ochre Morocco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <style>
-    .page-hero { background: linear-gradient(135deg, #0F2238 0%, #1a3a5c 100%); padding: 100px 0 70px; text-align: center; position: relative; overflow: hidden; }
-    .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
-    .page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
-    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,.65); font-size: .85rem; margin-bottom: 14px; }
-    .breadcrumb a { color: var(--gold); }
-    .vehicles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .vehicle-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 2px solid transparent; transition: all var(--trans); }
-    .vehicle-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .vehicle-card.featured { border-color: var(--green); }
-    .vehicle-img { height: 200px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 5rem; position: relative; overflow: hidden; }
-    .vehicle-img img { width: 100%; height: 100%; object-fit: cover; }
-    .vehicle-badge { position: absolute; top: 12px; right: 12px; background: var(--green); color: var(--white); font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; }
-    .vehicle-body { padding: 22px 24px; }
-    .vehicle-type { font-size: .72rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
-    .vehicle-name { font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
-    .vehicle-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
-    .vehicle-spec { display: flex; align-items: center; gap: 5px; font-size: .78rem; color: #666; background: var(--cream); padding: 4px 10px; border-radius: 50px; }
-    .vehicle-spec i { color: var(--green); font-size: .75rem; }
-    .vehicle-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 16px; }
-    .vehicle-price .from { font-size: .75rem; color: #888; }
-    .vehicle-price .amount { font-size: 1.6rem; font-weight: 700; color: var(--green); font-family: 'Playfair Display', serif; }
-    .vehicle-price .per { font-size: .78rem; color: #888; }
-    .transfer-form { background: var(--white); border-radius: 16px; padding: 40px; box-shadow: var(--shadow); max-width: 860px; margin: 0 auto; }
-    .transfer-form h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 8px; }
-    .transfer-form p { font-size: .88rem; color: #888; margin-bottom: 28px; }
-    .form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: .78rem; font-weight: 600; color: var(--navy); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 7px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid rgba(0,0,0,.1); border-radius: 8px; font-family: inherit; font-size: .9rem; color: var(--text); outline: none; transition: border-color var(--trans); background: var(--cream); appearance: none; }
-    .form-group input:focus, .form-group select:focus { border-color: var(--green); background: var(--white); }
-    .form-submit { width: 100%; padding: 15px; background: var(--green); color: var(--white); border: none; border-radius: 10px; font-family: inherit; font-size: .95rem; font-weight: 700; cursor: pointer; transition: all var(--trans); display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .form-submit:hover { background: #0a4436; transform: translateY(-2px); }
-    .airports-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .airport-card { background: var(--white); border-radius: 12px; padding: 24px; text-align: center; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 2px 12px rgba(0,0,0,.06); transition: all var(--trans); }
-    .airport-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .airport-icon { font-size: 2rem; color: var(--green); margin-bottom: 10px; }
-    .airport-name { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-    .airport-code { font-size: .75rem; color: var(--gold); font-weight: 700; letter-spacing: .08em; }
-    @media(max-width:900px) { .vehicles-grid { grid-template-columns: 1fr 1fr; } .form-grid-3 { grid-template-columns: 1fr; } .airports-grid { grid-template-columns: 1fr 1fr; } }
-    @media(max-width:600px) { .vehicles-grid { grid-template-columns: 1fr; } }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --gold: #c8922b; --green: #1e6b3c; --dark: #1a1a1a; --light: #f7f3ee; --white: #fff; --muted: #666; --red: #e53935; }
+    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); }
+    a { text-decoration: none; color: inherit; }
+    .topbar { background: var(--dark); color: #fff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .82rem; }
+    .topbar a { color: #fff; margin-right: 16px; }
+    .topbar a i { margin-right: 4px; }
+    .topbar .fab.fa-whatsapp { color: #25d366; }
+    header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.08); position: sticky; top: 0; z-index: 100; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; }
+    .logo-text span { color: var(--gold); }
+    nav { display: flex; gap: 24px; align-items: center; font-size: .9rem; font-weight: 500; }
+    nav a { color: var(--dark); transition: color .2s; }
+    nav a:hover, nav a.active { color: var(--gold); }
+    .btn-wa-header { background: #25d366; color: #fff; padding: 9px 18px; border-radius: 50px; font-weight: 600; font-size: .85rem; display: flex; align-items: center; gap: 7px; transition: background .2s; }
+    .btn-wa-header:hover { background: #1ebe5d; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 200; }
+    .mobile-nav.open { display: flex; justify-content: flex-end; }
+    .mobile-nav-panel { background: #fff; width: 260px; padding: 32px 24px; display: flex; flex-direction: column; gap: 24px; }
+    .mobile-nav-panel a { font-weight: 600; font-size: 1rem; color: var(--dark); }
+    .mobile-nav-panel a:hover { color: var(--gold); }
+    .mobile-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; align-self: flex-end; color: var(--dark); margin-bottom: 8px; }
+
+    .hero { position: relative; height: 300px; overflow: hidden; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.7)); }
+    .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 20px; }
+    .hero-badge { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(6px); padding: 6px 16px; border-radius: 50px; font-size: .8rem; font-weight: 600; letter-spacing: .5px; margin-bottom: 14px; text-transform: uppercase; }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 10px; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: .95rem; opacity: .9; max-width: 500px; }
+
+    .section { padding: 56px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-kicker { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; text-align: center; }
+    .section-title { font-size: 1.9rem; font-weight: 800; text-align: center; margin-bottom: 8px; color: var(--dark); }
+    .section-sub { text-align: center; color: var(--muted); font-size: .9rem; margin-bottom: 40px; }
+    .divider { width: 48px; height: 3px; background: var(--gold); margin: 12px auto 36px; border-radius: 2px; }
+
+    /* PRICE CARD */
+    .price-hero { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; margin-bottom: 56px; }
+    .price-card { background: #fff; border-radius: 20px; box-shadow: 0 4px 32px rgba(0,0,0,.1); padding: 36px 44px; text-align: center; min-width: 240px; }
+    .price-card .label { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .price-card .amount { font-size: 3.6rem; font-weight: 900; color: var(--green); line-height: 1; }
+    .price-card .amount-old { font-size: 1.4rem; color: var(--red); text-decoration: line-through; font-weight: 500; margin-top: 4px; }
+    .price-card .per { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+    .price-card .badge-save { display: inline-block; background: var(--red); color: #fff; border-radius: 50px; padding: 4px 14px; font-size: .78rem; font-weight: 700; margin-top: 12px; }
+    .price-divider { width: 1px; height: 100px; background: #eee; }
+
+    /* FEATURES GRID */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 48px; }
+    .feature-card { background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,.06); display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--gold); }
+    .feature-title { font-size: .95rem; font-weight: 700; color: var(--dark); }
+    .feature-desc { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+    /* HOW IT WORKS */
+    .steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; margin-bottom: 56px; }
+    .step { text-align: center; padding: 24px 16px; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .step-title { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+    /* CTA */
+    .booking-cta { background: linear-gradient(135deg, #1e6b3c, #25853d); color: #fff; text-align: center; padding: 56px 24px; }
+    .booking-cta h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+    .booking-cta p { font-size: 1rem; opacity: .9; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-wa-big { background: #25d366; color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: background .2s; box-shadow: 0 4px 20px rgba(0,0,0,.2); }
+    .btn-wa-big:hover { background: #1ebe5d; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.7); text-align: center; padding: 28px 24px; font-size: .85rem; }
+    footer a { color: var(--gold); }
+    .footer-social { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; display: flex; align-items: center; justify-content: center; transition: background .2s; font-size: .9rem; }
+    .footer-social a:hover { background: var(--gold); }
+    .float-wa { position: fixed; bottom: 22px; right: 22px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 4px 16px rgba(37,211,102,.45); z-index: 999; transition: transform .2s; }
+    .float-wa:hover { transform: scale(1.1); }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero { height: 240px; }
+      .btn-wa-header { display: none; }
+      .price-divider { display: none; }
+      .price-card { padding: 28px 24px; }
+      .price-card .amount { font-size: 2.8rem; }
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <div class="topbar">
-  <div class="container"><div class="inner">
-    <div class="contact-info">
-      <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
-      <a href="tel:+212694170004" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 694 170 004</a>
-    </div>
-    <div class="right-side">
-      <div class="social-links">
-        <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-      </div>
-      <select class="currency-select" aria-label="Devise">
-        <option value="EUR">€ EUR</option>
-        <option value="USD">$ USD</option>
-        <option value="GBP">£ GBP</option>
-        <option value="MAD">MAD</option>
-      </select>
-      <div class="lang-switcher-wrap">
-        <button class="lang-switcher-btn"><i class="fas fa-globe"></i> <span id="activeLangLabel">FR</span> <i class="fas fa-chevron-down" style="font-size:.6rem"></i></button>
-        <div class="lang-dropdown">
-          <button class="lang-option active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
-          <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
-          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
-          <button class="lang-option" data-lang="ar"><span class="lang-flag">🇲🇦</span> العربية</button>
-        </div>
-      </div>
-    </div>
-  </div></div>
+  <div>
+    <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
+    <a href="https://wa.me/212694170004" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:contact@ochre-morocco.com"><i class="fas fa-envelope"></i> contact@ochre-morocco.com</a>
+  </div>
 </div>
-<header class="site-header"><div class="container"><div class="nav-inner">
-  <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Ochre Morocco" /></a>
-  <nav class="main-nav">
-    <div class="nav-item"><a href="index.html">Accueil</a></div>
-    <div class="nav-item"><a href="excursions.html">Excursions</a></div>
-    <div class="nav-item"><a href="circuits.html">Circuits</a></div>
-    <div class="nav-item active"><a href="transferts.html">Transferts <i class="fas fa-chevron-down"></i></a>
-      <div class="dropdown">
-        <a href="#aeroport"><i class="fas fa-plane-arrival"></i> Transfert Aéroport</a>
-        <a href="#hotel"><i class="fas fa-hotel"></i> Transfert Hôtel</a>
-        <a href="#prive"><i class="fas fa-car"></i> Transport Privé</a>
-      </div>
-    </div>
-    <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
-    <div class="nav-item"><a href="about.html">Qui sommes-nous ?</a></div>
-          <div class="nav-item"></div>
-      <div class="nav-item"><a href="contact.html">Contact</a></div>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="assets/images/logo.png" alt="Ochre Morocco" />
+    <span class="logo-text">Ochre <span>Morocco</span></span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="transferts.html" class="active">Transfers</a>
+    <a href="contact.html">Contact</a>
   </nav>
-  <div class="nav-cta"><a href="https://wa.me/212694170004" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-  <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div></div></header>
-
-<!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="Navigation mobile">
-  <button class="mobile-nav-close" aria-label="Fermer">
-    <i class="fas fa-times"></i>
+  <a href="https://wa.me/212694170004" class="btn-wa-header" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+  </a>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobileNav').classList.add('open')">
+    <span></span><span></span><span></span>
   </button>
-  <a href="index.html">Accueil</a>
-  <a href="excursions.html">Excursions</a>
-  <div class="mobile-sub">
-    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
-    <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
-            <a href="desert-agafay.html"><i class="fas fa-campground"></i> Désert Agafay</a>
-  </div>
-  
-  <a href="transferts.html">Transferts</a>
-  <a href="desert-agafay.html">Désert Agafay</a>
-  <a href="about.html">Qui sommes-nous ?</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-cta">
-    <a href="https://wa.me/212694170004" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
-      <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
-    </a>
-  </div>
-</nav>
+</header>
 
-
-
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb"><a href="index.html">Accueil</a><i class="fas fa-chevron-right"></i> Transferts</div>
-    <h1>Transferts & Transport Privé</h1>
-    <p style="color:rgba(255,255,255,.75);max-width:520px;margin:10px auto 0;font-size:.95rem">Ponctualité, confort et fiabilité pour tous vos déplacements au Maroc</p>
-  </div>
-</section>
-
-<!-- AIRPORTS -->
-<section id="aeroport" class="section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Nos Aéroports</div>
-      <h2 class="section-title">Transferts depuis l'Aéroport de Marrakech</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="airports-grid" data-aos="fade-up">
-      <div class="airport-card"><div class="airport-icon"><i class="fas fa-plane-arrival"></i></div><div class="airport-name">Marrakech Menara</div><div class="airport-code">RAK</div></div>
-      
-      
-      
-    </div>
-    <div style="max-width:760px;margin:40px auto 0;text-align:center;background:rgba(14,90,71,.06);border:1px solid rgba(14,90,71,.15);border-radius:12px;padding:24px" data-aos="fade-up">
-      <p style="font-size:.92rem;color:#555"><i class="fas fa-info-circle" style="color:var(--green);margin-right:8px"></i>Nous suivons votre vol en temps réel. En cas de retard, votre chauffeur vous attend sans frais supplémentaires avec un panneau à votre nom à la sortie des arrivées.</p>
-    </div>
-  </div>
-</section>
-
-<!-- VEHICLES -->
-<section class="section-py" style="background:var(--white)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Notre Flotte</div>
-      <h2 class="section-title">Véhicules Climatisés & Confortables</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="vehicles-grid">
-      <div class="vehicle-card" data-aos="fade-up">
-        <div class="vehicle-img"><img src="assets/images/vehicule-berline-aeroport.jpg" alt="Berline" loading="lazy" /></div>
-        <div class="vehicle-body">
-          <div class="vehicle-type">Berline</div>
-          <h3 class="vehicle-name">Mercedes Classe E / Similaire</h3>
-          <div class="vehicle-specs">
-            <span class="vehicle-spec"><i class="fas fa-users"></i> 1–3 personnes</span>
-            <span class="vehicle-spec"><i class="fas fa-suitcase"></i> 2 valises</span>
-            <span class="vehicle-spec"><i class="fas fa-snowflake"></i> Climatisé</span>
-            <span class="vehicle-spec"><i class="fas fa-wifi"></i> Wifi</span>
-          </div>
-          <div class="vehicle-price"><span class="from">À partir de</span><span class="amount" data-eur="18">€18</span><span class="per">/ trajet</span></div>
-          <a href="contact.html" class="btn-green" style="width:100%;justify-content:center"><i class="fas fa-car"></i> Réserver</a>
-        </div>
-      </div>
-      <div class="vehicle-card featured" data-aos="fade-up" data-delay="100">
-        <div class="vehicle-img">
-          <span class="vehicle-badge">Populaire</span>
-          <img src="assets/images/vehicule-minibus.jpg" alt="Minibus" loading="lazy" />
-        </div>
-        <div class="vehicle-body">
-          <div class="vehicle-type">Minibus</div>
-          <h3 class="vehicle-name">Minibus 8 Places – Mercedes Sprinter</h3>
-          <div class="vehicle-specs">
-            <span class="vehicle-spec"><i class="fas fa-users"></i> 4–8 personnes</span>
-            <span class="vehicle-spec"><i class="fas fa-suitcase"></i> 8 valises</span>
-            <span class="vehicle-spec"><i class="fas fa-snowflake"></i> Climatisé</span>
-            <span class="vehicle-spec"><i class="fas fa-wifi"></i> Wifi</span>
-          </div>
-          <div class="vehicle-price"><span class="from">À partir de</span><span class="amount" data-eur="35">€35</span><span class="per">/ trajet</span></div>
-          <a href="contact.html" class="btn-green" style="width:100%;justify-content:center"><i class="fas fa-car"></i> Réserver</a>
-        </div>
-      </div>
-      <div class="vehicle-card" data-aos="fade-up" data-delay="200">
-        <div class="vehicle-img"><img src="assets/images/vehicule-4x4-desert.jpg" alt="4x4" loading="lazy" /></div>
-        <div class="vehicle-body">
-          <div class="vehicle-type">4x4 Luxe</div>
-          <h3 class="vehicle-name">Toyota Land Cruiser / Land Rover</h3>
-          <div class="vehicle-specs">
-            <span class="vehicle-spec"><i class="fas fa-users"></i> 1–6 personnes</span>
-            <span class="vehicle-spec"><i class="fas fa-mountain"></i> Tout terrain</span>
-            <span class="vehicle-spec"><i class="fas fa-snowflake"></i> Climatisé</span>
-            <span class="vehicle-spec"><i class="fas fa-shield-alt"></i> Confort premium</span>
-          </div>
-          <div class="vehicle-price"><span class="from">À partir de</span><span class="amount" data-eur="55">€55</span><span class="per">/ trajet</span></div>
-          <a href="contact.html" class="btn-green" style="width:100%;justify-content:center"><i class="fas fa-car"></i> Réserver</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- HOTEL TRANSFERS -->
-<section id="hotel" class="section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Confort & Simplicité</div>
-      <h2 class="section-title">Transferts Hôtel à Hôtel</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div style="max-width:860px;margin:0 auto;background:var(--white);border-radius:16px;padding:40px;box-shadow:var(--shadow)" data-aos="fade-up">
-      <p style="color:#666;font-size:.95rem;line-height:1.8;margin-bottom:28px">Nous assurons tous vos transferts d'hôtel à hôtel à Marrakech et ses environs. Chauffeurs professionnels, véhicules climatisés et ponctualité garantie.</p>
-      <div style="display:grid;grid-template-columns:1fr;max-width:300px;gap:20px;margin:0 auto 32px">
-        <div style="text-align:center;padding:20px;background:var(--cream);border-radius:12px">
-          <div style="font-size:2rem;color:var(--gold);margin-bottom:8px"><i class="fas fa-map-marker-alt"></i></div>
-          <h4 style="font-size:.9rem;color:var(--navy)">Marrakech</h4>
-          <p style="font-size:.8rem;color:#777">Tous hôtels & riads</p>
-        </div>
-        <!-- FUTURE: Agadir & Casablanca city blocks — à réactiver quand disponible -->
-      </div>
-      <div style="text-align:center">
-        <a href="https://wa.me/212694170004?text=Bonjour%2C%20je%20souhaite%20un%20transfert%20h%C3%B4tel." class="btn-green" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Demander un devis hôtel</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRIVATE TRANSFERS -->
-<section id="prive" class="section-py" style="background:var(--white)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Flexibilité Totale</div>
-      <h2 class="section-title">Transport Privé au Maroc</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" data-aos="fade-up">
-      <div>
-        <p style="color:#666;font-size:.95rem;line-height:1.8;margin-bottom:24px">Notre service de transport privé vous offre une totale liberté de mouvement au Maroc. Chauffeur attitré, véhicule à votre disposition pour la journée ou la durée de votre séjour — idéal pour les voyages d'affaires, lunes de miel et groupes.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
-          <li style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#555"><i class="fas fa-check-circle" style="color:var(--green)"></i> Chauffeur privé à disposition toute la journée</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#555"><i class="fas fa-check-circle" style="color:var(--green)"></i> Véhicule au choix : berline, 4x4, minibus</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#555"><i class="fas fa-check-circle" style="color:var(--green)"></i> Itinéraire flexible selon vos envies</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#555"><i class="fas fa-check-circle" style="color:var(--green)"></i> Wifi et eau minérale inclus</li>
-          <li style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:#555"><i class="fas fa-check-circle" style="color:var(--green)"></i> Disponible 24h/24, 7j/7</li>
-        </ul>
-        <a href="contact.html" class="btn-green"><i class="fas fa-calendar-check"></i> Réserver un transport privé</a>
-      </div>
-      <div style="background:var(--cream);border-radius:16px;padding:32px;border:1px solid rgba(200,155,60,.2)">
-        <div style="font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">À partir de</div>
-        <div style="font-size:2.4rem;font-weight:700;color:var(--green);font-family:'Playfair Display',serif"><sup style="font-size:1rem;font-family:'Poppins',sans-serif">€</sup>80 <span style="font-size:.85rem;color:#888;font-family:'Poppins',sans-serif;font-weight:400">/ jour</span></div>
-        <div style="font-size:.78rem;color:#888;margin-bottom:20px">Tarif selon véhicule et durée. Devis gratuit en 30 min.</div>
-        <a href="https://wa.me/212694170004?text=Bonjour%2C%20je%20souhaite%20un%20transport%20priv%C3%A9." class="btn-gold" style="width:100%;justify-content:center;display:flex" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Demander un devis</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING FORM -->
-<section class="section-py" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Réservation Rapide</div>
-      <h2 class="section-title">Réservez Votre Transfert</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="transfer-form" data-aos="fade-up">
-      <h3>Formulaire de Réservation Transfert</h3>
-      <p>Remplissez le formulaire ci-dessous et nous vous confirmons votre transfert sous 30 minutes.</p>
-      <form onsubmit="handleTransfer(event)">
-        <div class="form-grid-3">
-          <div class="form-group"><label>Prénom</label><input type="text" placeholder="Votre prénom" required /></div>
-          <div class="form-group"><label>Nom</label><input type="text" placeholder="Votre nom" required /></div>
-          <div class="form-group"><label>WhatsApp / Téléphone</label><input type="tel" placeholder="+33 6 00 00 00 00" required /></div>
-        </div>
-        <div class="form-grid-3">
-          <div class="form-group"><label>Aéroport / Ville départ</label>
-            <select required><option value="">Sélectionner</option><option>Aéroport Marrakech (RAK)</option><option>Hôtel / Riad (préciser)</option><option>Gare ONCF</option></select>
-          </div>
-          <div class="form-group"><label>Destination</label><input type="text" placeholder="Nom de l'hôtel, adresse..." required /></div>
-          <div class="form-group"><label>Type de véhicule</label>
-            <select><option>Berline (1–3 pers)</option><option selected>Minibus (4–8 pers)</option><option>Grand Bus (9–16 pers)</option><option>4x4 Luxe</option></select>
-          </div>
-        </div>
-        <div class="form-grid-3">
-          <div class="form-group"><label>Date de transfert</label><input type="date" id="trfDate" required /></div>
-          <div class="form-group"><label>Heure d'arrivée / départ</label><input type="time" /></div>
-          <div class="form-group"><label>Nombre de passagers</label>
-            <select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
-          </div>
-        </div>
-        <div class="form-group"><label>N° de vol (optionnel)</label><input type="text" placeholder="Ex: AT 502, Royal Air Maroc..." /></div>
-        <button type="submit" class="form-submit"><i class="fas fa-car"></i> Confirmer ma réservation de transfert</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <div class="container"><div class="cta-content">
-    <h2 class="cta-title">Transfert <span>Express</span> ?</h2>
-    <p class="cta-desc">Pour une réponse immédiate et une confirmation en quelques minutes, contactez-nous directement sur WhatsApp.</p>
-    <div class="cta-btns">
-      <a href="https://wa.me/212694170004?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20transfert." class="btn-white" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Réserver sur WhatsApp</a>
-    </div>
-  </div></div>
-</section>
-
-<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div><img src="assets/images/logo.png" alt="Ochre Morocco" class="footer-logo" /><p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p><div class="footer-social"><a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></div></div>
-    <div><div class="footer-heading">Transferts</div><ul class="footer-links"><li><a href="#aeroport"><i class="fas fa-chevron-right"></i> Depuis l'aéroport</a></li><li><a href="#hotel"><i class="fas fa-chevron-right"></i> Hôtel à Hôtel</a></li><li><a href="#prive"><i class="fas fa-chevron-right"></i> Transport privé</a></li></ul></div>
-    <div><div class="footer-heading">Nos Offres</div><ul class="footer-links"><li><a href="excursions.html"><i class="fas fa-chevron-right"></i> Excursions</a></li><li><a href="circuits.html"><i class="fas fa-chevron-right"></i> Circuits</a></li><li><a href="desert-agafay.html"><i class="fas fa-chevron-right"></i> Désert Agafay</a></li></ul></div>
-    <div><div class="footer-heading">Contact</div><div class="footer-contact-item"><div class="footer-contact-icon"><i class="fab fa-whatsapp"></i></div><div class="footer-contact-text"><span class="label">WhatsApp 24h/7j</span><a href="https://wa.me/212694170004">+212 694 170 004</a></div></div></div>
-  </div>
-  <div class="footer-bottom">
-  <p>© 2026 <a href="index.html">Ochre Morocco</a>. Tous droits réservés.</p>
-  <div class="footer-payment">
-    <span>Paiement sécurisé :</span>
-    <span class="footer-pay-icon">VISA</span>
-    <span class="footer-pay-icon">MC</span>
-    <span class="footer-pay-icon">PayPal</span>
+<div class="mobile-nav" id="mobileNav" onclick="this.classList.remove('open')">
+  <div class="mobile-nav-panel" onclick="event.stopPropagation()">
+    <button class="mobile-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+    <a href="index.html">Home</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="transferts.html">Transfers</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/212694170004" target="_blank" rel="noopener" style="color:#25d366"><i class="fab fa-whatsapp"></i> Book on WhatsApp</a>
   </div>
 </div>
-</div></footer>
 
-
-<script>
-document.getElementById('trfDate').valueAsDate = new Date();
-function handleTransfer(e) {
-  e.preventDefault();
-  const from = document.getElementById('trfFrom') ? document.getElementById('trfFrom').value : '';
-  const to   = document.getElementById('trfTo')   ? document.getElementById('trfTo').value   : '';
-  const date = document.getElementById('trfDate') ? document.getElementById('trfDate').value : '';
-  const pax  = document.getElementById('trfPax')  ? document.getElementById('trfPax').value  : '';
-  const msg  = encodeURIComponent(
-    'Bonjour Ochre Morocco,\n\nJe souhaite réserver un transfert :\n' +
-    '📍 Départ : ' + (from || 'Non précisé') + '\n' +
-    '📍 Arrivée : ' + (to   || 'Non précisé') + '\n' +
-    '📅 Date : '   + (date  || 'Non précisée') + '\n' +
-    '👥 Personnes : ' + (pax || 'Non précisé')
-  );
-  window.open('https://wa.me/212694170004?text=' + msg, '_blank');
-}
-</script>
-<script src="assets/js/main.js" defer></script>
-<!-- Chat FAB -->
-<div class="chat-fab-wrap">
-  <div class="chat-menu">
-    <a href="https://wa.me/212694170004" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="tel:+212694170004" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
-    <a href="mailto:contact@ochre-morocco.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
+<section class="hero">
+  <img src="assets/images/vehicule-berline-aeroport.jpg" alt="Airport Transfer Marrakech" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge"><i class="fas fa-plane-arrival"></i> Marrakech Menara Airport · RAK</span>
+    <h1>Airport <span>Transfer</span></h1>
+    <p>Private vehicle, hotel pickup & drop-off. Best price in Marrakech — guaranteed.</p>
   </div>
-  <button class="chat-fab" aria-label="Nous contacter">
-    <i class="fas fa-plus"></i>
-    <span class="chat-fab-badge">1</span>
-  </button>
+</section>
+
+<div class="section">
+
+  <span class="section-kicker">Our Price</span>
+  <h2 class="section-title">Simple, Transparent Pricing</h2>
+  <p class="section-sub">No hidden fees. No surprises. Just the best deal in town.</p>
+  <div class="divider"></div>
+
+  <div class="price-hero">
+    <div class="price-card">
+      <div class="label">Our Price</div>
+      <div class="amount">€5</div>
+      <div class="per">per person</div>
+      <span class="badge-save">Save 50%</span>
+    </div>
+    <div class="price-divider"></div>
+    <div style="max-width:320px">
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:12px">Airport ↔ Hotel Transfer</h3>
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:20px">Direct pickup from your hotel to Marrakech Menara Airport (RAK) — or the other way around. Private, comfortable, on time.</p>
+      <a href="https://wa.me/212694170004?text=Hello, I want to book an Airport Transfer" class="btn-wa-big" target="_blank" rel="noopener" style="font-size:.95rem;padding:13px 28px">
+        <i class="fab fa-whatsapp"></i> Book Now – €5
+      </a>
+    </div>
+  </div>
+
+  <span class="section-kicker">Why Choose Us</span>
+  <h2 class="section-title">Everything Included</h2>
+  <div class="divider"></div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-car"></i></div>
+      <div class="feature-title">Private Vehicle</div>
+      <div class="feature-desc">No shared taxi, no waiting. Your own driver picks you up directly.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-clock"></i></div>
+      <div class="feature-title">On Time, Every Time</div>
+      <div class="feature-desc">We track your flight in real time. Delayed? Your driver waits at no extra charge.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+      <div class="feature-title">Name Board at Arrival</div>
+      <div class="feature-desc">Your driver holds a sign with your name at the airport exit. Easy to spot.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-tag"></i></div>
+      <div class="feature-title">Best Price – €5</div>
+      <div class="feature-desc">Lowest price in Marrakech. No hidden fees, no surprises at checkout.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="feature-title">Book in Seconds</div>
+      <div class="feature-desc">Just send us a WhatsApp with your flight details and hotel name.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-suitcase-rolling"></i></div>
+      <div class="feature-title">Luggage Included</div>
+      <div class="feature-desc">All luggage and bags included. No extra charge for bags.</div>
+    </div>
+  </div>
+
+  <span class="section-kicker">How It Works</span>
+  <h2 class="section-title">3 Easy Steps</h2>
+  <div class="divider"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Send a WhatsApp</div>
+      <div class="step-desc">Share your flight number, arrival date & hotel name with us.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">We Confirm</div>
+      <div class="step-desc">We reply within minutes with your driver's details and arrival time.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Arrive & Relax</div>
+      <div class="step-desc">Your driver is waiting at the exit with your name. Direct to your hotel.</div>
+    </div>
+  </div>
+
 </div>
-<button class="back-to-top" aria-label="Haut de page"><i class="fas fa-chevron-up"></i></button>
-<div class="urgency-notif">
-  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
-  <div class="notif-text"></div>
-</div>
+
+<section class="booking-cta">
+  <h2><i class="fab fa-whatsapp"></i> Book Your Transfer Now</h2>
+  <p>Send us your flight number, date & hotel. We'll confirm immediately.</p>
+  <a href="https://wa.me/212694170004?text=Hello, I want to book an Airport Transfer. My flight is: [flight number], arriving: [date], hotel: [hotel name]" class="btn-wa-big" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> +212 694 170 004
+  </a>
+</section>
+
+<footer>
+  <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <p>© 2025 <a href="index.html">Ochre Morocco</a> – Marrakech Excursions &amp; Tours</p>
+  <p style="margin-top:6px"><a href="contact.html">Contact</a> · <a href="mailto:contact@ochre-morocco.com">contact@ochre-morocco.com</a></p>
+</footer>
+
+<a href="https://wa.me/212694170004" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 </body>
 </html>

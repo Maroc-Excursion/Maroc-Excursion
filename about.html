@@ -1,311 +1,197 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Qui sommes-nous – Ochre Morocco, votre agence de voyages premium au Maroc depuis plus de 10 ans." />
-  <title>Qui Sommes-Nous | Ochre Morocco</title>
+  <meta name="description" content="About Ochre Morocco – Your local guide for excursions & activities in Marrakech at the best prices." />
+  <title>About Us – Ochre Morocco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <style>
-    .page-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-      padding: 100px 0 70px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --gold: #c8922b; --green: #1e6b3c; --dark: #1a1a1a; --light: #f7f3ee; --white: #fff; --muted: #666; }
+    body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); }
+    a { text-decoration: none; color: inherit; }
+    .topbar { background: var(--dark); color: #fff; padding: 8px 16px; display: flex; align-items: center; gap: 8px; font-size: .82rem; flex-wrap: wrap; }
+    .topbar a { color: #fff; margin-right: 16px; }
+    .topbar a i { margin-right: 4px; }
+    header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.08); position: sticky; top: 0; z-index: 100; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 44px; width: auto; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; }
+    .logo-text span { color: var(--gold); }
+    nav { display: flex; gap: 24px; align-items: center; font-size: .9rem; font-weight: 500; }
+    nav a { color: var(--dark); transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .btn-wa-header { background: #25d366; color: #fff; padding: 9px 18px; border-radius: 50px; font-weight: 600; font-size: .85rem; display: flex; align-items: center; gap: 7px; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 200; }
+    .mobile-nav.open { display: flex; justify-content: flex-end; }
+    .mobile-nav-panel { background: #fff; width: 260px; padding: 32px 24px; display: flex; flex-direction: column; gap: 24px; }
+    .mobile-nav-panel a { font-weight: 600; font-size: 1rem; color: var(--dark); }
+    .mobile-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; align-self: flex-end; color: var(--dark); margin-bottom: 8px; }
+
+    .hero { position: relative; height: 280px; overflow: hidden; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.7)); }
+    .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 0 20px; }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { font-size: .95rem; opacity: .9; max-width: 480px; }
+
+    .section { padding: 60px 24px; max-width: 960px; margin: 0 auto; }
+    .divider { width: 48px; height: 3px; background: var(--gold); margin: 12px auto 36px; border-radius: 2px; }
+
+    /* STORY */
+    .story { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 64px; }
+    @media (max-width: 720px) { .story { grid-template-columns: 1fr; gap: 32px; } }
+    .story img { width: 100%; border-radius: 20px; object-fit: cover; height: 320px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+    .story-text h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 16px; }
+    .story-text h2 span { color: var(--gold); }
+    .story-text p { color: var(--muted); font-size: .92rem; line-height: 1.8; margin-bottom: 16px; }
+
+    /* VALUES */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; margin-bottom: 64px; }
+    .value-card { background: #fff; border-radius: 16px; padding: 28px 24px; text-align: center; box-shadow: 0 2px 16px rgba(0,0,0,.06); }
+    .value-icon { font-size: 2rem; margin-bottom: 16px; }
+    .value-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .value-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-box { background: linear-gradient(135deg, #1e6b3c, #25853d); color: #fff; border-radius: 20px; padding: 48px 40px; text-align: center; }
+    .cta-box h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+    .cta-box p { font-size: .95rem; opacity: .9; margin-bottom: 28px; }
+    .btn-wa-big { background: #25d366; color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px; transition: background .2s; box-shadow: 0 4px 20px rgba(0,0,0,.2); }
+    .btn-wa-big:hover { background: #1ebe5d; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.7); text-align: center; padding: 28px 24px; font-size: .85rem; }
+    footer a { color: var(--gold); }
+    .footer-social { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; display: flex; align-items: center; justify-content: center; transition: background .2s; font-size: .9rem; }
+    .footer-social a:hover { background: var(--gold); }
+    .float-wa { position: fixed; bottom: 22px; right: 22px; background: #25d366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 4px 16px rgba(37,211,102,.45); z-index: 999; transition: transform .2s; }
+    .float-wa:hover { transform: scale(1.1); }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 1.6rem; }
+      .btn-wa-header { display: none; }
     }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 60px;
-      background: var(--white);
-      clip-path: ellipse(55% 100% at 50% 100%);
-    }
-    .page-hero h1 { color: var(--white); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
-    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,.65); font-size: .85rem; }
-    .breadcrumb a { color: var(--gold); }
-    .breadcrumb i { font-size: .65rem; }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .team-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: all var(--trans); text-align: center; }
-    .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,34,56,.18); }
-    .team-img { height: 260px; overflow: hidden; }
-    .team-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-    .team-card:hover .team-img img { transform: scale(1.06); }
-    .team-info { padding: 20px 24px; }
-    .team-name { font-size: 1.1rem; color: var(--navy); margin-bottom: 4px; }
-    .team-role { font-size: .82rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
-    .team-bio { font-size: .85rem; color: #666; line-height: 1.7; }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .value-card { background: var(--cream); padding: 36px 28px; border-radius: 16px; border: 1px solid rgba(200,155,60,.15); text-align: center; transition: all var(--trans); }
-    .value-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: var(--shadow); }
-    .value-icon { width: 64px; height: 64px; background: rgba(14,90,71,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 1.5rem; color: var(--green); }
-    .value-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 10px; }
-    .value-card p { font-size: .85rem; color: #666; line-height: 1.7; }
-    .partner-logos { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: center; margin-top: 40px; }
-    .partner-logo { background: var(--white); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; padding: 16px 28px; font-weight: 700; font-size: 1rem; color: #888; letter-spacing: .05em; }
-    @media(max-width:768px) { .team-grid, .values-grid { grid-template-columns: 1fr; } }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
-  <div class="container">
-    <div class="inner">
-      <div class="contact-info">
-        <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
-        <a href="tel:+212694170004" class="hide-sm"><i class="fab fa-whatsapp"></i> +212 694 170 004</a>
-        <a href="mailto:contact@ochre-morocco.com" class="hide-sm"><i class="fas fa-envelope"></i> contact@ochre-morocco.com</a>
-      </div>
-      <div class="right-side">
-        <div class="social-links">
-          <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@ochremorocco" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <div class="lang-switcher"><i class="fas fa-globe"></i> FR</div>
-      </div>
-    </div>
+  <div>
+    <a href="tel:+212694170004"><i class="fas fa-phone-alt"></i> +212 694 170 004</a>
+    <a href="https://wa.me/212694170004" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:contact@ochre-morocco.com"><i class="fas fa-envelope"></i> contact@ochre-morocco.com</a>
   </div>
 </div>
 
-<!-- HEADER -->
-<header class="site-header" id="header">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="site-logo"><img src="assets/images/logo.png" alt="Ochre Morocco" /></a>
-      <nav class="main-nav">
-        <div class="nav-item"><a href="index.html">Accueil</a></div>
-        <div class="nav-item"><a href="excursions.html">Excursions <i class="fas fa-chevron-down"></i></a></div>
-        <div class="nav-item"><a href="circuits.html">Circuits <i class="fas fa-chevron-down"></i></a></div>
-        <div class="nav-item"><a href="transferts.html">Transferts</a></div>
-        <div class="nav-item"><a href="desert-agafay.html">Désert Agafay</a></div>
-        <div class="nav-item active"><a href="about.html">Qui sommes-nous ?</a></div>
-              <div class="nav-item"></div>
-      <div class="nav-item"><a href="contact.html">Contact</a></div>
-      </nav>
-      <div class="nav-cta"><a href="https://wa.me/212694170004" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
-      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
+<header>
+  <a href="index.html" class="logo">
+    <img src="assets/images/logo.png" alt="Ochre Morocco" />
+    <span class="logo-text">Ochre <span>Morocco</span></span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="transferts.html">Transfers</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="https://wa.me/212694170004" class="btn-wa-header" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+  </a>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('mobileNav').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="Navigation mobile">
-  <button class="mobile-nav-close" aria-label="Fermer">
-    <i class="fas fa-times"></i>
-  </button>
-  <a href="index.html">Accueil</a>
-  <a href="excursions.html">Excursions</a>
-  <div class="mobile-sub">
-    <a href="excursions.html#marrakech">→ Depuis Marrakech</a>
-    <a href="excursions.html#desert">→ Désert du Sahara</a>
-    <a href="excursions.html#montagne">→ Atlas &amp; Montagne</a>
-            <a href="desert-agafay.html"><i class="fas fa-campground"></i> Désert Agafay</a>
+<div class="mobile-nav" id="mobileNav" onclick="this.classList.remove('open')">
+  <div class="mobile-nav-panel" onclick="event.stopPropagation()">
+    <button class="mobile-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+    <a href="index.html">Home</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="transferts.html">Transfers</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/212694170004" target="_blank" rel="noopener" style="color:#25d366"><i class="fab fa-whatsapp"></i> Book on WhatsApp</a>
   </div>
-  
-  <a href="transferts.html">Transferts</a>
-  <a href="desert-agafay.html">Désert Agafay</a>
-  <a href="about.html">Qui sommes-nous ?</a>
-  <a href="contact.html">Contact</a>
-  <div class="mobile-cta">
-    <a href="https://wa.me/212694170004" class="btn-whatsapp" style="display:flex;justify-content:center" target="_blank" rel="noopener">
-      <i class="fab fa-whatsapp"></i> Réservez via WhatsApp
+</div>
+
+<section class="hero">
+  <img src="assets/images/marrakech-koutoubia-coucher.jpg" alt="About Ochre Morocco" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>About <span>Ochre Morocco</span></h1>
+    <p>Your local guide for the best experiences in Marrakech.</p>
+  </div>
+</section>
+
+<div class="section">
+
+  <div class="story">
+    <img src="assets/images/agafay-quad-caravane.jpg" alt="Our story" />
+    <div class="story-text">
+      <h2>Born in <span>Marrakech</span></h2>
+      <p>We are a small, passionate team based in Marrakech. We know every trail, every route, and every hidden gem — because this is our home.</p>
+      <p>Our mission is simple: give every traveller an authentic Moroccan experience at the best price, with zero hassle. No agencies, no middlemen — just a direct WhatsApp message away.</p>
+      <p>From airport pickups at dawn to camel rides at sunset, we handle every detail so you can focus on the memories.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🏷️</div>
+      <div class="value-title">Best Prices</div>
+      <div class="value-desc">No agencies. No commissions. We offer the lowest prices in Marrakech — guaranteed.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚡</div>
+      <div class="value-title">Instant Booking</div>
+      <div class="value-desc">Just send us a WhatsApp. We confirm your booking in minutes, any day of the week.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🧭</div>
+      <div class="value-title">Local Expertise</div>
+      <div class="value-desc">We live here. We know the best spots, the right times, and the real Morocco.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🌟</div>
+      <div class="value-title">Personalised Service</div>
+      <div class="value-desc">Every traveller is different. We adapt to your pace, your preferences, your adventure.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>Ready to explore Morocco?</h2>
+    <p>Browse our 14 experiences or send us a message — we'll build the perfect itinerary for you.</p>
+    <a href="https://wa.me/212694170004?text=Hello, I want to book an excursion with Ochre Morocco!" class="btn-wa-big" target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> Book on WhatsApp
     </a>
   </div>
-</nav>
 
-
-
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="breadcrumb"><a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> Qui sommes-nous</div>
-    <h1>Notre Histoire & Notre Passion</h1>
-    <p style="color:rgba(255,255,255,.7);max-width:540px;margin:12px auto 0;font-size:.95rem">Une équipe de passionnés au service de vos rêves marocains</p>
-  </div>
-</section>
-
-<!-- ABOUT CONTENT -->
-<section class="section-py" style="background:var(--white)">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center" class="why-grid">
-      <div data-aos="fade-right">
-        <div class="section-kicker">Notre Histoire</div>
-        <h2 class="section-title">10 Ans de Passion pour le Maroc</h2>
-        <p style="color:#666;line-height:1.85;margin-bottom:16px;font-size:.94rem">
-          Fondée en 2015 à Marrakech, Ochre Morocco est née de la passion de guides locaux expérimentés souhaitant partager l'authenticité de leur pays avec le monde entier. Ce qui a commencé avec deux véhicules et une vision est devenu aujourd'hui l'une des agences de voyages les plus recommandées du Maroc.
-        </p>
-        <p style="color:#666;line-height:1.85;font-size:.94rem">
-          Nous croyons que chaque voyageur mérite une expérience sur mesure, authentique et mémorable. Notre approche combine l'hospitalité marocaine traditionnelle avec des standards de service international de premier ordre.
-        </p>
-        <div style="display:flex;gap:24px;margin-top:28px;flex-wrap:wrap">
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif">12K+</div>
-            <div style="font-size:.8rem;color:#888;text-transform:uppercase;letter-spacing:.06em">Clients Satisfaits</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif">150+</div>
-            <div style="font-size:.8rem;color:#888;text-transform:uppercase;letter-spacing:.06em">Destinations</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:2rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif">4.9/5</div>
-            <div style="font-size:.8rem;color:#888;text-transform:uppercase;letter-spacing:.06em">Note Moyenne</div>
-          </div>
-        </div>
-      </div>
-      <div data-aos="fade-left">
-        <img src="assets/images/guide-marrakech-groupe.jpg" alt="Ochre Morocco Team" style="border-radius:16px;box-shadow:0 20px 60px rgba(15,34,56,.2)" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VALUES -->
-<section class="section-sm" style="background:var(--cream)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">Ce qui nous définit</div>
-      <h2 class="section-title">Nos Valeurs Fondamentales</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="values-grid">
-      <div class="value-card" data-aos="fade-up"><div class="value-icon"><i class="fas fa-heart"></i></div><h3>Authenticité</h3><p>Nous vous offrons le vrai Maroc — ses couleurs, ses saveurs et ses traditions, loin des sentiers touristiques conventionnels.</p></div>
-      <div class="value-card" data-aos="fade-up" data-delay="100"><div class="value-icon"><i class="fas fa-star"></i></div><h3>Excellence</h3><p>Chaque détail compte. De la qualité des véhicules à la sélection des hôtels, nous ne faisons aucun compromis sur l'excellence.</p></div>
-      <div class="value-card" data-aos="fade-up" data-delay="200"><div class="value-icon"><i class="fas fa-leaf"></i></div><h3>Durabilité</h3><p>Nous investissons dans les communautés locales et adoptons des pratiques de tourisme responsable pour préserver le Maroc pour les générations futures.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section class="section-py" style="background:var(--white)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker">L'Équipe</div>
-      <h2 class="section-title">Les Passionnés Derrière Ochre Morocco</h2>
-      <span class="section-divider"></span>
-    </div>
-    <div class="team-grid">
-      <div class="team-card" data-aos="fade-up">
-        <div class="team-img"><img src="assets/images/equipe-youssef.jpg" alt="Youssef A." loading="lazy" /></div>
-        <div class="team-info"><h3 class="team-name">Youssef Alami</h3><div class="team-role">Fondateur & Directeur</div><p class="team-bio">Guide officiel depuis 15 ans, Youssef connaît chaque recoin du Maroc. Sa vision : partager l'âme du Maroc avec chaque voyageur.</p></div>
-      </div>
-      <div class="team-card" data-aos="fade-up" data-delay="100">
-        <div class="team-img"><img src="assets/images/equipe-fatima.jpg" alt="Fatima B." loading="lazy" /></div>
-        <div class="team-info"><h3 class="team-name">Fatima Benali</h3><div class="team-role">Responsable Circuits</div><p class="team-bio">Spécialiste des circuits sur-mesure, Fatima crée des itinéraires uniques adaptés à chaque profil de voyageur avec une attention particulière aux détails.</p></div>
-      </div>
-      <div class="team-card" data-aos="fade-up" data-delay="200">
-        <div class="team-img"><img src="assets/images/guide-portait-atlas.jpg" alt="Karim M." loading="lazy" /></div>
-        <div class="team-info"><h3 class="team-name">Karim Mansouri</h3><div class="team-role">Chef Guide Senior</div><p class="team-bio">Passionné d'histoire et d'architecture, Karim guide les visiteurs dans les médinas millénaires du Maroc en 4 langues : arabe, français, anglais et espagnol.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section class="section-sm" style="background:var(--navy)">
-  <div class="container">
-    <div class="section-heading" data-aos="fade-up">
-      <div class="section-kicker" style="color:var(--gold)">Ils nous font confiance</div>
-      <h2 class="section-title" style="color:var(--white)">Nos Partenaires & Certifications</h2>
-    </div>
-    <div class="partner-logos">
-      <div class="partner-logo" style="color:var(--gold)"><i class="fab fa-tripadvisor"></i> TripAdvisor</div>
-      <div class="partner-logo"><i class="fas fa-award"></i> Ministère du Tourisme</div>
-      <div class="partner-logo"><i class="fas fa-certificate"></i> IATA Certified</div>
-      <div class="partner-logo"><i class="fas fa-star"></i> Booking.com Partner</div>
-      <div class="partner-logo"><i class="fas fa-handshake"></i> GetYourGuide</div>
-      <div class="partner-logo"><i class="fas fa-shield-alt"></i> Viator Partner</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-content">
-      <h2 class="cta-title">Planifions Votre Voyage<br><span>Ensemble</span></h2>
-      <p class="cta-desc">Parlons de votre rêve marocain et créons ensemble un voyage sur mesure inoubliable.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/212694170004" class="btn-white" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Contactez-nous sur WhatsApp</a>
-        <a href="contact.html" class="btn-outline-white"><i class="fas fa-envelope"></i> Envoyer un message</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="assets/images/logo.png" alt="Ochre Morocco" class="footer-logo" />
-        <p class="footer-tagline">Votre partenaire de confiance pour des excursions et circuits authentiques au Maroc.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/ochre.morocco" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@OchreMorocco" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@ochremorocco" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-heading">Excursions</div>
-        <ul class="footer-links">
-          <li><a href="excursions.html#marrakech"><i class="fas fa-chevron-right"></i> Depuis Marrakech</a></li>
-          <li><a href="excursions.html#desert"><i class="fas fa-chevron-right"></i> Désert Sahara</a></li>
-          <li><a href="excursions.html#montagne"><i class="fas fa-chevron-right"></i> Atlas & Montagne</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Circuits</div>
-        <ul class="footer-links">
-          <li><a href="circuits.html#sahara"><i class="fas fa-chevron-right"></i> Circuit Sahara</a></li>
-          <li><a href="circuits.html#sud"><i class="fas fa-chevron-right"></i> Circuit Sud Maroc</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Contact</div>
-        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-phone-alt"></i></div><div class="footer-contact-text"><span class="label">Téléphone</span><a href="tel:+212694170004">+212 694 170 004</a></div></div>
-        <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fas fa-envelope"></i></div><div class="footer-contact-text"><span class="label">Email</span><a href="mailto:contact@ochre-morocco.com">contact@ochre-morocco.com</a></div></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-  <p>© 2026 <a href="index.html">Ochre Morocco</a>. Tous droits réservés.</p>
-  <div class="footer-payment">
-    <span>Paiement sécurisé :</span>
-    <span class="footer-pay-icon">VISA</span>
-    <span class="footer-pay-icon">MC</span>
-    <span class="footer-pay-icon">PayPal</span>
-  </div>
 </div>
+
+<footer>
+  <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
   </div>
+  <p>© 2025 <a href="index.html">Ochre Morocco</a> – Marrakech Excursions &amp; Tours</p>
+  <p style="margin-top:6px"><a href="contact.html">Contact</a> · <a href="mailto:contact@ochre-morocco.com">contact@ochre-morocco.com</a></p>
 </footer>
 
-
-<script src="assets/js/main.js" defer></script>
-<!-- Chat FAB -->
-<div class="chat-fab-wrap">
-  <div class="chat-menu">
-    <a href="https://wa.me/212694170004" class="chat-menu-item wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="tel:+212694170004" class="chat-menu-item ph"><i class="fas fa-phone-alt"></i> Appeler</a>
-    <a href="mailto:contact@ochre-morocco.com" class="chat-menu-item em"><i class="fas fa-envelope"></i> Email</a>
-  </div>
-  <button class="chat-fab" aria-label="Nous contacter">
-    <i class="fas fa-plus"></i>
-    <span class="chat-fab-badge">1</span>
-  </button>
-</div>
-<button class="back-to-top" aria-label="Haut de page"><i class="fas fa-chevron-up"></i></button>
-<div class="urgency-notif">
-  <div class="urgency-notif-icon"><i class="fas fa-fire"></i></div>
-  <div class="notif-text"></div>
-</div>
+<a href="https://wa.me/212694170004" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 </body>
 </html>
