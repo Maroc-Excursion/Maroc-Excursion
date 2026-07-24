@@ -1,0 +1,105 @@
+/* ─────────────────────────────────────────────
+   OCHRE MOROCCO — Booking Modal v1.0
+   ───────────────────────────────────────────── */
+.bk-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
+.bk-overlay.bk-open{opacity:1;pointer-events:all}
+.bk-modal{background:#fff;border-radius:20px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.28);display:flex;flex-direction:column;transform:translateY(24px) scale(.97);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
+.bk-overlay.bk-open .bk-modal{transform:none}
+
+/* Header */
+.bk-header{display:flex;align-items:center;justify-content:space-between;padding:16px 22px 14px;border-bottom:1px solid #f0ebe4;flex-shrink:0}
+.bk-brand{font-weight:700;font-size:.9rem;color:#1a1a1a;display:flex;align-items:center;gap:7px}
+.bk-brand i{color:#c8922b}
+.bk-close{background:none;border:none;cursor:pointer;font-size:1.5rem;color:#aaa;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .15s,color .15s}
+.bk-close:hover{background:#f5f5f5;color:#333}
+
+/* Banner */
+.bk-banner{background:linear-gradient(135deg,#c8922b 0%,#a87020 100%);color:#fff;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}
+.bk-banner-name{font-weight:700;font-size:.95rem;line-height:1.3}
+.bk-banner-price{font-size:.82rem;opacity:.9;white-space:nowrap;font-weight:600}
+
+/* Steps */
+.bk-steps{display:flex;align-items:center;justify-content:center;padding:14px 22px 4px;gap:0;flex-shrink:0}
+.bk-step{display:flex;flex-direction:column;align-items:center;gap:3px;opacity:.38;transition:opacity .25s}
+.bk-step--active{opacity:1}
+.bk-step-num{width:26px;height:26px;border-radius:50%;background:#eee;color:#999;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;transition:background .25s,color .25s}
+.bk-step--active .bk-step-num{background:#c8922b;color:#fff}
+.bk-step-lbl{font-size:.68rem;font-weight:600;color:#aaa}
+.bk-step--active .bk-step-lbl{color:#c8922b}
+.bk-step-sep{flex:1;height:2px;background:#eee;min-width:20px;max-width:56px;margin:0 6px 16px}
+
+/* Body */
+.bk-body{padding:14px 22px 8px;flex:1;min-height:0}
+.bk-hidden{display:none!important}
+
+/* Fields */
+.bk-field{margin-bottom:13px}
+.bk-label{display:block;font-size:.8rem;font-weight:600;color:#444;margin-bottom:4px}
+.bk-req{color:#e53935;margin-left:2px}
+.bk-input{width:100%;padding:10px 13px;border:1.5px solid #e0d8cf;border-radius:10px;font-size:.88rem;font-family:inherit;background:#faf8f5;color:#1a1a1a;transition:border-color .2s,box-shadow .2s;outline:none}
+.bk-input:focus{border-color:#c8922b;box-shadow:0 0 0 3px rgba(200,146,43,.12);background:#fff}
+.bk-input--error{border-color:#e53935!important;box-shadow:0 0 0 3px rgba(229,57,53,.08)!important}
+.bk-textarea{resize:vertical;min-height:76px}
+.bk-err{color:#e53935;font-size:.72rem;margin-top:3px;min-height:14px}
+
+/* Buttons */
+.bk-btn-primary{width:100%;padding:13px;margin-top:6px;background:linear-gradient(135deg,#c8922b,#a87020);color:#fff;border:none;border-radius:12px;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s,transform .1s;font-family:inherit}
+.bk-btn-primary:hover{opacity:.91;transform:translateY(-1px)}
+.bk-btn-back{background:none;border:none;cursor:pointer;color:#999;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:6px;padding:8px 0;margin-top:6px;transition:color .2s;font-family:inherit}
+.bk-btn-back:hover{color:#444}
+
+/* Summary */
+.bk-summary{background:#faf8f5;border-radius:12px;padding:13px;margin-bottom:14px;border:1px solid #f0ebe4}
+.bk-sum-title{font-weight:700;font-size:.82rem;color:#c8922b;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.bk-sum-row{display:flex;justify-content:space-between;font-size:.8rem;padding:4px 0;border-bottom:1px solid #f0ebe4}
+.bk-sum-row:last-child{border:none}
+.bk-sum-k{color:#888}
+.bk-sum-v{font-weight:600;color:#333;text-align:right;max-width:58%;word-break:break-word}
+.bk-sum-total{display:flex;justify-content:space-between;font-size:.95rem;font-weight:800;color:#1a1a1a;padding-top:9px;margin-top:4px;border-top:2px solid #c8922b}
+
+/* Payment options */
+.bk-pay-heading{font-size:.82rem;font-weight:700;color:#555;margin-bottom:10px}
+.bk-pay-opts{display:flex;flex-direction:column;gap:9px}
+.bk-pay-opt{display:flex;align-items:center;gap:13px;background:#faf8f5;border:1.5px solid #e0d8cf;border-radius:14px;padding:13px 15px;cursor:pointer;text-align:left;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;font-family:inherit}
+.bk-pay-opt:hover{border-color:#c8922b;background:#fff;box-shadow:0 4px 16px rgba(200,146,43,.14)}
+.bk-pay-opt:disabled{opacity:.6;cursor:not-allowed}
+.bk-pay-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.bk-pay-ico--wa{background:#e8f5e9;color:#25d366}
+.bk-pay-ico--cash{background:#e8f5e9;color:#1e6b3c}
+.bk-pay-ico--card{background:#fff3e0;color:#c8922b}
+.bk-pay-info{flex:1}
+.bk-pay-info strong{display:block;font-size:.88rem;color:#1a1a1a;font-weight:700}
+.bk-pay-info small{font-size:.75rem;color:#888}
+.bk-pay-opt .fa-chevron-right{color:#ccc;font-size:.78rem}
+
+/* Step 3 */
+.bk-success-ico{text-align:center;font-size:3.2rem;margin:10px 0 6px}
+.bk-success-title{text-align:center;font-size:1.2rem;font-weight:800;color:#1a1a1a;margin-bottom:7px}
+.bk-success-msg{text-align:center;font-size:.85rem;color:#666;margin-bottom:14px;line-height:1.6}
+.bk-success-box{background:#faf8f5;border-radius:12px;padding:13px;margin-bottom:14px;border:1px solid #f0ebe4}
+.bk-confirm-row{display:flex;align-items:center;gap:9px;font-size:.83rem;padding:6px 0;border-bottom:1px solid #f0ebe4;color:#444}
+.bk-confirm-row:last-child{border:none}
+.bk-confirm-row i{color:#c8922b;width:15px;flex-shrink:0}
+.bk-confirm-total{font-weight:800;color:#1a1a1a;font-size:.92rem}
+.bk-confirm-total i{color:#1e6b3c}
+.bk-btn-pay{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:linear-gradient(135deg,#1e6b3c,#155a30);color:#fff;border-radius:12px;font-size:.92rem;font-weight:700;text-decoration:none;margin-bottom:10px;transition:opacity .2s}
+.bk-btn-pay:hover{opacity:.9}
+.bk-pay-alt{text-align:center;font-size:.83rem;color:#666;margin-bottom:10px}
+.bk-pay-alt a{color:#25d366;font-weight:700}
+
+/* Footer */
+.bk-footer-bar{border-top:1px solid #f0ebe4;padding:11px 22px;font-size:.7rem;color:#bbb;text-align:center;flex-shrink:0}
+.bk-footer-bar i{color:#c8922b}
+
+/* Scrollbar */
+.bk-modal::-webkit-scrollbar{width:4px}
+.bk-modal::-webkit-scrollbar-thumb{background:#e0d8cf;border-radius:4px}
+
+/* Override existing .btn-book to brand gold */
+.btn-book{background:linear-gradient(135deg,#c8922b,#a87020)!important;color:#fff!important;border:none;cursor:pointer;font-family:inherit}
+.btn-book:hover{opacity:.88!important}
+
+@media(max-width:540px){
+  .bk-modal{border-radius:20px 20px 0 0;max-height:96vh}
+  .bk-overlay{align-items:flex-end;padding:0}
+}

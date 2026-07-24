@@ -103,6 +103,7 @@
       .price-card .amount { font-size: 2.8rem; }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/booking.css" />
 </head>
 <body>
 
@@ -172,9 +173,7 @@
     <div style="max-width:320px">
       <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:12px">Airport ↔ Hotel Transfer</h3>
       <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:20px">Direct pickup from your hotel to Marrakech Menara Airport (RAK) — or the other way around. Private, comfortable, on time.</p>
-      <a href="https://wa.me/212694170004?text=Hello, I want to book an Airport Transfer" class="btn-wa-big" target="_blank" rel="noopener" style="font-size:.95rem;padding:13px 28px">
-        <i class="fab fa-whatsapp"></i> Book Now – €5
-      </a>
+      <button type="button" class="btn-book btn-wa-big" style="border:none;cursor:pointer;font-family:inherit;font-size:1rem;font-weight:700;display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:50px;background:linear-gradient(135deg,#c8922b,#a87020);color:#fff" data-service="Airport Transfer – Hotel ↔ Airport" data-price="5" data-type="transfer" data-id="airport-transfer"><i class="fas fa-calendar-check"></i> Book Your Transfer Now</button>
     </div>
   </div>
 
@@ -242,9 +241,7 @@
 <section class="booking-cta">
   <h2><i class="fab fa-whatsapp"></i> Book Your Transfer Now</h2>
   <p>Send us your flight number, date & hotel. We'll confirm immediately.</p>
-  <a href="https://wa.me/212694170004?text=Hello, I want to book an Airport Transfer. My flight is: [flight number], arriving: [date], hotel: [hotel name]" class="btn-wa-big" target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i> +212 694 170 004
-  </a>
+  <button type="button" class="btn-book btn-wa-big" style="border:none;cursor:pointer;font-family:inherit;font-size:1rem;font-weight:700;display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:50px;background:linear-gradient(135deg,#c8922b,#a87020);color:#fff" data-service="Airport Transfer – Hotel ↔ Airport" data-price="5" data-type="transfer" data-id="airport-transfer"><i class="fas fa-calendar-check"></i> Book Your Transfer Now</button>
 </section>
 
 <footer>
@@ -260,5 +257,8 @@
 <a href="https://wa.me/212694170004" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
+  <!-- EmailJS (configure in assets/js/booking.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/booking.js"></script>
 </body>
 </html>
